@@ -51,6 +51,8 @@
 	}
 	body {
 		line-height: 1;
+	/*	padding-top: 90px;*/
+		/*background-image:url(images/bgnoise.gif);*/
 	}
 	ol, ul {
 		list-style: none;
