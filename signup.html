@@ -24,10 +24,10 @@
 	<!-- Google web fonts -->
 	<link href='http://fonts.googleapis.com/css?family=Ubuntu:700' rel='stylesheet' type='text/css'>
 	</head>
-	
 
 	<body>
 
+   <form name="signup" action="create_account.php" method="post">
 	<!-- container -->
 	<div class="container">
 	
@@ -40,7 +40,7 @@
 			<hr />
 			</div> <!-- twelve cols -->
 		</div> <!-- row -->
-		
+      
 		<div class="row">
 			<div class="six columns">
 				<form class="nice">
@@ -251,19 +251,31 @@
 
 		<br />
 		<br />
-
+      
 		<div class="row">
-				<p><a href='#' class='nice radius blue button'>Join &raquo;</a></p>
+				<p><a class='nice radius blue button' id="submit">Join &raquo;</a></p>
 		</div> <!-- row -->
 
 		<hr />
 		
 	</div>
 	<!-- container -->
-
-	<script src"javascripts/jquery.min.js"></script>
-	<script src"javascripts/modernizr.foundation.js"></script>
-	<script src"javascripts/foundation.js"></script>
-	<script src"javascripts/app.js"></script>
+   </form>
+   
+   <!-- JAVASCRIPT GOES BELOW -->
+   
+   <!-- Javascript source files -->
+   <script src="javascripts/jquery.min.js"></script>
+	<script src="javascripts/modernizr.foundation.js"></script>
+	<script src="javascripts/foundation.js"></script>
+	<script src="javascripts/app.js"></script>
+   
+   <script>
+   $("#submit").click(function () {
+      $.post("create_account.php", $("#signup").serialize());
+      alert("Welcome to WineSquare!");
+   });
+   </script>
+   
 </body>
 </html>
