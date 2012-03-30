@@ -24,34 +24,18 @@
 	<!-- Google web fonts -->
 	<link href='http://fonts.googleapis.com/css?family=Ubuntu:700' rel='stylesheet' type='text/css'>
 	</head>
+	
+
 	<body>
 
-  	<div id="topbar">
-    	<div class="row">
-      		<div class="four columns">
-        		<h1><a href="#">WineSquare</a></h1>
-      		</div>
-      		<div class="eight columns hide-on-phones">
-      			<strong class="right">
-      				<a href="#">Profile</a>
-      				<a href="#">Logout</a>	
-      			</strong>
-      		</div>
-		</div>
-  	</div>	
-
-	<title> WineSquare Sign Up </title>
-
-
-</head>
-<body>
 	<!-- container -->
 	<div class="container">
 	
 		<div class="row">
 			<div class="twelve columns">
+				<br /><br />
 				<h2> WineSquare</h2>
-				<h2> WineSquare</h2>
+				<h4 class="subheader"> Sign Up or <a href='./login.html'>Log In</a></h4>
 				<p>Please enter your information so we can get you started on WineSquare.</p>
 			<hr />
 			</div> <!-- twelve cols -->
@@ -67,8 +51,12 @@
 					<label for="email">Email Address</label>
 					<input type="text" class="input-text" id="email"/>
 					<label for="password1">Password</label>
-					<input type="text" class="input-text" id="password1"/>	
-					<input type="text" class="input-text" id="password2"/>
+					<input type="password" class="input-text" id="password1"/>	
+					<input type="password" class="input-text" id="password2"/>
+					
+					<label for="maleradio">Gender</label>
+					<input SELECTED type="radio" name="sex" value="male" id="maleradio"/> Male<br />
+					<input type="radio" name="sex" value="female" /> Female
 				</form>
 
 			</div> <!-- columns -->
