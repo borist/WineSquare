@@ -5,7 +5,7 @@
 	background: #00a5ff;/*#399AFF;*/
 	border-bottom:solid 4px #000000;/**#00a5ff;*/
 	padding:10px 20px 13px 20px;
-	z-index:1;
+	z-index: 1;
 }
 @media handheld,only screen and (max-width:767px) {#topbar {
 	padding: 15px 0px 13px 0px;
@@ -49,6 +49,9 @@
 #topbar .right {
 	margin-top: 8px;
 }
+#topbar .active{
+	font-weight:bold;
+}
 /* Grid BG */
 #gridBg .row .columns {
 	border-left: dashed 1px #e1e1e1;
@@ -56,3 +59,14 @@
 	height: 645px;
 	width: 4.085%;
 }
+
+#footer { 
+	border-top: 1px solid #ddd; 
+	padding: 17px 0 18px;
+	margin: 36px 0 0; 
+}
+
+#footer p {
+	font-size:1.2rem;
+}
+	
