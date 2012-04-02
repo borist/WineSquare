@@ -52,6 +52,10 @@
 #topbar .active{
 	font-weight:bold;
 }
+
+#topbar .search_bar {
+	margin-right:20px;
+}
 /* Grid BG */
 #gridBg .row .columns {
 	border-left: dashed 1px #e1e1e1;
