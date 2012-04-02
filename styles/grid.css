@@ -124,3 +124,9 @@
 	.block-grid.five-up>li { margin-left: 1.5%; width: 18.5%; margin-bottom: 1.5%;}
 /* 	.block-grid.five-up>li:nth-child(5n+1) {clear: left;} */
 
+	.block-grid.badges { margin-left: -1.5% }
+	.block-grid.badges>li { margin-left:5%; width: 18.5%; margin-bottom: 6%;}
+
+	.block-grids.badges.badge { }
+	
+
