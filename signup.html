@@ -27,7 +27,7 @@
 
 	<body>
 
-   <form name="signup" action="create_account.php" method="post">
+   <form name="signup" action="create_account.php" method="post" id="signup" >
 	<!-- container -->
 	<div class="container">
 	
@@ -45,14 +45,14 @@
 			<div class="six columns">
 				<form class="nice">
 					<label for="firstname">First Name</label>
-					<input type="text" class="small input-text" id="firstname" />
+					<input type="text" class="small input-text" id="firstname" name="firstname" />
 					<label for="lastname">Last Name</label>
-					<input type="text" class="small input-text" id="lastname"/>
-					<label for="email">Email Address</label>
-					<input type="text" class="input-text" id="email"/>
-					<label for="password1">Password</label>
-					<input type="password" class="input-text" id="password1"/>
-					<label>Confirm Password</label>	
+					<input type="text" class="small input-text" id="lastname" name="lastname" />
+					<label for="email">Email Address *</label>
+					<input type="text" class="input-text" id="email" name="email" />
+					<label for="password1">Password *</label>
+					<input type="password" class="input-text" id="password1" name="password" />
+					<label>Confirm Password *</label>	
 					<input type="password" class="input-text" id="password2"/>
 					
 					<label for="maleradio">Gender</label>
@@ -69,7 +69,7 @@
 
 				<label for="monthDropdown">Birthday</label>
 				<div></div>
-				<select id="monthDropdown">
+				<select id="monthDropdown" name="month">
 					<option SELECTED>Month</option>
 					<option>January</option>
 					<option>February</option>
@@ -85,7 +85,7 @@
 					<option>December</option>
 				</select>
 
-				<select id="dayDropdown">
+				<select id="dayDropdown" name="day">
 					<option SELECTED value="day0">Day</option>
 					<option value="1">1</option>
 					<option value="2">2</option>
@@ -120,7 +120,7 @@
 					<option value="31">31</option>
 				</select>
 
-				<select id="yearDropdown">
+				<select id="yearDropdown" name="year">
 					<option SELECTED value="year0">Year</option>
 						<option value="2010">2010</option>
 						<option value="2009">2009</option>
@@ -271,9 +271,27 @@
 	<script src="javascripts/app.js"></script>
    
    <script>
+   function validateAccount(){
+      $email = $("#email").val() != "";
+      $password = $("#password1").val() == $("#password2").val();
+      $password = $password && $("#password1").val() != "";
+      return $email && $password;
+   } 
+   
    $("#submit").click(function () {
-      $.post("create_account.php", $("#signup").serialize());
-      alert("Welcome to WineSquare!");
+      if(validateAccount()){
+         $.post("create_account.php", $("#signup").serialize(), function(data){
+            if(data == 1){
+               window.location.replace("success.html");
+            }
+            else {
+               alert("The data entered is not valid.");
+            }
+         });
+      }
+      else {
+         alert("You haven't provided a valid email and/or password");
+      }
    });
    </script>
    
