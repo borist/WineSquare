@@ -70,3 +70,18 @@ function validateAccount(){
 				}
 				$("#alert").css("display", "block");
 		}
+     
+/**
+ * Logs the user in based on the credentials entered in the
+ * login form. Requests a response from login_user.php
+ */     
+function login(){
+   $.post("login_user.php", $("#loginform").serialize(), function(response){
+      if(response != 0){
+         window.location.replace('example_prof.html');
+      }
+      else {
+         alert("Email or password are wrong.");
+      }
+   });
+}

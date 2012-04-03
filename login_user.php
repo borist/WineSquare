@@ -11,8 +11,10 @@ while($result = mysql_fetch_array($query)){
    echo $result['first_name'].' '.$result['last_name']." logged in!";
 }
 
+// on zero number of rows we have no match for a user
+// from the database
 if(mysql_num_rows($query) == 0){
-   echo "The user does not exist.";
+   echo 0;
 }
 
 ?>

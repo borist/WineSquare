@@ -82,10 +82,21 @@
 	<script src="javascripts/forms.js"></script>
    
    <script>
+   /**
+    * Login based on the user pressing the login button
+    */
    $("#login").click(function () {
-      $.post("login_user.php", $("#loginform").serialize(), function(response){
-         alert(response);
-      });
+         login();
+   });
+   
+   /**
+    * Login based on the user pressing the Enter key on
+    * the keyboard
+    */
+   $(document).keypress(function(e) {
+      if(e.which == 13){
+         login();
+      }
    });
    </script>
 

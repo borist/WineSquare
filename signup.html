@@ -287,12 +287,12 @@
 	      switch (validateAccount()) {
 				case 0: 
 					$.post("create_account.php", $("#signup").serialize(), function(data){
-					       if(data == 1){
-									alert("success!");
-						        }
-								else {
-									showAlert(7);
-								}
+                  if(data == 1){
+                     alert("success!");
+						}
+                  else {
+                     showAlert(7);
+                  }
                });
 				
 				break;
