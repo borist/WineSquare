@@ -1,0 +1,6 @@
+
+https://p3nlmysqladm001.secureserver.net/grid50/1405?uniqueDnsEntry=winesquare.db.7677571.hostedresource.com
+
+database: winesquare
+username: winesquare
+password: W1n3Square
