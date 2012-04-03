@@ -44,9 +44,9 @@ function validateAccount(){
 				$("#alert").css("display", "none");
 				$("#fname_wrapper").removeClass("error");
 				$("#lname_wrapper").removeClass("error");				
-				$("#email").removeClass("error");
-				$("#password1").removeClass("error");			
-				$("#password2").removeClass("error");
+				$("#email_wrapper").removeClass("error");
+				$("#pword1_wrapper").removeClass("error");			
+				$("#pword2_wrapper").removeClass("error");
 				$("#fname_small").css("display", "none");
 				$("#lname_small").css("display", "none");
 				$("#email_small").css("display", "none");
