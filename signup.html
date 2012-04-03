@@ -70,7 +70,7 @@
 					</div>
 					
 					<label for="maleradio">Gender</label>
-					<input SELECTED type="radio" name="sex" value="male" id="maleradio"/> Male<br />
+					<input SELECTED type="radio" name="sex" value="male" 	id="maleradio"/> Male<br />
 					<input type="radio" name="sex" value="female" /> Female
 
 			</div> <!-- columns -->
@@ -291,14 +291,17 @@
 									alert("success!");
 						        }
 								else {
-									showAlert(4);
+									showAlert(7);
 								}
                });
 				
 				break;
 	      	case 1: showAlert(1); break;
-				case 2: showAlert(2); break;
-				case 3: showAlert(3); break;
+	      	case 2: showAlert(2); break;
+	      	case 3: showAlert(3); break;
+	      	case 4: showAlert(4); break;
+				case 5: showAlert(5); break;
+				case 6: showAlert(6); break;
 	      	default: break;
 	      }
    });
