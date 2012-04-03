@@ -20,6 +20,9 @@
 	<link rel="stylesheet" href="./styles/movile.css">
 	<link rel="stylesheet" href="./styles/topbar.css">
 	<link rel="stylesheet" href="./styles/profile.css">	
+	<style type="text/css">
+		small {display: none;}
+	</style>
 	
 	<!-- Google web fonts -->
 	<link href='http://fonts.googleapis.com/css?family=Ubuntu:700' rel='stylesheet' type='text/css'>
@@ -43,42 +46,46 @@
       
 		<div class="row">
 			<div class="seven columns">
-				<div id="alert" class="alert-box error" style="display:none;">
+				<div id="alert" class="alert-box error" style="display:none; margin-bottom:6.5%;">
 					alert!
 					<a href="" class="close">&times;</a>
 				</div>
 				
 					<div class="form-field" id="fname_wrapper">
-						<label for="firstname">First Name</label>
+						<label for="firstname">First Name*</label>
 						<input type="text" class="small input-text" id="firstname" name="firstname" />
+						<small id="fname_small">Please enter a name</small>
 					</div>
 					<div class='form-field' id="lname_wrapper">
-						<label for="lastname">Last Name</label>
+						<label for="lastname">Last Name*</label>
 						<input type="text" class="small input-text" id="lastname" name="lastname" />
+						<small id="lname_small">Please enter a name</small>						
 					</div>
 					<div class='form-field' id="email_wrapper">
-						<label for="email">Email Address *</label>
+						<label for="email">Email Address*</label>
 						<input type="text" class="input-text" id="email" name="email" />
+						<small id="email_small">Please enter a valid email address</small>						
 					</div>
 					<div class='form-field' id="pword1_wrapper">
-						<label for="password1">Password *</label>
+						<label for="password1">Password*</label>
 						<input type="password" class="input-text" id="password1" name="password" />
+						<small id="pword1_small">Your passwords do not match</small>						
 					</div>
 					<div class='form-field' id="pword2_wrapper">
-						<label>Confirm Password *</label>	
+						<label>Confirm Password*</label>	
 						<input type="password" class="input-text" id="password2"/>
+						<small id="pword2_small">Your passwords do not match</small>						
 					</div>
 					
-					<label for="maleradio">Gender</label>
-					<input SELECTED type="radio" name="sex" value="male" 	id="maleradio"/> Male<br />
+					<label for="maleradio">Gender*</label>
+					<input checked type="radio" name="sex" value="male" 	id="maleradio"/> Male<br/>
 					<input type="radio" name="sex" value="female" /> Female
 
 			</div> <!-- columns -->
 		</div> <!-- row -->
 		<br/>
 		<div class="row">
-				
-				<label for="monthDropdown">Birthday</label>
+				<p id="bdayDropdown" style="margin-bottom:1%">Birthday*</p>
 				<div class="columns" style="margin-left:0px;">
 				<select id="monthDropdown" name="month">
 					<option SELECTED>Month</option>
@@ -250,7 +257,6 @@
 				</div>
 				<div></div>
 		</div> <!-- row -->
-
 		<div class="row">
 			<div class="six columns">
 				<label for="photoUpload">Photo</label>
@@ -285,23 +291,22 @@
    $("#submit").click(function () {
 			clearAlerts();
 	      switch (validateAccount()) {
-				case 0: 
+	      	case 0: 
+					$("#alert").text("Please fix the errors below.");
+					$("#alert").css("display", "block"); 
+				break;
+				case 1: 
 					$.post("create_account.php", $("#signup").serialize(), function(data){
                   if(data == 1){
-                     alert("success!");
+                     alert("success!"); //redirect to success page
 						}
                   else {
-                     showAlert(7);
+                     $("#alert").text("There was an error with the database. Please try again.");
+							$("#alert").css("display", "block"); 
                   }
                });
 				
 				break;
-	      	case 1: showAlert(1); break;
-	      	case 2: showAlert(2); break;
-	      	case 3: showAlert(3); break;
-	      	case 4: showAlert(4); break;
-				case 5: showAlert(5); break;
-				case 6: showAlert(6); break;
 	      	default: break;
 	      }
    });

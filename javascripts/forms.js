@@ -1,24 +1,43 @@
 function validateAccount(){
+		  var valid = 1;
 		  var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/; 
 		  $email = emailPattern.test($("#email").val());
 		  $password = $("#password1").val() == $("#password2").val();
 		  $password = $password && $("#password1").val() != "";
 		  $fname = $("#firstname").val() == "";
 		  $lname = $("#lastname").val() == "";
+		  $month = $("#monthDropdown").val() == "Month";
+		  $day = $("#dayDropdown").val() == "Day";
+		  $year = $("#yearDropdown").val() == "Year";
 		
-		  if ($fname && $lname)
-				return 1;
-		  else if ($fname)
-				return 2;
-		  else if ($lname)
-				return 3;
-		  if (!$email && !$password)
-				return 4;
-			else if (!$email)
-				return 5;
-			else if (!$password)
-				return 6;
-			else return 0;
+		  if ($fname){
+				$("#fname_small").css("display", "block");
+				$("#fname_wrapper").addClass("error");
+				valid = 0;
+			}
+		  if ($lname){
+				$("#lname_small").css("display", "block");
+				$("#lname_wrapper").addClass("error");
+				valid = 0;				
+			}
+		  if (!$email){
+				$("#email_small").css("display", "block");
+				$("#email_wrapper").addClass("error");
+				valid = 0;				
+			}
+		  if (!$password){
+				$("#pword1_small").css("display", "block");
+				$("#pword2_small").css("display", "block");				
+				$("#pword1_wrapper").addClass("error");				
+				$("#pword2_wrapper").addClass("error");				
+				valid = 0;				
+			}
+		   if ($month || $day || $year){
+				$("#bdayDropdown").css("color", "#C00000");
+				valid = 0;
+			}
+		
+		  return valid;
 		} 
 	
 		function clearAlerts(){
@@ -28,47 +47,12 @@ function validateAccount(){
 				$("#email").removeClass("error");
 				$("#password1").removeClass("error");			
 				$("#password2").removeClass("error");
-		}
-	
-		function showAlert(input) {	
-			switch (input) {
-				case 0:
-					return;
-				break;
-				case 1:
-					$("#alert").text("Please fill in the blank fields");
-					$("#fname_wrapper").addClass("error");
-					$("#lname_wrapper").addClass("error");					
-				break;
-				case 2:
-					$("#alert").text("Please fill in the blank fields");
-					$("#fname_wrapper").addClass("error");					
-				break;
-				case 3:
-					$("#alert").text("Please fill in the blank fields");
-					$("#lname_wrapper").addClass("error");					
-				break;								
-				case 4: 
-					$("#alert").text("You haven't provided a valid email address and your passwords do not match.");
-					$("#email_wrapper").addClass("error");
-					$("#pword1_wrapper").addClass("error");
-					$("#pword2_wrapper").addClass("error");
-					break;
-				case 5: 
-					$("#alert").text("Your haven't provided a valid email address.");
-					$("#email_wrapper").addClass("error");
-					break;
-				case 6:
-					$("#alert").text("Your passwords don't match.");
-					$("#pword1_wrapper").addClass("error");
-					$("#pword2_wrapper").addClass("error");
-					break;
-				case 7:
-					$("#alert").text("There was an error with the database. Please try again.");
-					break;
-				default: break;	
-				}
-				$("#alert").css("display", "block");
+				$("#fname_small").css("display", "none");
+				$("#lname_small").css("display", "none");
+				$("#email_small").css("display", "none");
+				$("#pword1_small").css("display", "none");
+				$("#pword2_small").css("display", "none");	
+				$("#bdayDropdown").css("color", "#555555");																			
 		}
      
 /**
