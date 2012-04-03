@@ -287,29 +287,17 @@
 	<script src="javascripts/forms.js"></script>
    
    <script>
-   
+ 	//signup based on submit button
    $("#submit").click(function () {
-			clearAlerts();
-	      switch (validateAccount()) {
-	      	case 0: 
-					$("#alert").text("Please fix the errors below.");
-					$("#alert").css("display", "block"); 
-				break;
-				case 1: 
-					$.post("create_account.php", $("#signup").serialize(), function(data){
-                  if(data == 1){
-                     alert("success!"); //redirect to success page
-						}
-                  else {
-                     $("#alert").text("There was an error with the database. Please try again.");
-							$("#alert").css("display", "block"); 
-                  }
-               });
-				
-				break;
-	      	default: break;
-	      }
+			signup();
    });
+
+	//signup based on enter key press
+	$(document).keypress(function(e) {
+		if (e.which == 13) {
+			signup();
+		}
+	});
    </script>
    
 </body>

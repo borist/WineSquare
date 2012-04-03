@@ -54,6 +54,33 @@ function validateAccount(){
 				$("#pword2_small").css("display", "none");	
 				$("#bdayDropdown").css("color", "#555555");																			
 		}
+		
+/**
+ * Tries to let a user signup for an account, after validation.
+ */
+
+function signup(){
+	clearAlerts();
+  	switch (validateAccount()) {
+  	case 0: 
+			$("#alert").text("Please fix the errors below.");
+			$("#alert").css("display", "block"); 
+		break;
+	case 1: 
+			$.post("create_account.php", $("#signup").serialize(), function(data){
+          if(data == 1){
+             alert("success!"); //redirect to success page
+				}
+          else {
+             $("#alert").text("There was an error with the database. Please try again.");
+					$("#alert").css("display", "block"); 
+          }
+       });
+		
+		break;
+  	default: break;
+  }
+}
      
 /**
  * Logs the user in based on the credentials entered in the
