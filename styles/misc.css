@@ -1,0 +1,13 @@
+
+/* use to center a panel*/
+#container .center_all {
+	margin-left:auto; margin-right:auto;
+}
+
+#container .badge p {
+	margin: 10px 0px 0px 43px;
+}
+
+#container .badge p>a:hover {
+	text-decoration: underline;
+}
