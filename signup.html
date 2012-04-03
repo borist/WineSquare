@@ -47,6 +47,7 @@
 					alert!
 					<a href="" class="close">&times;</a>
 				</div>
+				
 				<form class="nice">
 					<label for="firstname">First Name</label>
 					<input type="text" class="small input-text" id="firstname" name="firstname" />
@@ -273,6 +274,7 @@
 	<script src="javascripts/modernizr.foundation.js"></script>
 	<script src="javascripts/foundation.js"></script>
 	<script src="javascripts/app.js"></script>
+	<script src="javascripts/signup.js"></script>
    
    <script>
    function validateAccount(){
@@ -290,25 +292,33 @@
 		else return 0;
    } 
 
+	function clearAlerts(){
+			$("#alert").css("display", "none");
+			$("#email").removeClass("red");
+			$("#password1").removeClass("red");			
+			$("#password2").removeClass("red");
+	}
+
    function showAlert(input) {	
 		switch (input) {
 			case 0:
-			
+				alert("success!");
+				return;
 			break;
 			case 1: 
 				$("#alert").text("You haven't provided a valid email address and your passwords do not match.");
-				$("#email").removeClass("red").addClass("red");
-				$("#password1").removeClass("red").addClass("red");
-				$("#password2").removeClass("red").addClass("red");
+				$("#email").addClass("red");
+				$("#password1").addClass("red");
+				$("#password2").addClass("red");
 				break;
 			case 2: 
 				$("#alert").text("Your haven't provided a valid email address.");
-				$("#email").removeClass("red").addClass("red");
+				$("#email").addClass("red");
 				break;
 			case 3:
 				$("#alert").text("Your passwords don't match.");
-				$("#password1").removeClass("red").addClass("red");
-				$("#password2").removeClass("red").addClass("red");
+				$("#password1").addClass("red");
+				$("#password2").addClass("red");
 				break;
 			default: break;	
 			}
@@ -316,12 +326,14 @@
 	}
 
    $("#submit").click(function () {
-	      		switch (validateAccount()) {
-	      			case 1: showAlert(1); break;
-						case 2: showAlert(2); break;
-						case 3: showAlert(3); break;
-	      			default: break;
-	      		}
+			clearAlerts();
+	      switch (validateAccount()) {
+				case 0: showAlert(0); break;
+	      	case 1: showAlert(1); break;
+				case 2: showAlert(2); break;
+				case 3: showAlert(3); break;
+	      	default: break;
+	      }
 
 		// if(validateAccount()){
 		//          $.post("create_account.php", $("#signup").serialize(), 					function(data){
