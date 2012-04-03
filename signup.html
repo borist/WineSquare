@@ -27,7 +27,7 @@
 
 	<body>
 
-   <form name="signup" action="create_account.php" method="post" id="signup" >
+   <form name="signup" action="create_account.php" method="post" id="signup" class="nice">
 	<!-- container -->
 	<div class="container">
 	
@@ -42,38 +42,44 @@
 		</div> <!-- row -->
       
 		<div class="row">
-			<div class="six columns">
+			<div class="seven columns">
 				<div id="alert" class="alert-box error" style="display:none;">
 					alert!
 					<a href="" class="close">&times;</a>
 				</div>
 				
-				<form class="nice">
-					<label for="firstname">First Name</label>
-					<input type="text" class="small input-text" id="firstname" name="firstname" />
-					<label for="lastname">Last Name</label>
-					<input type="text" class="small input-text" id="lastname" name="lastname" />
-					<label for="email">Email Address *</label>
-					<input type="text" class="input-text" id="email" name="email" />
-					<label for="password1">Password *</label>
-					<input type="password" class="input-text" id="password1" name="password" />
-					<label>Confirm Password *</label>	
-					<input type="password" class="input-text" id="password2"/>
+					<div class="form-field" id="fname_wrapper">
+						<label for="firstname">First Name</label>
+						<input type="text" class="small input-text" id="firstname" name="firstname" />
+					</div>
+					<div class='form-field' id="lname_wrapper">
+						<label for="lastname">Last Name</label>
+						<input type="text" class="small input-text" id="lastname" name="lastname" />
+					</div>
+					<div class='form-field' id="email_wrapper">
+						<label for="email">Email Address *</label>
+						<input type="text" class="input-text" id="email" name="email" />
+					</div>
+					<div class='form-field' id="pword1_wrapper">
+						<label for="password1">Password *</label>
+						<input type="password" class="input-text" id="password1" name="password" />
+					</div>
+					<div class='form-field' id="pword2_wrapper">
+						<label>Confirm Password *</label>	
+						<input type="password" class="input-text" id="password2"/>
+					</div>
 					
 					<label for="maleradio">Gender</label>
 					<input SELECTED type="radio" name="sex" value="male" id="maleradio"/> Male<br />
 					<input type="radio" name="sex" value="female" /> Female
-				</form>
 
 			</div> <!-- columns -->
 		</div> <!-- row -->
-
-
+		<br/>
 		<div class="row">
-			<div class="six columns">
-
+				
 				<label for="monthDropdown">Birthday</label>
-				<div></div>
+				<div class="columns" style="margin-left:0px;">
 				<select id="monthDropdown" name="month">
 					<option SELECTED>Month</option>
 					<option>January</option>
@@ -89,7 +95,8 @@
 					<option>November</option>
 					<option>December</option>
 				</select>
-
+				</div>	
+				<div class="one columns" style="margin-left:1%">
 				<select id="dayDropdown" name="day">
 					<option SELECTED value="day0">Day</option>
 					<option value="1">1</option>
@@ -124,7 +131,8 @@
 					<option value="30">30</option>
 					<option value="31">31</option>
 				</select>
-
+				</div>
+				<div class="one columns" style="margin-left:2.5%">
 				<select id="yearDropdown" name="year">
 					<option SELECTED value="year0">Year</option>
 						<option value="2010">2010</option>
@@ -239,9 +247,9 @@
 						<option value="1901">1901</option>
 						<option value="1900">1900</option>
 				</select> 
-			</div> <!-- columns -->
+				</div>
+				<div></div>
 		</div> <!-- row -->
-
 
 		<div class="row">
 			<div class="six columns">
@@ -254,78 +262,26 @@
 			</div> <!-- columns -->
 		</div> <!-- row -->
 
-		<br />
-		<br />
+		<br/>
+		<br/>
       
 		<div class="row">
 				<p><a class='nice radius blue button' id="submit">Join &raquo;</a></p>
 		</div> <!-- row -->
-
-		<hr />
 		
 	</div>
 	<!-- container -->
    </form>
-   
-   <!-- JAVASCRIPT GOES BELOW -->
    
    <!-- Javascript source files -->
    <script src="javascripts/jquery.min.js"></script>
 	<script src="javascripts/modernizr.foundation.js"></script>
 	<script src="javascripts/foundation.js"></script>
 	<script src="javascripts/app.js"></script>
+	<script src="javascripts/forms.js"></script>
    
    <script>
    
-	function validateAccount(){
-		var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/; 
-	  $email = emailPattern.test($("#email").val());
-	  $password = $("#password1").val() == $("#password2").val();
-	  $password = $password && $("#password1").val() != "";
-
-	  if (!$email && !$password)
-			return 1;
-		else if (!$email)
-			return 2;
-		else if (!$password)
-			return 3;
-		else return 0;
-	} 
-
-	function clearAlerts(){
-			$("#alert").css("display", "none");
-			$("#email").removeClass("red");
-			$("#password1").removeClass("red");			
-			$("#password2").removeClass("red");
-	}
-
-	function showAlert(input) {	
-		switch (input) {
-			case 0:
-				return;
-			break;
-			case 1: 
-				$("#alert").text("You haven't provided a valid email address and your passwords do not match.");
-				$("#email").addClass("red");
-				$("#password1").addClass("red");
-				$("#password2").addClass("red");
-				break;
-			case 2: 
-				$("#alert").text("Your haven't provided a valid email address.");
-				$("#email").addClass("red");
-				break;
-			case 3:
-				$("#alert").text("Your passwords don't match.");
-				$("#password1").addClass("red");
-				$("#password2").addClass("red");
-				break;
-			case 4:
-				$("#alert").text("There was an error with the database. Please try again.");
-				break;
-			default: break;	
-			}
-			$("#alert").css("display", "block");
-	}
    $("#submit").click(function () {
 			clearAlerts();
 	      switch (validateAccount()) {
@@ -345,22 +301,6 @@
 				case 3: showAlert(3); break;
 	      	default: break;
 	      }
-
-		// if(validateAccount()){
-		//          $.post("create_account.php", $("#signup").serialize(), 					function(data){
-		//             if(data == 1){
-		// 					alert("success!");
-		//                //window.location.replace("success.html");
-		//             }
-		//             else {
-		// 					showAlert(2);
-		//             }
-		//          });
-		//       }
-		//       else {
-		// 			showAlert(1);
-		// 
-		//       }
    });
    </script>
    
