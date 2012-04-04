@@ -1,4 +1,16 @@
 This is where super awesome useful notes go about WineSquare once we're done creating it.
 
+Easy things that we still have to do:
+	1. create blank profiles for new users
+	2. link logins to actual, corresponding profiles
+	3. finish frontend (create wine pages, individual badge pages, profiles, etc)
+	4. get all the backend working/ make links correspond to correct pages
+
+Things we MUST do in order to fulfill minimum requirements:
+	1. add search capabilities (in our cases, for both users and wines?)
+	2. need Delete for CRUD. i guess we could have users able to delete their profiles?
+	3. some sort of intelligence - we could either do recommendations OR something with location? aka when people check in we keep track of where it was that they checked in from
+
 Cool things to (try to) do (and not forget):
 	1. Autocomplete for search
+	2. friends? could also make adding Delete for CRUD more appropriate
