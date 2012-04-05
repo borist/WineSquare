@@ -9,7 +9,7 @@ Easy things that we still have to do:
 Things we MUST do in order to fulfill minimum requirements:
 	1. add search capabilities (in our cases, for both users and wines?)
 	2. need Delete for CRUD. i guess we could have users able to delete their profiles?
-	3. some sort of intelligence - we could either do recommendations OR something with location? aka when people check in we keep track of where it was that they checked in from
+	3. some sort of intelligence - we could either do recommendations OR something with location? aka when people check in we keep track of where it was that they checked in from (I'm not sure how location == intelligence?)
 
 Cool things to (try to) do (and not forget):
 	1. Autocomplete for search
