@@ -33,7 +33,7 @@
 	      	<strong class="right">
 					<input class="search_bar" placeholder="Search..." type="search"/>
 	      		<a href="example_prof.html">Profile</a>
-	      		<a href="login.html">Logout</a>	
+	      		<a href="#" id="logout">Logout</a>	
 	      	</strong>
 	      </div>
 		</div>
@@ -235,6 +235,13 @@
 	<!-- JavaScript files placed at the bottom to avoid slow loading times --> 
 	<script src="./javascripts/jquery.min.js"></script>
 	<script src="./javascripts/app.js"></script>
+   <script src="./javascripts/forms.js"></script>
+   
+   <script>
+   $("#logout").click(function() {
+      logout();
+   });
+   </script>
 
   </body>
 </html>
