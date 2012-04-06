@@ -37,7 +37,7 @@ function login(){
       // his/her information for the session
       session_start();
       $_SESSION['user'] = $user;
-      print_r($user);
+      echo 1;
    }
    else {
       echo 0;

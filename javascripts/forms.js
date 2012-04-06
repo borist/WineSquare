@@ -89,8 +89,7 @@ function signup(){
 function login(){
    $.post("users.php", $("#loginform").serialize(), function(response){
       if(response != 0){
-         alert(response);
-         window.location.replace('example_prof.html');
+         window.location.replace('profile.php');
       }
       else {
          alert("Email or password are wrong.");
@@ -99,7 +98,8 @@ function login(){
 }
 
 /**
- * Logs the user out
+ * Logs the user out. Calls a corresponding function
+ * from the php core to destroy the user sessions.
  */
 function logout(){
    $.post("users.php", { code:"logout" }, function(response){

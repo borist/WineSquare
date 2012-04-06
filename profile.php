@@ -1,3 +1,24 @@
+<?php
+
+include 'connect.php';
+
+session_start();
+
+if(!isset($_SESSION['user'])){
+   header('Location: login.html');
+}
+
+$user = $_SESSION['user'][0];
+
+function printUser(){
+   echo "<pre>";
+   print_r($_SESSION['user']);
+   echo "</pre>";
+}
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -48,10 +69,10 @@
 				</div>
 				<div class="nine phone-three columns">
 					<h3>
-						Nathan Fraenkel
+						<?php echo $user['first_name'].' '.$user['last_name']; ?>
 					</h3>
 					<p>
-						Orinda, CA
+						<?php echo "From: ".$user['location']; ?>
 					</p>
 					<!-- Profile Stats -->
 					<div id="stats">
