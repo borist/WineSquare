@@ -2,6 +2,8 @@
 
 include 'connect.php';
 
+session_start();
+
 /**
  * Function code
  */
