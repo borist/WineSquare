@@ -67,7 +67,7 @@ function signup(){
 			$("#alert").css("display", "block"); 
 		break;
 	case 1: 
-			$.post("create_account.php", $("#signup").serialize(), function(data){
+			$.post("users.php", $("#signup").serialize(), function(data){
           if(data == 1){
              alert("success!"); //redirect to success page
 				}
