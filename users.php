@@ -98,8 +98,6 @@ function logout(){
 
 
 
-
-
 /**
  * Controlling codes
  */

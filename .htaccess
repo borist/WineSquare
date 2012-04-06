@@ -1,0 +1,13 @@
+<IfModule mod_rewrite.c>
+Options +FollowSymlinks
+Options -MultiViews
+RewriteEngine on
+RewriteRule ^profile/$ profile.php [nc]
+RewriteRule ^profile/(.*)$ $1 [nc]
+RewriteRule ^login/$ login.html [nc]
+RewriteRule ^login/(.*)$ $1 [nc]
+RewriteRule ^signup/$ signup.html [nc]
+RewriteRule ^signup/(.*)$ $1 [nc]
+RewriteRule ^join/$ signup.html [nc]
+RewriteRule ^join/(.*)$ $1 [nc]
+</IfModule>
