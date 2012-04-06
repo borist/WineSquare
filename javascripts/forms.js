@@ -73,7 +73,7 @@ function signup(){
 				}
           else {
              $("#alert").text("There was an error with the database. Please try again.");
-					$("#alert").css("display", "block"); 
+				 $("#alert").css("display", "block"); 
           }
        });
 		
@@ -87,12 +87,27 @@ function signup(){
  * login form. Requests a response from login_user.php
  */     
 function login(){
-   $.post("login_user.php", $("#loginform").serialize(), function(response){
+   $.post("users.php", $("#loginform").serialize(), function(response){
       if(response != 0){
-         window.location.replace('example_prof.html');
+         window.location.replace('profile.php');
       }
       else {
          alert("Email or password are wrong.");
+      }
+   });
+}
+
+/**
+ * Logs the user out. Calls a corresponding function
+ * from the php core to destroy the user sessions.
+ */
+function logout(){
+   $.post("users.php", { code:"logout" }, function(response){
+      if(response != 0){
+         window.location.replace('login.html');
+      }
+      else {
+         alert("You couldn't be logged out.");
       }
    });
 }
