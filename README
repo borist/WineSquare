@@ -7,6 +7,7 @@ Easy things that we still have to do:
 	4. get all the backend working/ make links correspond to correct pages
 	5. SIGN IN PAGE!
 	6. Check in button for the index/homepage
+	7. Fix topbar "Profile" link to actually work! Stefan can you explain how to do this?
 
 Things we MUST do in order to fulfill minimum requirements:
 	1. add search capabilities (in our cases, for both users and wines?)
