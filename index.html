@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>WineSquare</title>
+    <meta name="description" content="Nathan Fraenkel's WineSquare Profile">
+    <meta name="keywords" content="WineSquare"/>
+
+	<!-- Stylesheet --> 
+	<link rel="stylesheet" href="./styles/globals.css">
+	<link rel="stylesheet" href="./styles/typography.css">
+	<link rel="stylesheet" href="./styles/grid.css">
+	<link rel="stylesheet" href="./styles/ui.css">
+	<link rel="stylesheet" href="./styles/forms.css">
+	<link rel="stylesheet" href="./styles/orbit.css">
+	<link rel="stylesheet" href="./styles/reveal.css">
+	<link rel="stylesheet" href="./styles/mobile.css">
+	<link rel="stylesheet" href="./styles/topbar.css">
+	<link rel="stylesheet" href="./styles/profile.css">
+	<link rel="stylesheet" href="./styles/misc.css">
+
+	<style type="text/css">
+		a.subheader:link {color: #6f6f6f;}
+		a.subheader:active {color: #6f6f6f;}
+		a.subheader:visited {color: #6f6f6f;}
+		a.subheader:hover {color: #6f6f6f; text-decoration:underline;}
+	</style>
+
+	<!-- Google web fonts -->
+	<link href='http://fonts.googleapis.com/css?family=Ubuntu:700' rel='stylesheet' type='text/css'>
+  </head>
+  <body>
+
+	<div id="topbar">
+	    <div class="row">
+	      <div class="four columns">
+	        <h1><a href="#">WineSquare</a></h1>
+	      </div>
+	      <div class="eight columns hide-on-phones">
+	      	<strong class="right">
+					<input class="search_bar" placeholder="Search..." type="search"/>
+	      		<a href="example_prof.html">Profile</a>
+	      		<a href="#" id="logout">Logout</a>	
+	      	</strong>
+	      </div>
+		</div>
+	</div>
+
+<div id="container">
+	<!-- top row -->
+	<div class="row">
+		<div class="seven columns">
+			<!-- top of homepage (picture and links) -->
+			<div class="row mobile">
+				<div class="three phone-one columns">
+					<img src="./images/nathan.jpg">
+				</div>
+				<div id="top-stats" class="nine phone-three columns">
+					<h3>
+						Welcome back, Nathan!
+					</h3>
+					<a href="./profile.php" class="subheader"><p>View your profile</p></a>
+					<a href="./profile.php" class="subheader"><p>Edit profile</p></a>
+					<a href="./profile.php" class="subheader"><p>View your badges</p></a>
+					<a href="./profile.php" class="subheader"><p>View your wine recommendations</p></a>
+				</div>
+			</div>
+		</div>	
+
+		<!-- Check-in -->
+		<div id="check-in-wrapper" class="three columns offset-by-one">
+					<p><a class="nice radius blue button" id="check-in" href="">
+								Check in! &raquo;
+						</a></p>
+		</div>
+	</div>
+	
+	<!-- bottom row -->
+	<div class="row">
+			<!-- Recent Activity -->
+			<div id="activity" class="seven column">
+							<h3>Recent Activity</h3><br>
+				<div class="row">
+					<div class="three phone-one columns">
+						<img src="./images/stefan.jpg">
+					</div>
+					<div class="nine phone-three columns">
+						<h6>
+							<a href="#">Stefan Zhelyazkov	</a>
+						</h6>
+						<p>
+							Stefan drank a <a href="#">Merlot</a> at 7:12 pm on April 9, 2012. 
+						</p>
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="three phone-one columns">
+						<img src="./images/stefan.jpg">
+					</div>
+					<div class="nine phone-three columns">
+						<h6>
+							<a href="#">Stefan Zhelyazkov	</a>
+						</h6>
+						<p>
+							Stefan drank a <a href="#">Merlot</a> at 7:12 pm on April 9, 2012. 
+						</p>
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="three phone-one columns">
+						<img src="./images/stefan.jpg">
+					</div>
+					<div class="nine phone-three columns">
+						<h6>
+							<a href="#">Stefan Zhelyazkov	</a>
+						</h6>
+						<p>
+							Stefan drank a <a href="#">Merlot</a> at 7:12 pm on April 9, 2012. 
+						</p>
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="three phone-one columns">
+						<img src="./images/stefan.jpg">
+					</div>
+					<div class="nine phone-three columns">
+						<h6>
+							<a href="#">Stefan Zhelyazkov	</a>
+						</h6>
+						<p>
+							Stefan drank a <a href="#">Merlot</a> at 7:12 pm on April 9, 2012. 
+						</p>
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="three phone-one columns">
+						<img src="./images/stefan.jpg">
+					</div>
+					<div class="nine phone-three columns">
+						<h6>
+							<a href="#">Stefan Zhelyazkov	</a>
+						</h6>
+						<p>
+							Stefan drank a <a href="#">Merlot</a> at 7:12 pm on April 9, 2012. 
+						</p>
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="three phone-one columns">
+						<img src="./images/stefan.jpg">
+					</div>
+					<div class="nine phone-three columns">
+						<h6>
+							<a href="#">Stefan Zhelyazkov	</a>
+						</h6>
+						<p>
+							Stefan drank a <a href="#">Merlot</a> at 7:12 pm on April 9, 2012. 
+						</p>
+					</div>
+				</div>	
+			</div>
+	
+				<!-- User Activity -->
+				<div id="userActivity" class="four columns offset-by-one">
+					<h5>Your Recent Check-ins:</h5>
+					
+					<div class="row">
+						<div class="two columns">
+							<img src="./images/cabernet.jpg" />
+						</div>
+						<div class="ten columns">
+							<h7><a href="">Cabernet Sauvignon</a></h7>
+							<p>You drank a Cabernet Sauvignon at 9:02 pm on April 4, 2012.</p>
+						</div>
+					</div>
+					
+					<div class="row">
+						<div class="two columns">
+							<img src="./images/cabernet.jpg" />
+						</div>
+						<div class="ten columns">
+							<h7><a href="">Cabernet Sauvignon</a></h7>
+							<p>You drank a Cabernet Sauvignon at 9:02 pm on April 4, 2012.</p>
+						</div>
+					</div>
+					
+					<div class="row">
+						<div class="two columns">
+							<img src="./images/cabernet.jpg" />
+						</div>
+						<div class="ten columns">
+							<h7><a href="">Cabernet Sauvignon</a></h7>
+							<p>You drank a Cabernet Sauvignon at 9:02 pm on April 4, 2012.</p>
+						</div>
+					</div>
+					
+					<div class="row">
+						<div class="two columns">
+							<img src="./images/cabernet.jpg" />
+						</div>
+						<div class="ten columns">
+							<h7><a href="">Cabernet Sauvignon</a></h7>
+							<p>You drank a Cabernet Sauvignon at 9:02 pm on April 4, 2012.</p>
+						</div>
+					</div>
+					
+				</div>
+
+	</div>
+	<!-- Footer -->
+	<div class="row">
+		<div id="footer">
+			<p>&copy; We're Awesome</p>
+		</div>
+	</div>
+</div>
+
+	<!-- JavaScript files placed at the bottom to avoid slow loading times --> 
+	<script src="./javascripts/jquery.min.js"></script>
+	<script src="./javascripts/app.js"></script>
+   <script src="./javascripts/forms.js"></script>
+   
+  </body>
+</html>

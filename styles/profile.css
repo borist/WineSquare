@@ -73,3 +73,50 @@
 #stats .one {
 	height: 20px;
 }
+
+#top-stats p {
+	margin-bottom: 2%;
+}
+
+#activity {
+	padding-top: 40px;
+}
+
+#activity .row {
+	padding: 0px 0px 20px 20px;
+}
+
+#activity .row .three {
+/*	change width here if required for
+	recent activity pictures*/
+}
+
+#activity p { 
+	padding-top: 5px;
+}
+
+#check-in-wrapper {
+	padding-bottom: 10px;
+	padding-top: 5.5%;
+}
+
+#check-in-wrapper .button {
+	padding-top: 20px;
+	padding-bottom: 20px;	
+}
+
+#userActivity {
+	padding-top: 40px;
+}
+
+#userActivity .row {
+	padding-top: 20px;
+}
+
+#userActivity .row .two {
+	width: 11.5%;
+}
+
+#userActivity .row .ten p {
+	padding-top: 3%;
+}
