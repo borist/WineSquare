@@ -93,6 +93,8 @@ function login(){
       }
       else {
          alert("Email or password are wrong.");
+		$("#alert").text("Email or password are wrong.");
+		$("#alert").css("display", "block");
       }
    });
 }
