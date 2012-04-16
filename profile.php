@@ -10,12 +10,32 @@ if(!isset($_SESSION['user'])){
 
 $user = $_SESSION['user'][0];
 
-function printUser(){
+$checkins = "
+   SELECT *
+   FROM `drank`
+   WHERE `user` = '$user[user]'";
+$checkins = mysql_query($checkins);
+$checkins = mysql_num_rows($checkins);
+
+$wines = "
+   SELECT DISTINCT *
+   FROM `drank`, `wines`
+   WHERE `drank`.`user` = '$user[user]'
+   AND `wines`.`id` = `drank`.`wid`";
+$wines = mysql_query($wines);
+$winesTasted = mysql_num_rows($wines);
+$winesProfileInfo = array();
+while($result = mysql_fetch_assoc($wines)){
+   $winesProfileInfo[] = $result;
+}
+
+function pretty($var){
    echo "<pre>";
-   print_r($_SESSION['user']);
+   print_r($var);
    echo "</pre>";
 }
 
+//pretty($winesProfileInfo);
 
 ?>
 
@@ -79,7 +99,7 @@ function printUser(){
 					<div class="row wrapper">
 						<div class="four columns">
 							<div class="one check_ins">
-								<p><b>0</b></p>
+								<p><b><?php echo $checkins; ?></b></p>
 							</div>
 							<div class="description">
 								<p>Total Check-ins</p>
@@ -87,7 +107,7 @@ function printUser(){
 						</div>
 						<div class="four columns">
 							<div class="one total_wines">
-								<p><b>0</b></p>
+								<p><b><?php echo $winesTasted; ?></b></p>
 							</div>
 							<div class="description">
 								<p>Wines Tasted</p>
@@ -112,84 +132,19 @@ function printUser(){
 			<!-- History of check-ins -->
 			<div id="history">
 							<h3> History </h3><br>
+            <?php foreach($winesProfileInfo as $wineInfo): ?>
 				<div class="row">
 					<div class="two phone-one columns">
-						<img src="./images/cabernet.jpg">
+						<img src="<?php echo $wineInfo['pic']; ?>">
 					</div>
 					<div class="ten phone-three columns">
 						<h6>
-							<a href="#">Cabernet Sauvignon</a>
+							<a href="#"><?php echo $wineInfo['name']; ?></a>
 						</h6>
-						<p>
-							Cabernet Sauvignon is one of the world's most widely recognized red wine grape varieties. It is grown in nearly every major wine producing country among a diverse spectrum of climates from Canada's Okanagan Valley to Lebanon's Beqaa Valley.
-						</p>
+						<p><?php echo $wineInfo['descr']; ?></p>
 					</div>
 				</div>
-				<div class="row">
-					<div class="two phone-one columns">
-						<img src="./images/cabernet.jpg">
-					</div>
-					<div class="ten phone-three columns">
-						<h6>
-							<a href="#">Cabernet Sauvignon</a>
-						</h6>
-						<p>
-							Cabernet Sauvignon is one of the world's most widely recognized red wine grape varieties. It is grown in nearly every major wine producing country among a diverse spectrum of climates from Canada's Okanagan Valley to Lebanon's Beqaa Valley.
-						</p>
-					</div>
-				</div>
-				<div class="row">
-					<div class="two phone-one columns">
-						<img src="./images/cabernet.jpg">
-					</div>
-					<div class="ten phone-three columns">
-						<h6>
-							<a href="#">Cabernet Sauvignon</a>
-						</h6>
-						<p>
-							Cabernet Sauvignon is one of the world's most widely recognized red wine grape varieties. It is grown in nearly every major wine producing country among a diverse spectrum of climates from Canada's Okanagan Valley to Lebanon's Beqaa Valley.
-						</p>
-					</div>
-				</div>
-				<div class="row">
-					<div class="two phone-one columns">
-						<img src="./images/cabernet.jpg">
-					</div>
-					<div class="ten phone-three columns">
-						<h6>
-							<a href="#">Cabernet Sauvignon</a>
-						</h6>
-						<p>
-							Cabernet Sauvignon is one of the world's most widely recognized red wine grape varieties. It is grown in nearly every major wine producing country among a diverse spectrum of climates from Canada's Okanagan Valley to Lebanon's Beqaa Valley.
-						</p>
-					</div>
-				</div>
-				<div class="row">
-					<div class="two phone-one columns">
-						<img src="./images/cabernet.jpg">
-					</div>
-					<div class="ten phone-three columns">
-						<h6>
-							<a href="#">Cabernet Sauvignon</a>
-						</h6>
-						<p>
-							Cabernet Sauvignon is one of the world's most widely recognized red wine grape varieties. It is grown in nearly every major wine producing country among a diverse spectrum of climates from Canada's Okanagan Valley to Lebanon's Beqaa Valley.
-						</p>
-					</div>
-				</div>
-				<div class="row">
-					<div class="two phone-one columns">
-						<img src="./images/cabernet.jpg">
-					</div>
-					<div class="ten phone-three columns">
-						<h6>
-							<a href="#">Cabernet Sauvignon</a>
-						</h6>
-						<p>
-							Cabernet Sauvignon is one of the world's most widely recognized red wine grape varieties. It is grown in nearly every major wine producing country among a diverse spectrum of climates from Canada's Okanagan Valley to Lebanon's Beqaa Valley.
-						</p>
-					</div>
-				</div>
+            <?php endforeach; ?>
 			</div>
 		</div>
 		
