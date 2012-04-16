@@ -34,12 +34,12 @@
 	<div id="topbar">
 	    <div class="row">
 	      <div class="four columns">
-	        <h1><a href="#">WineSquare</a></h1>
+	        <h1><a href="./">WineSquare</a></h1>
 	      </div>
 	      <div class="eight columns hide-on-phones">
 	      	<strong class="right">
 					<input class="search_bar" placeholder="Search..." type="search"/>
-	      		<a href="example_prof.html">Profile</a>
+	      		<a href="profile.php">Profile</a>
 	      		<a href="#" id="logout">Logout</a>	
 	      	</strong>
 	      </div>
@@ -224,6 +224,12 @@
 	<script src="./javascripts/jquery.min.js"></script>
 	<script src="./javascripts/app.js"></script>
    <script src="./javascripts/forms.js"></script>
+   
+   <script>
+   $("#logout").click(function() {
+      logout();
+   });
+   </script>
    
   </body>
 </html>

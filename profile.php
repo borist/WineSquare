@@ -48,7 +48,7 @@ function printUser(){
 	<div id="topbar">
 	    <div class="row">
 	      <div class="four columns">
-	        <h1><a href="./profile.php">WineSquare</a></h1>
+	        <h1><a href="./">WineSquare</a></h1>
 	      </div>
 	      <div class="eight columns hide-on-phones">
 	      	<strong class="right">
