@@ -1,3 +1,37 @@
+<?php
+
+include 'connect.php';
+include 'lib.php';
+
+$myActivity = "
+   SELECT DISTINCT *
+   FROM `drank`, `wines`
+   WHERE `drank`.`user` = '$user[user]'
+   AND `wines`.`id` = `drank`.`wid`";
+$myActivity = mysql_query($myActivity);
+$recent = array();
+while($activity = mysql_fetch_assoc($myActivity)){
+   $recent[] = $activity;
+}
+
+$allActivity = "
+   SELECT *
+   FROM `drank`, `wines`, `users`
+   WHERE `drank`.`wid` = `wines`.`id`
+   AND `drank`.`user` = `users`.`user`
+   ORDER BY `time` DESC
+   LIMIT 20";
+$allActivity = mysql_query($allActivity);
+echo mysql_error();
+$all = array();
+while($activity = mysql_fetch_assoc($allActivity)){
+   $all[] = $activity;
+}
+
+//pretty($all);
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -53,11 +87,11 @@
 		<div class="seven columns">
 			<div class="row mobile">
 				<div class="three phone-one columns">
-					<img src="./images/nathan.jpg">
+					<img src="<?php echo $user['photo']; ?>">
 				</div>
 				<div id="top-stats" class="nine phone-three columns">
 					<h3>
-						Welcome back, Nathan!
+						Welcome back, <?php echo $user['first_name']; ?>!
 					</h3>
 					<a href="./profile.php" class="subheader"><p>View your profile</p></a>
 					<a href="./profile.php" class="subheader"><p>Edit profile</p></a>
@@ -80,134 +114,39 @@
 			<!-- Recent Activity -->
 			<div id="activity" class="seven column">
 							<h3>Recent Activity</h3><br>
+                     
+            <?php foreach($all as $activity): ?>
 				<div class="row">
 					<div class="three phone-one columns">
-						<img src="./images/stefan.jpg">
+						<img src="<?php echo $activity['photo']; ?>">
 					</div>
 					<div class="nine phone-three columns">
 						<h6>
-							<a href="#">Stefan Zhelyazkov	</a>
+							<a href="#"><?php echo $activity['first_name'].' '.$activity['last_name']; ?></a>
 						</h6>
 						<p>
-							Stefan drank a <a href="#">Merlot</a> at 7:12 pm on April 9, 2012. 
+							<?php echo $activity['first_name'];?> drank a <a href="#"><?php echo $activity['name']; ?></a> at <?php echo easyDate($activity['time']); ?>. 
 						</p>
 					</div>
 				</div>
-				
-				<div class="row">
-					<div class="three phone-one columns">
-						<img src="./images/stefan.jpg">
-					</div>
-					<div class="nine phone-three columns">
-						<h6>
-							<a href="#">Stefan Zhelyazkov	</a>
-						</h6>
-						<p>
-							Stefan drank a <a href="#">Merlot</a> at 7:12 pm on April 9, 2012. 
-						</p>
-					</div>
-				</div>
-				
-				<div class="row">
-					<div class="three phone-one columns">
-						<img src="./images/stefan.jpg">
-					</div>
-					<div class="nine phone-three columns">
-						<h6>
-							<a href="#">Stefan Zhelyazkov	</a>
-						</h6>
-						<p>
-							Stefan drank a <a href="#">Merlot</a> at 7:12 pm on April 9, 2012. 
-						</p>
-					</div>
-				</div>
-				
-				<div class="row">
-					<div class="three phone-one columns">
-						<img src="./images/stefan.jpg">
-					</div>
-					<div class="nine phone-three columns">
-						<h6>
-							<a href="#">Stefan Zhelyazkov	</a>
-						</h6>
-						<p>
-							Stefan drank a <a href="#">Merlot</a> at 7:12 pm on April 9, 2012. 
-						</p>
-					</div>
-				</div>
-				
-				<div class="row">
-					<div class="three phone-one columns">
-						<img src="./images/stefan.jpg">
-					</div>
-					<div class="nine phone-three columns">
-						<h6>
-							<a href="#">Stefan Zhelyazkov	</a>
-						</h6>
-						<p>
-							Stefan drank a <a href="#">Merlot</a> at 7:12 pm on April 9, 2012. 
-						</p>
-					</div>
-				</div>
-				
-				<div class="row">
-					<div class="three phone-one columns">
-						<img src="./images/stefan.jpg">
-					</div>
-					<div class="nine phone-three columns">
-						<h6>
-							<a href="#">Stefan Zhelyazkov	</a>
-						</h6>
-						<p>
-							Stefan drank a <a href="#">Merlot</a> at 7:12 pm on April 9, 2012. 
-						</p>
-					</div>
-				</div>	
+            <?php endforeach; ?>	
 			</div>
 	
 				<!-- User Activity -->
 				<div id="userActivity" class="four columns offset-by-one">
 					<h5>Your Recent Check-ins:</h5>
 					
+               <?php foreach($recent as $activity): ?>
 					<div class="row">
 						<div class="two columns">
-							<img src="./images/cabernet.jpg" />
+							<img src="<?php echo $activity['pic']; ?>" />
 						</div>
 						<div class="ten columns">
-							<h7><a href="">Cabernet Sauvignon</a></h7>
-							<p>You drank a Cabernet Sauvignon at 9:02 pm on April 4, 2012.</p>
+							<h7><a href=""><?php echo $activity['name']; ?></a></h7>
+							<p>You drank a <?php echo $activity['name']; ?> at <?php echo easyDate($activity['time']); ?> in <?php echo $activity['location']; ?>.</p>
 						</div>
 					</div>
-					
-					<div class="row">
-						<div class="two columns">
-							<img src="./images/cabernet.jpg" />
-						</div>
-						<div class="ten columns">
-							<h7><a href="">Cabernet Sauvignon</a></h7>
-							<p>You drank a Cabernet Sauvignon at 9:02 pm on April 4, 2012.</p>
-						</div>
-					</div>
-					
-					<div class="row">
-						<div class="two columns">
-							<img src="./images/cabernet.jpg" />
-						</div>
-						<div class="ten columns">
-							<h7><a href="">Cabernet Sauvignon</a></h7>
-							<p>You drank a Cabernet Sauvignon at 9:02 pm on April 4, 2012.</p>
-						</div>
-					</div>
-					
-					<div class="row">
-						<div class="two columns">
-							<img src="./images/cabernet.jpg" />
-						</div>
-						<div class="ten columns">
-							<h7><a href="">Cabernet Sauvignon</a></h7>
-							<p>You drank a Cabernet Sauvignon at 9:02 pm on April 4, 2012.</p>
-						</div>
-					</div>
+               <?php endforeach; ?>
 					
 				</div>
 

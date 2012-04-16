@@ -1,14 +1,7 @@
 <?php
 
 include 'connect.php';
-
-session_start();
-
-if(!isset($_SESSION['user'])){
-   header('Location: login.html');
-}
-
-$user = $_SESSION['user'][0];
+include 'lib.php';
 
 $checkins = "
    SELECT *
@@ -29,13 +22,8 @@ while($result = mysql_fetch_assoc($wines)){
    $winesProfileInfo[] = $result;
 }
 
-function pretty($var){
-   echo "<pre>";
-   print_r($var);
-   echo "</pre>";
-}
-
 //pretty($winesProfileInfo);
+//pretty($user);
 
 ?>
 
@@ -85,7 +73,7 @@ function pretty($var){
 		<div class="seven columns">
 			<div class="row mobile">
 				<div class="three phone-one columns">
-					<img src="./images/nathan.jpg">
+					<img src="<?php echo $user['photo']; ?>">
 				</div>
 				<div class="nine phone-three columns">
 					<h3>
