@@ -20,6 +20,12 @@
 	<link rel="stylesheet" href="./styles/topbar.css">
 	<link rel="stylesheet" href="./styles/profile.css">
 	<link rel="stylesheet" href="./styles/misc.css">
+	
+	<style type="text/css">
+		h4 {text-align:center}
+		label {text-align:center; font-size:20px; }
+		
+	</style>
 
 	<!-- Google web fonts -->
 	<link href='http://fonts.googleapis.com/css?family=Ubuntu:700' rel='stylesheet' type='text/css'>
@@ -43,27 +49,51 @@
 		</div>
 	</div>
 	
+	
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
 	<div class="container">
+
 		<div class="row">
 			
 			<div class="two columns">
 			</div>
+			
 			<div class="eight columns">
 				<div class="panel">
+					<h4> Check-In to WineSquare! </h4>
+					
+					<br />
+					
+					<label for="winefinder" > You were drinking: </label> <br />
+					<input type="text" class="expand input-text" placeholder="Start typing the name of a wine..." id="winefinder"/><br /><br />
+					
+					<label for="location"> In: </label>
+					<span id="location">[location will determine city, state based on latitude and longitude]</span>
+					
+					<br />
+					<label for="timestamp"> At: </label>
+					<span id="timestamp"></span>[timestamp will go here]<br /><br /><br />
+					<strong class="centered">
+					<a href="#" class="nice large radius blue button" >Check-in! &raquo;</a>
+					</strong>
+					
+					<br /><br /><br />
+					
 					
 				</div> <!-- panel -->
 			</div>
+			
 			<div class="two columns">
 			</div>
-			
-			
-			
 			
 		</div> <!-- row -->
 	</div> <!-- container -->
 
 
-
-
+	</body>
 
 </html>
