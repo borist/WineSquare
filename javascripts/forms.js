@@ -40,7 +40,7 @@ function validateAccount(){
 		  return valid;
 		} 
 	
-		function clearAlerts(){
+function clearAlerts(){
 				$("#alert").css("display", "none");
 				$("#fname_wrapper").removeClass("error");
 				$("#lname_wrapper").removeClass("error");				
@@ -55,6 +55,10 @@ function validateAccount(){
 				$("#bdayDropdown").css("color", "#555555");																			
 		}
 		
+function postPicture(){
+	
+}
+		
 /**
  * Tries to let a user signup for an account, after validation.
  */
@@ -67,6 +71,7 @@ function signup(){
 			$("#alert").css("display", "block"); 
 		break;
 	case 1: 
+			postPicture();
 			$.post("users.php", $("#signup").serialize(), function(data){
           if(data == 1){
              alert("success!"); //redirect to success page
