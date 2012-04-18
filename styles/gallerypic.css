@@ -1,4 +1,11 @@
 
+.rackphoto img{
+  width:1200px;
+  height:400px;
+  position:relative;
+  margin-right:5px;
+}
+
 .rackphoto .wine_bar{
 	width:500;
 	height:100;
@@ -25,9 +32,3 @@
   background-size: 100%;
 }
 
-.rackphoto img{
-  width:1200px;
-  height:400px;
-  position:relative;
-  margin-right:5px;
-}
