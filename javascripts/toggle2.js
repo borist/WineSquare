@@ -3,10 +3,10 @@ function toggle2(showHideDiv, switchImgDiv) {
 	var picture = document.getElementById(switchImgDiv);
 	if(ele.style.display == "block") {
     		ele.style.display = "none";
-		picture="../images/plus.png";
+		picture.src="images/plus.png";
   	}
 	else {
 		ele.style.display = "block";
-		picture="../images/minus.png";
+		picture.src="images/minus.png";
 	}
 }
