@@ -1,12 +1,12 @@
-function toggle2(showHideDiv, switchTextDiv) {
+function toggle2(showHideDiv, switchImgDiv) {
 	var ele = document.getElementById(showHideDiv);
-	var picture = document.getElementById(switchTextDiv);
+	var picture = document.getElementById(switchImgDiv);
 	if(ele.style.display == "block") {
     		ele.style.display = "none";
-		picture="../images/minus.png";
+		picture="../images/plus.png";
   	}
 	else {
 		ele.style.display = "block";
-		picture="../images/plus.png";
+		picture="../images/minus.png";
 	}
 }

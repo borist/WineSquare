@@ -21,7 +21,7 @@
 	<link rel="stylesheet" href="./styles/profile.css">
 	<link rel="stylesheet" href="./styles/misc.css">
 	<link rel="stylesheet" href="./styles/gallerypic.css">
-		<link rel="stylesheet" href="./styles/wine_more.css">
+	<link rel="stylesheet" href="./styles/wine_more.css">
 	
 	<style type="text/css">
 		h5 {text-align:center}
@@ -32,12 +32,21 @@
 
 	<script language="javascript" src="./javascripts/more.js"></script>
 	<script language="javascript" src="./javascripts/toggle2.js"></script>
-	
+	<script type="text/javascript" src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=AIzaSyBDXirgEQ9KYE1jsyd783mxvVlwEIaVo68"></script>
+	<script type="text/javascript" src="javascripts/jquery.js"></script>
+	<script type="text/javascript" src="javascripts/gmap.js"></script>
+	<script type="text/javascript">
+	$(function() {
+		var x = document.getElementById("wine_location");
+	    $("#map").gMap({address: x.innerHTML, zoom: 8});
+		google.maps.event.trigger(map, 'resize');
+	});
+	</script>
 
 	<!-- Google web fonts -->
 	<link href='http://fonts.googleapis.com/css?family=Ubuntu:700' rel='stylesheet' type='text/css'>
   </head>
-  <body>
+  <body onload="window.scrollTo(000,400);">
 	
 	<div id="topbar">
 	    <div class="row">
@@ -64,18 +73,24 @@
 	</a>
 	</div>
 	</br></br>
-	<div id="row">
+	<div class="row">
+	<ul class="block-grid two-up">
+			<li style="margin-left:20px">
 			<h4>
-				<strong>Location:</strong> Red Wine <br/>
-				<strong>Vineyard:</strong> Chateau Latour <br/>
-				<strong>Vintage:</strong> 1966 <br/>
-				<strong>Color:</strong> Red Wine <br/>				
+				<strong>Location:</strong> <var id="wine_location"> 824 Miranda Creek Ct, Alamo, CA</var></br></br>
+				<strong>Vineyard:</strong> Chateau Latour </br></br>
+				<strong>Vintage:</strong> 1966 </br></br>
+				<strong>Color:</strong> Red Wine </br></br>			
 			</h4>
-			</div>
-			
-			<div id="headerDiv">
-			     <div id="titleText">More..</div><a id="myHeader" href="javascript:toggle2('more','toggle');" >
-				<img id="toggle" src="./images/plus.png"></a>
+			<div id="titleText">More..</div><a id="myHeader" href="javascript:toggle2('more','toggle');" >
+			<img id="toggle" src="./images/plus.png"></a>
+			</li>
+			<li>
+				<div id="map" style="width: 450px; height: 320px; border: 1px solid #777; overflow: hidden;"></div>
+			</li>
+			</ul>
+			<div id="headerDiv" style="margin-left:20px" >
+			     
 			</div>
 			<div style="clear:both;"></div>
 			<div id="contentDiv">
@@ -84,6 +99,15 @@
 					<div id="more" style="display: none;" class="row">
 						<ul class="block-grid two-up">
 							<li style="margin-left:20px">
+								<h6>
+									<strong>Wine Producer:</strong> Chateau Latour <br/><br/>
+									<strong>Wine Sub-Region:</strong> Medoc <br/><br/>
+									<strong>Appelation:</strong> Pauillac <br/><br/>
+									<strong>Wine Type:</strong> Still Wine <br/><br/>
+									<strong>Fruit Source:</strong> Producer owned <br/><br/>
+								</h6>
+								</li>
+								<li>
 								<p>
 								<table border="1">
 									<tr>
@@ -108,16 +132,7 @@
 									</tr>
 								</table>
 								</p><br/>
-							</li>
-							<li>
-								<h6>
-									<strong>Wine Producer:</strong> Chateau Latour <br/><br/>
-									<strong>Wine Sub-Region:</strong> Medoc <br/><br/>
-									<strong>Appelation:</strong> Pauillac <br/><br/>
-									<strong>Wine Type:</strong> Still Wine <br/><br/>
-									<strong>Fruit Source:</strong> Producer owned <br/><br/>
-								</h6>
-							</h6>
+								
 							</li>
 						</ul>
 						

@@ -32,3 +32,8 @@ margin: 10px 10px 5px 5px;
 #headerDiv a:hover {
 color: #FFFFFF;
 }
+
+.map {
+	width:400px;
+	height:250px;
+}
