@@ -8,7 +8,6 @@ Wine page
 Finish badge Photoshopping
 Search functionality
 
-
 Nathan
 Badge Pulling from database - pictures
 
