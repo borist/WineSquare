@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>Check-In!</title>
     <meta name="description" content="">
+    <meta charset="UTF-8">
     <meta name="keywords" content="WineSquare"/>
 
 
@@ -20,35 +21,20 @@
 	<link rel="stylesheet" href="./styles/topbar.css">
 	<link rel="stylesheet" href="./styles/profile.css">
 	<link rel="stylesheet" href="./styles/misc.css">
+	<link rel="stylesheet" href="./styles/map.css">
 	
 	<style type="text/css">
 		h4 {text-align:center}
-		label {text-align:center; font-size:20px; }
-		
+		label {text-align:center; font-size:20px; }	
 	</style>
-
-	<!-- Google web fonts -->
-	<link href='http://fonts.googleapis.com/css?family=Ubuntu:700' rel='stylesheet' type='text/css'>
+	
+	<script type="text/javascript"
+	        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCO667Z5BxNMNrggUtjLSKsG9CDgHAc3e8&sensor=true"></script>
+	
   </head>
-
-
   <body>
 	
 	<div id="topbar">
-	    <div class="row">
-	      <div class="four columns">
-	        <h1><a href="#">WineSquare</a></h1>
-	      </div>
-	      <div class="eight columns hide-on-phones">
-	      	<strong class="right">
-					<input class="search_bar" placeholder="Search..." type="search"/>
-	      		<a href="example_prof.html">Profile</a>
-	      		<a href="#">Logout</a>	
-	      	</strong>
-	      </div>
-		</div>
-	</div>
-	
 	
 	<br />
 	<br />
@@ -58,27 +44,25 @@
 	<div class="container">
 
 		<div class="row">
-			
-			<div class="two columns">
-			</div>
+			<div class="two columns"> </div>
 			
 			<div class="eight columns">
 				<div class="panel">
-					<h4> Check-In to WineSquare! </h4>
+					<h4 id="checkin_head"> Check-In to WineSquare! </h4>
 					
 					<br />
 					
 					<label for="winefinder" > You were drinking: </label> <br />
 					<input type="text" class="expand input-text" placeholder="Start typing the name of a wine..." id="winefinder"/><br /><br />
 					
-					<label for="location"> In: </label>
-					<span id="location">[location will determine city, state based on latitude and longitude]</span>
+					<label for="location"> At: </label>
+					<span id="location_disp"></span>
 					
 					<br />
-					<label for="timestamp"> At: </label>
-					<span id="timestamp"></span>[timestamp will go here]<br /><br /><br />
+					<label for="timestamp"> On: </label>
+					<span id="timestamp"></span><br /><br /><br />
 					<strong class="centered">
-					<a href="#" class="nice large radius blue button" >Check-in! &raquo;</a>
+					<a href="#" class="nice large radius blue button" id="checkin" onclick='changetext()'>Check-in! &raquo;</a>
 					</strong>
 					
 					<br /><br /><br />
@@ -92,7 +76,15 @@
 			
 		</div> <!-- row -->
 	</div> <!-- container -->
-
+	<script src="./javascripts/location.js"></script>
+	<script src="./javascripts/jquery.min.js"></script>
+	
+	<script>
+		$(document).ready(function(){
+			getLocation();
+			getCurrentTime();
+		});
+	</script>
 
 	</body>
 

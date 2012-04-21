@@ -30,7 +30,7 @@
 
 	<body>
 
-   <form name="signup" action="create_account.php" method="post" id="signup" class="nice">
+   <form name="signup" action="create_account.php" method="post" id="signup" class="nice" enctype="multipart/form-data">
 	<!-- container -->
 	<div class="container">
 	
@@ -264,7 +264,7 @@
 				<label for="photoUpload">Photo</label>
 				<div></div>
 				
-					<input id="photoUpload" type="file" />
+					<input id="photoUpload" type="file" name="photoUpload"/>
 
 
 			</div> <!-- columns -->
