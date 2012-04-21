@@ -58,6 +58,16 @@ function clearAlerts(){
 function postPicture(){
 	
 }
+
+/*
+ * Handles checking in when drinking a win
+ */
+
+function checkin(){
+	$.post("checkin.php", $("#checkin").serialize(), function(response){
+		//error and success handling
+	});
+}
 		
 /**
  * Tries to let a user signup for an account, after validation.

@@ -35,7 +35,7 @@ function handleNoGeolocation(errorFlag) {
     $('#location_disp').text(content);
 }
 
-//translate longitude/latitude pair into street address
+//translate (longitude, latitude) pair into street address
 function getAddress() {
     // var latlngStr = input.split(",",2);
     // 	    var lat = parseFloat(latlngStr[0]);
@@ -55,6 +55,11 @@ function getAddress() {
             alert("Geocoder failed due to: " + status);
         }
     });
+}
+
+//get (longitude, latitude) pair from street address
+function getLngLat() {
+	
 }
 
 function getCurrentTime() {

@@ -51,9 +51,9 @@
 					<h4 id="checkin_head"> Check-In to WineSquare! </h4>
 					
 					<br />
-					
+					<form name="checkin" action="checkin.php" method="post" id="checkin" class="nice">
 					<label for="winefinder" > You were drinking: </label> <br />
-					<input type="text" class="expand input-text" placeholder="Start typing the name of a wine..." id="winefinder"/><br /><br />
+					<input type="text" class="expand input-text" placeholder="Start typing the name of a wine..." id="wine_drank"/><br /><br />
 					
 					<label for="location"> At: </label>
 					<span id="location_disp"></span>
@@ -62,9 +62,9 @@
 					<label for="timestamp"> On: </label>
 					<span id="timestamp"></span><br /><br /><br />
 					<strong class="centered">
-					<a href="#" class="nice large radius blue button" id="checkin" onclick='changetext()'>Check-in! &raquo;</a>
+					<a href="#" class="nice large radius blue button" id="submit_checkin">Drink! &raquo;</a>
 					</strong>
-					
+					</form>
 					<br /><br /><br />
 					
 					
@@ -77,12 +77,23 @@
 		</div> <!-- row -->
 	</div> <!-- container -->
 	<script src="./javascripts/location.js"></script>
+	<script src="./javascripts/forms.js"></script>
 	<script src="./javascripts/jquery.min.js"></script>
 	
 	<script>
 		$(document).ready(function(){
 			getLocation();
 			getCurrentTime();
+		});
+		
+		$("#submit_checkin").click(function() {
+			checkin();
+		});
+		
+		$(document).keypress(function(e) {
+			if (e.which == 13) {
+				checkin();
+			}
 		});
 	</script>
 
