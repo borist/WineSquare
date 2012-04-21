@@ -7,6 +7,8 @@ Easy things that we still have to do:
 	4. fix wine page 
 	5. get all the backend working/ make links correspond to correct pages
 	6. Fix topbar "Profile" link to actually work! Stefan can you explain how to do this?
+	7. ******fix size of all badges to be 200px by 200px - this is important for cross-browser compatibility. JASON can you please do this?
+	8. get location for check ins (Boris will do this)
 
 Things we MUST do in order to fulfill minimum requirements:
 	1. add search capabilities (in our cases, for both users and wines?)
