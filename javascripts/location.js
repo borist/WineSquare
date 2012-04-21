@@ -43,11 +43,10 @@ function getAddress() {
     geocoder.geocode({
         'latLng': pos
     },
-	//if we want FULL address, change code below to results[0]
     function(results, status) {
         if (status == google.maps.GeocoderStatus.OK) {
-            if (results[1]) {
-                $('#location_disp').text(results[1].formatted_address);
+            if (results[0]) {
+                $('#location_disp').text(results[0].formatted_address);
             } else {
                 alert("Could not determine your location.");
             }
