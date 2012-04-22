@@ -103,7 +103,7 @@ while($activity = mysql_fetch_assoc($allActivity)){
 
 		<!-- Check-in -->
 		<div id="check-in-wrapper" class="three columns offset-by-one">
-					<p><a class="nice radius blue button" id="check-in" href="">
+					<p><a class="nice radius blue button" id="check-in" href="checkin.php">
 								Check in! &raquo;
 						</a></p>
 		</div>

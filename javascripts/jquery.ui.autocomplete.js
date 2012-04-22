@@ -80,6 +80,8 @@ $.widget( "ui.autocomplete", {
 					//passthrough - ENTER and TAB both select the current element
 				case keyCode.TAB:
 					if ( !self.menu.active ) {
+                  // added by me
+                  $("#submit_checkin").focus();
 						return;
 					}
 					self.menu.select( event );
