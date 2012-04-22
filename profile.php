@@ -14,7 +14,8 @@ $wines = "
    SELECT DISTINCT *
    FROM `drank`, `wines`
    WHERE `drank`.`user` = '$user[user]'
-   AND `wines`.`id` = `drank`.`wid`";
+   AND `wines`.`id` = `drank`.`wid`
+   ORDER BY `drank`.`time` DESC";
 $wines = mysql_query($wines);
 $winesTasted = mysql_num_rows($wines);
 $winesProfileInfo = array();
