@@ -4,7 +4,7 @@ Easy things that we still have to do:
 	1. pictures for profiles
 	2. make images (check in button, better badges)
 	3. create check in page
-	4. fix wine page 
+
 	5. get all the backend working/ make links correspond to correct pages
 	6. Fix topbar "Profile" link to actually work! Stefan can you explain how to do this?
 	7. ******fix size of all badges to be 200px by 200px - this is important for cross-browser compatibility. JASON can you please do this?
@@ -17,3 +17,7 @@ Things we MUST do in order to fulfill minimum requirements:
 Cool things to (try to) do (and not forget):
 	1. Autocomplete for search
 	2. friends? could also make adding Delete for CRUD more appropriate
+
+
+COMPLETED
+	4. fix wine page 
