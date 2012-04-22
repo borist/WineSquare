@@ -89,6 +89,7 @@ function postPicture(){
 function checkin(){
 	$.post("checkin.php", $("#checkin").serialize(), function(response){
       alert(response);
+      window.location.replace("index.php");
       //$("#checkin_message").text(response);
 	});
 }

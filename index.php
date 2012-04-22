@@ -7,7 +7,8 @@ $myActivity = "
    SELECT DISTINCT *
    FROM `drank`, `wines`
    WHERE `drank`.`user` = '$user[user]'
-   AND `wines`.`id` = `drank`.`wid`";
+   AND `wines`.`id` = `drank`.`wid`
+   ORDER BY `time` DESC";
 $myActivity = mysql_query($myActivity);
 $recent = array();
 while($activity = mysql_fetch_assoc($myActivity)){
@@ -125,7 +126,7 @@ while($activity = mysql_fetch_assoc($allActivity)){
 							<a href="#"><?php echo $activity['first_name'].' '.$activity['last_name']; ?></a>
 						</h6>
 						<p>
-							<?php echo $activity['first_name'];?> drank a <a href="#"><?php echo $activity['name']; ?></a> at <?php echo easyDate($activity['time']); ?>. 
+							<?php echo $activity['first_name'];?> drank a glass of <a href="#"><?php echo $activity['name']; ?></a> at <?php echo easyDate($activity['time']); ?>. 
 						</p>
 					</div>
 				</div>
@@ -143,7 +144,7 @@ while($activity = mysql_fetch_assoc($allActivity)){
 						</div>
 						<div class="ten columns">
 							<h7><a href=""><?php echo $activity['name']; ?></a></h7>
-							<p>You drank a <?php echo $activity['name']; ?> at <?php echo easyDate($activity['time']); ?> in <?php echo $activity['location']; ?>.</p>
+							<p>You drank a glass of <?php echo $activity['name']; ?> at <?php echo easyDate($activity['time']); ?> in <?php echo $activity['location']; ?>.</p>
 						</div>
 					</div>
                <?php endforeach; ?>
