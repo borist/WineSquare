@@ -28,6 +28,7 @@
 	display:block;
 	float: left;
    border: 1px solid #BBBBBB;
+   background-color:white;
 }
 .ui-menu .ui-menu {
 	margin-top: -3px;

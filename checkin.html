@@ -22,6 +22,7 @@
 	<link rel="stylesheet" href="./styles/profile.css">
 	<link rel="stylesheet" href="./styles/misc.css">
 	<link rel="stylesheet" href="./styles/map.css">
+   <link rel="stylesheet" href="./styles/jquery.ui.autocomplete.css">
 	
 	<style type="text/css">
 		h4 {text-align:center}
@@ -79,12 +80,30 @@
 	<script src="./javascripts/location.js"></script>
 	<script src="./javascripts/forms.js"></script>
 	<script src="./javascripts/jquery.min.js"></script>
+   
+   <!-- jQuery UI Core -->
+   <script src="./javascripts/jquery.ui.core.js"></script>
+   <script src="./javascripts/jquery.ui.widget.js"></script>
+   <script src="./javascripts/jquery.ui.position.js"></script>
+   <script src="./javascripts/jquery.ui.autocomplete.js"></script>
+   <!-- end jQuery UI Core -->
 	
 	<script>
 		$(document).ready(function(){
 			getLocation();
-			getCurrentTime();
+			getCurrentTime();         
 		});
+      
+      $(function() {
+         var wines = [
+            "merlot",
+            "champagne"
+         ];
+         
+         $("#wine_drank").autocomplete({
+            source: wines
+         });
+      });
 		
 		$("#submit_checkin").click(function() {
 			checkin();
