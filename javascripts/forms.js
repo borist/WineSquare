@@ -1,4 +1,3 @@
-
 /**
  ********************************
  * Winesquare Javascript Library
@@ -9,7 +8,7 @@
  * with the forms on the Winesquare website.
  *
  ********************************
- * Copyright © Winesquare Team 2012:
+ * Copyright ï¿½ Winesquare Team 2012:
  * Nathan Fraenkel (nfraenkel18@gmail.com)
  * Jason Lucibello (jason.lucibello@gmail.com)
  * Boris Treskunov (sharkbor@gmail.com)
@@ -129,7 +128,7 @@ function signup(){
 function login(){
    $.post("users.php", $("#loginform").serialize(), function(response){
       if(response != 0){
-         window.location.replace('profile.php');
+         window.location.replace('index.php');
       }
       else {
          alert("Email or password are wrong.");
