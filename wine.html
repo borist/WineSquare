@@ -29,18 +29,9 @@
 		tr{border: 1px solid grey; text-align:left}
 	</style>
 
-	<script language="javascript" src="./javascripts/more.js"></script>
-	<script language="javascript" src="./javascripts/toggle2.js"></script>
-	<script type="text/javascript" src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=AIzaSyBDXirgEQ9KYE1jsyd783mxvVlwEIaVo68"></script>
-	<script type="text/javascript" src="javascripts/jquery.min.js"></script>
-	<script type="text/javascript" src="javascripts/gmap.js"></script>
-	<script type="text/javascript">
-	$(function() {
-		var x = document.getElementById("wine_location");
-	    $("#map").gMap({address: x.innerHTML, zoom: 8});
-		google.maps.event.trigger(map, 'resize');
-	});
-	</script>
+
+	<script type="text/javascript"
+	        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCO667Z5BxNMNrggUtjLSKsG9CDgHAc3e8&sensor=true"></script>
 
 	<!-- Google web fonts -->
 	<link href='http://fonts.googleapis.com/css?family=Ubuntu:700' rel='stylesheet' type='text/css'>
@@ -155,5 +146,17 @@
 			<p>&copy; We're Awesome</p>
 		</div>
 	</div>
+	
+	<script language="javascript" src="./javascripts/more.js"></script>
+	<script language="javascript" src="./javascripts/toggle2.js"></script>
+		<script type="text/javascript" src="javascripts/jquery.min.js"></script>
+	<script type="text/javascript" src="javascripts/gmap.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function() {
+		var x = document.getElementById("wine_location");
+	   	 $("#map").gMap({address: x.innerHTML, zoom: 8});
+		google.maps.event.trigger(map, 'resize');
+	});
+	</script>
 	</body>
 </html>
