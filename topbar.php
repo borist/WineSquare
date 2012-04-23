@@ -47,8 +47,11 @@
 	      </div>
 	      <div class="eight columns hide-on-phones">
 	      	<strong class="right">
+               <form id="search_form" style="float:left; margin-top:-3px;">
 					<input class="search_bar" placeholder="Search..." type="search" id="search" />
                <input type="text" name="swid" id="swid" style="display:none; text-align:center" />
+               <input type="submit" style="display:none;" />
+               </form>
 	      		<a href="profile.php">Profile</a>
 	      		<a href="#" id="logout">Logout</a>	
 	      	</strong>
@@ -91,6 +94,13 @@
                .appendTo( ul );
          };
       });
+      
+   $("#search_form").submit(function(event){
+      // prevent the form from submitting itself
+      event.preventDefault();
+      $wid = "wine.php?wid=" + $("#swid").val();
+      window.location.replace($wid);
+   });
       
    $("#logout").click(function() {
       logout();
