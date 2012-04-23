@@ -61,20 +61,8 @@ while($location = mysql_fetch_assoc($locationsresults)){
 	</head>
 	
 	<body>
-	<div id="topbar">
-	    <div class="row">
-	      <div class="four columns">
-	        <h1><a href="./">WineSquare</a></h1>
-	      </div>
-	      <div class="eight columns hide-on-phones">
-	      	<strong class="right">
-					<input class="search_bar" placeholder="Search..." type="search"/>
-	      		<a href="profile.php">Profile</a>
-	      		<a href="#">Logout</a>	
-	      	</strong>
-	      </div>
-		</div>
-	</div>
+   
+   <?php include 'topbar.php'; ?>
 
 	<div class="container">
 		<br/><br/><br/><br/>
@@ -84,22 +72,12 @@ while($location = mysql_fetch_assoc($locationsresults)){
 		
 		?>
 	</div>
-	<script type="text/javascript" src="./javascripts/jquery.min.js"></script>
-   <script src="./javascripts/forms.js"></script>
 	<script src="./javascripts/location.js"></script>
 
    <script>
-	function test(){
-		alert("fuck");
-	}
-
-	$(document).ready(function() {
-		plotLocation("Miami, Florida");
-	})
-
-   $("#logout").click(function() {
-      logout();
-   });
+      $(document).ready(function() {
+         plotLocation("Miami, Florida");
+      });
    </script>
 	
 </body>

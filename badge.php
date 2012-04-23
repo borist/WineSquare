@@ -101,20 +101,7 @@ while($info = mysql_fetch_assoc($userInfo)){
   </head>
   <body>
 	
-	<div id="topbar">
-	    <div class="row">
-	      <div class="four columns">
-	        <h1><a href="./">WineSquare</a></h1>
-	      </div>
-	      <div class="eight columns hide-on-phones">
-	      	<strong class="right">
-					<input class="search_bar" placeholder="Search..." type="search"/>
-	      		<a href="./profile.php">Profile</a>
-	      		<a href="#">Logout</a>	
-	      	</strong>
-	      </div>
-		</div>
-	</div>
+   <?php include 'topbar.php'; ?>
 	
 	<div id="container">
 		<div class="row">
@@ -157,13 +144,7 @@ while($info = mysql_fetch_assoc($userInfo)){
 			</div>
 		</div>
 		
-	</div>	
-	<script src="./javascripts/forms.js"></script>
+	</div>
 
-   <script>
-   $("#logout").click(function() {
-      logout();
-   });
-   </script>
 	</body>
 </html>

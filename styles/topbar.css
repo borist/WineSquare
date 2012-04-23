@@ -55,6 +55,7 @@
 
 #topbar .search_bar {
 	margin-right:20px;
+   width:385px;
 }
 /* Grid BG */
 #gridBg .row .columns {

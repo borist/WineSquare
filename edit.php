@@ -32,21 +32,8 @@ include 'lib.php';
 	<link href='http://fonts.googleapis.com/css?family=Ubuntu:700' rel='stylesheet' type='text/css'>
   </head>
   <body>
-
-	<div id="topbar">
-	    <div class="row">
-	      <div class="four columns">
-	        <h1><a href="./">WineSquare</a></h1>
-	      </div>
-	      <div class="eight columns hide-on-phones">
-	      	<strong class="right">
-					<input class="search_bar" placeholder="Search..." type="search"/>
-	      		<a href="profile.php">Profile</a>
-	      		<a href="#" id="logout">Logout</a>	
-	      	</strong>
-	      </div>
-		</div>
-	</div>
+  
+  <?php include 'topbar.php'; ?>
 
 <div id="container">
 	  <form name="update" action="" method="post" id="update" class="nice" enctype="multipart/form-data">
@@ -303,11 +290,6 @@ include 'lib.php';
 		</div>
 	</div>
 </div>
-
-	<!-- JavaScript files placed at the bottom to avoid slow loading times --> 
-	<script src="./javascripts/jquery.min.js"></script>
-	<script src="./javascripts/app.js"></script>
-   <script src="./javascripts/forms.js"></script>
    
    <?php
       while($row = mysql_fetch_assoc($badgeCheck)){
@@ -317,9 +299,6 @@ include 'lib.php';
    ?>
    
    <script>
-   	$("#logout").click(function() {
-      	logout();
-   	});
 		$("#deleteProf").click(function() {
 			deleteProfile("<?php echo $user['user']; ?>");
 		});

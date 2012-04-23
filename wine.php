@@ -69,21 +69,8 @@ else{
 	<link href='http://fonts.googleapis.com/css?family=Ubuntu:700' rel='stylesheet' type='text/css'>
   </head>
   <body onload="window.scrollTo(000,160);" onunload="GUnload()">
-	
-	<div id="topbar">
-	    <div class="row">
-	      <div class="four columns">
-	        <h1><a href="./">WineSquare</a></h1>
-	      </div>
-	      <div class="eight columns hide-on-phones">
-	      	<strong class="right">
-					<input class="search_bar" placeholder="Search..." type="search"/>
-	      		<a href="profile.php">Profile</a>
-	      		<a href="#">Logout</a>	
-	      	</strong>
-	      </div>
-		</div>
-	</div>
+  
+  <?php include 'topbar.php'; ?>
 	
 	<div class="rackphoto">				
 	<a>
@@ -158,14 +145,6 @@ else{
 			<p>&copy; We're Awesome</p>
 		</div>
 	</div>
-	
-	<script type="text/javascript" src="./javascripts/jquery.min.js"></script>
-   <script src="./javascripts/forms.js"></script>
-
-   <script>
-   $("#logout").click(function() {
-      logout();
-   });
-   </script>
+   
 	</body>
 </html>

@@ -170,26 +170,6 @@ $RegCount = mysql_num_rows($res);
    die();
 }
 
-/**
- * All wines are inserted into a dynamic array that is
- * then served to the autocomplete to populate in the
- * drop-down menu.
- */
-$allWinesQuery = "
-   SELECT `name`, `id`
-   FROM `wines`";
-$allWines = mysql_query($allWinesQuery);
-$winesArray = array();
-while($all = mysql_fetch_array($allWines)){
-   $wineEntry = "{ 
-      label: \"".addslashes($all['name']). "\",
-      wid: \"".$all['id']."\"
-   }";
-   array_push($winesArray, $wineEntry);
-}
-
-$wines = implode(", ", $winesArray);
-
 ?>
 
 <!DOCTYPE html>
@@ -216,7 +196,6 @@ $wines = implode(", ", $winesArray);
 	<link rel="stylesheet" href="./styles/profile.css">
 	<link rel="stylesheet" href="./styles/misc.css">
 	<link rel="stylesheet" href="./styles/map.css">
-   <link rel="stylesheet" href="./styles/jquery.ui.autocomplete.css">
 	
 	<style type="text/css">
 		h3 {text-align:center; font-size: 36px; color:#0000CC}
@@ -229,21 +208,8 @@ $wines = implode(", ", $winesArray);
   </head>
   <body>
 	
-  <div id="topbar">
-	    <div class="row">
-	      <div class="four columns">
-	        <h1><a href="./">WineSquare</a></h1>
-	      </div>
-	      <div class="eight columns hide-on-phones">
-	      	<strong class="right">
-					<input class="search_bar" placeholder="Search..." type="search"/>
-	      		<a href="profile.php">Profile</a>
-	      		<a href="#" id="logout">Logout</a>	
-	      	</strong>
-	      </div>
-		</div>
-	</div>
-	
+   <?php include 'topbar.php'; ?>
+   
 	<br />
 	<br />
 	<br />
@@ -290,16 +256,6 @@ $wines = implode(", ", $winesArray);
 			
 		</div> <!-- row -->
 	</div> <!-- container -->
-	<script src="./javascripts/location.js"></script>
-	<script src="./javascripts/forms.js"></script>
-	<script src="./javascripts/jquery.min.js"></script>
-   
-   <!-- jQuery UI Core -->
-   <script src="./javascripts/jquery.ui.core.js"></script>
-   <script src="./javascripts/jquery.ui.widget.js"></script>
-   <script src="./javascripts/jquery.ui.position.js"></script>
-   <script src="./javascripts/jquery.ui.autocomplete.js"></script>
-   <!-- end jQuery UI Core -->
 	
 	<script>
    	$("#logout").click(function() {
