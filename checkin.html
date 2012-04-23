@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Check-In!</title>
+    <meta name="description" content="">
+    <meta charset="UTF-8">
+    <meta name="keywords" content="WineSquare"/>
+
+
+
+	<!-- Stylesheet --> 
+	<link rel="stylesheet" href="./styles/globals.css">
+	<link rel="stylesheet" href="./styles/typography.css">
+	<link rel="stylesheet" href="./styles/grid.css">
+	<link rel="stylesheet" href="./styles/ui.css">
+	<link rel="stylesheet" href="./styles/forms.css">
+	<link rel="stylesheet" href="./styles/orbit.css">
+	<link rel="stylesheet" href="./styles/reveal.css">
+	<link rel="stylesheet" href="./styles/mobile.css">
+	<link rel="stylesheet" href="./styles/topbar.css">
+	<link rel="stylesheet" href="./styles/profile.css">
+	<link rel="stylesheet" href="./styles/misc.css">
+	<link rel="stylesheet" href="./styles/map.css">
+   <link rel="stylesheet" href="./styles/jquery.ui.autocomplete.css">
+	
+	<style type="text/css">
+		h4 {text-align:center; font-size:36px; color:#000066}
+		label {text-align:center; font-size:20px; }	
+		p {text-align:center ; font-size:14px; font-weight:bold; color:#}
+	</style>
+	
+	<script type="text/javascript"
+	        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCO667Z5BxNMNrggUtjLSKsG9CDgHAc3e8&sensor=true"></script>
+	
+  </head>
+  <body>
+	
+	<div id="topbar">
+	    <div class="row">
+	      <div class="four columns">
+	        <h1><a href="#">WineSquare</a></h1>
+	      </div>
+	      <div class="eight columns hide-on-phones">
+	      	<strong class="right">
+					<input class="search_bar" placeholder="Search..." type="search"/>
+	      		<a href="example_prof.html">Profile</a>
+	      		<a href="#">Logout</a>	
+	      	</strong>
+	      </div>
+		</div>
+	</div>
+	
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<div class="container">
+
+		<div class="row">
+			<div class="two columns"> </div>
+			
+			<div class="eight columns">
+				<div class="panel">
+					<h4 id="checkin_head"> Check-In to WineSquare! </h4>
+					
+					<br />
+					<form name="checkin" action="checkin.php" method="post" id="checkin" class="nice">
+					<label for="winefinder" > You were drinking: </label> <br />
+					<input type="text" class="expand input-text" placeholder="Start typing the name of a wine..." id="wine_drank"/><br /><br />
+					
+					<div id="data">
+						<ul class="block">
+							<li><label for="location"> At: </label>
+							<p id="location_disp"></p></li>
+							<li><label for="timestamp"> On: </label>
+							<p id="timestamp"></p></li>
+						</ul>
+					</div>
+					<strong class="centered">
+					<br />
+					<center><a href="#" class="nice large radius blue button" id="submit_checkin">Drink! &raquo;</a></center>
+					</strong>
+					</form>
+					<br /><br />
+					
+					
+				</div> <!-- panel -->
+			</div>
+			
+			<div class="two columns">
+			</div>
+			
+		</div> <!-- row -->
+	</div> <!-- container -->
+	<script src="./javascripts/location.js"></script>
+	<script src="./javascripts/forms.js"></script>
+	<script src="./javascripts/jquery.min.js"></script>
+   
+   <!-- jQuery UI Core -->
+   <script src="./javascripts/jquery.ui.core.js"></script>
+   <script src="./javascripts/jquery.ui.widget.js"></script>
+   <script src="./javascripts/jquery.ui.position.js"></script>
+   <script src="./javascripts/jquery.ui.autocomplete.js"></script>
+   <!-- end jQuery UI Core -->
+	
+	<script>
+		$(document).ready(function(){
+			getLocation();
+			getCurrentTime();         
+		});
+      
+      $(function() {
+         var wines = [
+            "merlot",
+            "champagne"
+         ];
+         
+         $("#wine_drank").autocomplete({
+            source: wines
+         });
+      });
+		
+		$("#submit_checkin").click(function() {
+			checkin();
+		});
+		
+		$(document).keypress(function(e) {
+			if (e.which == 13) {
+				checkin();
+			}
+		});
+	</script>
+
+	</body>
+
+</html>
