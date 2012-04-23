@@ -53,12 +53,12 @@ if(isset($_GET['wid'])){
 		tr{border: 1px solid grey; text-align:left}
 	</style>
 
-	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCO667Z5BxNMNrggUtjLSKsG9CDgHAc3e8&sensor=true"></script>
+	<script src="http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=false" type="text/javascript"></script> 
 
 	<!-- Google web fonts -->
 	<link href='http://fonts.googleapis.com/css?family=Ubuntu:700' rel='stylesheet' type='text/css'>
   </head>
-  <body onload="window.scrollTo(000,160);">
+  <body onload="window.scrollTo(000,160);" onunload="GUnload()">
 	
 	<div id="topbar">
 	    <div class="row">
@@ -101,7 +101,31 @@ if(isset($_GET['wid'])){
 			
 			</li>
 			<li>
-				<div id="map" style="width: 450px; height: 320px; border: 1px solid #777; overflow: hidden;"></div>
+				<div id="map_canvas" style="width: 450px; height: 320px; border: 1px solid #777; overflow: hidden;"></div> 
+            <script type="text/javascript"> 
+
+            var userLocation = document.getElementById("wine_location").innerHTML;
+
+            if (GBrowserIsCompatible()) {
+             var geocoder = new GClientGeocoder();
+             geocoder.getLocations(userLocation, function (locations) {         
+                if (locations.Placemark) {
+                   var north = locations.Placemark[0].ExtendedData.LatLonBox.north;
+                   var south = locations.Placemark[0].ExtendedData.LatLonBox.south;
+                   var east  = locations.Placemark[0].ExtendedData.LatLonBox.east;
+                   var west  = locations.Placemark[0].ExtendedData.LatLonBox.west;
+
+                   var bounds = new GLatLngBounds(new GLatLng(south, west), 
+                                                  new GLatLng(north, east));
+
+                   var map = new GMap2(document.getElementById("map_canvas"));
+
+                   map.setCenter(bounds.getCenter(), map.getBoundsZoomLevel(bounds));
+                   map.addOverlay(new GMarker(bounds.getCenter()));
+                }
+             });
+            }
+            </script> 
 			</li>
 			</ul>
 			</div>
@@ -170,15 +194,6 @@ if(isset($_GET['wid'])){
 	</div>
 	
 	<script language="javascript" src="./javascripts/more.js"></script>
-	<script language="javascript" src="./javascripts/toggle2.js"></script>
-		<script type="text/javascript" src="javascripts/jquery.min.js"></script>
-	<script type="text/javascript" src="javascripts/gmap.js"></script>
-	<script type="text/javascript">
-	$(document).ready(function() {
-		var x = document.getElementById("wine_location");
-	   	 $("#map").gMap({address: x.innerHTML, zoom: 8});
-		google.maps.event.trigger(map, 'resize');
-	});
-	</script>
+	<script type="text/javascript" src="./javascripts/jquery.min.js"></script>
 	</body>
 </html>
