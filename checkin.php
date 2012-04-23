@@ -24,9 +24,8 @@ $badgeNumberQuery = "
 	SELECT COUNT(*)
 	FROM 'drank'
 	WHERE user = $user";
-$res = mysql_query($badgeNumberQuery);
-pretty($res);
-while($row = mysql_fetch_assoc($res)){
+$badgeNumberQuery = mysql_query($badgeNumberQuery);
+while($row = mysql_fetch_assoc($badgeNumberQuery)){
 	$RegCount = $row;
 }	
 	echo "$RegCount";
