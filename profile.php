@@ -32,6 +32,17 @@ $uniqueWines = "
 $uniqueWines = mysql_query($uniqueWines);
 $winesTasted = mysql_num_rows($uniqueWines);
 
+$lastlocation = "
+	SELECT `drank`.`location`
+	FROM `drank`
+	WHERE `drank`.`user` = '$user[user]'
+	ORDER BY `drank`.`time` DESC";
+$lastlocation = mysql_query($lastlocation);
+$latestlocation = array();
+while($result = mysql_fetch_assoc($lastlocation)){
+	$latestlocation[] = $result;
+}
+
 //pretty($winesProfileInfo);
 //pretty($user);
 
@@ -89,7 +100,7 @@ $winesTasted = mysql_num_rows($uniqueWines);
 						<?php echo $user['first_name'].' '.$user['last_name']; ?>
 					</h3>
 					<p>
-						<?php echo "Location of last checkin: ".$user['location']; ?>
+						<?php echo "<strong>Last drank at: </strong>".' '.$latestlocation[0]['location'];  ?>
 					</p>
 					<!-- Profile Stats -->
 					<div id="stats">

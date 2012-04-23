@@ -10,6 +10,13 @@ else{
 	header("Location: index.php");
 }
 
+if(isset($_GET['uid'])){
+	$curr = $_GET['uid'];
+}
+else{
+	$curr = $user['user'];
+}
+
 $badgeInfo = "
 	SELECT *
 	FROM `badge`
@@ -26,7 +33,7 @@ while($info = mysql_fetch_assoc($badgeInfo)){
 $hasBadge = "
 	SELECT *
 	FROM `hasbadge`
-	WHERE `hasbadge`.`uid` = '$user[user]'
+	WHERE `hasbadge`.`uid` = '$curr'
 	";
 	
 $hasBadge = mysql_query($hasBadge);
@@ -34,6 +41,20 @@ $has = array();
 while($info = mysql_fetch_assoc($hasBadge)){
 	$has[] = $info;
 }
+
+
+$userInfo = "
+	SELECT *
+	FROM `users`
+	WHERE `users`.`user` = '$curr'
+	";
+	
+$userInfo = mysql_query($userInfo);
+$currUser = array();
+while($info = mysql_fetch_assoc($userInfo)){
+	$currUser[] = $info;
+}
+
 
 //pretty($badge);
 
@@ -46,7 +67,7 @@ while($info = mysql_fetch_assoc($hasBadge)){
   <head>
     <meta charset="utf-8">
     <title>WineSquare</title>
-    <meta name="description" content="<?php echo $user['first_name']; ?>'s badge">
+    <meta name="description" content="<?php echo $currUser[0]['first_name']; ?>'s <?php echo $badge[0]['title']?> badge">
     <meta name="keywords" content="WineSquare"/>
 
 	<title> Badge </title>
@@ -101,7 +122,7 @@ while($info = mysql_fetch_assoc($hasBadge)){
 				</div>
 				<div class="eight columns">
 					<div class="panel center_all">
-						<a href="./badges.php" class="header"> See All Badges </a> 
+						<a href="./badges.php?uid=<?php echo $curr?>" class="header"> See All Badges </a> 
 						<hr />
 						
 						<ul class="block-grid two-up">
@@ -116,7 +137,7 @@ while($info = mysql_fetch_assoc($hasBadge)){
 								<h6><i> <?php echo $badge[0]['descrip']?></i></p>
 								</br>
 								
-								<p> Earned by <a href="#"><?php echo $user['first_name']; ?> <?php echo $user['last_name']; ?></a> on <?php echo $has[0]['time']?></p> <!-- NEEDS THE REAL FUNCTIONALITY -->
+								<p> Earned by <a href="#"><?php echo $currUser[0]['first_name']; ?> <?php echo $currUser[0]['last_name']; ?></a> on <?php echo $has[0]['time']?></p> <!-- NEEDS THE REAL FUNCTIONALITY -->
 							</li>
 						</ul>
 					</div>
