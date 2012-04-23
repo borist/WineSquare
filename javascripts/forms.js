@@ -106,7 +106,6 @@ function signup(){
           if(response){
              alert("Welcome to Winesquare!"); //redirect to success page
              $("#image_upload").submit();
-             window.location.replace("index.php");
 			 }
           else {
              $("#alert").text("There was an error with the database. Please try again.");

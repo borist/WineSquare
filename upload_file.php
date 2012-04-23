@@ -22,6 +22,7 @@ if ((($photoType == "image/jpeg") || ($photoType == "image/jpg") ||
     }
     else {
       move_uploaded_file($photoTemp, $photo);
+      header("Location: index.php");
     }
   }
 }
