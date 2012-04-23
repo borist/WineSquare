@@ -33,7 +33,7 @@ while($info = mysql_fetch_assoc($badgeInfo)){
 $hasBadge = "
 	SELECT *
 	FROM `hasbadge`
-	WHERE `hasbadge`.`uid` = '$curr'
+	WHERE `hasbadge`.`uid` = '$curr' AND `hasbadge`.`title` = '$b_title'
 	";
 	
 $hasBadge = mysql_query($hasBadge);
