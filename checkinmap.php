@@ -100,7 +100,7 @@ pretty($locations);
 		var loc = "<?php echo $locations; ?>";
 		alert(loc);
 		
-		plotLocation("Miami, Florida");
+		plotLocation("3300 Walnut St, University of Pennsylvania, Philadelphia, PA 19104, USA");
 	})
 
    $("#logout").click(function() {
