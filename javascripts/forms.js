@@ -152,3 +152,13 @@ function logout(){
       }
    });
 }
+
+function deleteProfile() {
+	var choice = confirm("Are you sure you'd like to delete your profile?");
+	if (choice) {
+		//delete profile
+	}
+	else {
+		//just go back to update page
+	}
+}

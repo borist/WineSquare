@@ -283,7 +283,8 @@
 			<br/>
 
 			<div class="row">
-					<p><a class='nice radius blue button' id="submit">Update Profile &raquo;</a></p>
+					<p><a id="updateProf" class='nice radius blue button' style="margin-right:20px;">Update Profile &raquo;</a>
+					<a id="deleteProf" class='nice radius red button'>Delete Profile &raquo;</a></p>
 			</div> <!-- row -->
 		</form>
 
@@ -302,7 +303,10 @@
    <script src="./javascripts/forms.js"></script>
    
    <script>
-//insert functions
+
+		$("#deleteProf").click(function() {
+			deleteProfile();
+		});
    </script>
 
   </body>
