@@ -95,7 +95,7 @@ while($activity = mysql_fetch_assoc($allActivity)){
 					</h3>
 					<a href="./profile.php" class="subheader"><p>View your profile</p></a>
 					<a href="./profile.php" class="subheader"><p>Edit profile</p></a>
-					<a href="./profile.php" class="subheader"><p>View your badges</p></a>
+					<a href="./badges.php?uid=<?php echo $user['user']; ?>" class="subheader"><p>View your badges</p></a>
 					<a href="./profile.php" class="subheader"><p>View your wine recommendations</p></a>
 				</div>
 			</div>
