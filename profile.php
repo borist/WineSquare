@@ -62,7 +62,7 @@ while($badge = mysql_fetch_assoc($myBadges)){
  * have locations or years in common with your drinking history 
  */
 $recommendResults = "
-	SELECT DISTINCT *
+	SELECT DISTINCT w.*
 	FROM `drank` AS d, `wines` AS w
 	WHERE d.`wid`=w.`id` AND (
 		(w.`country` IN 
@@ -244,19 +244,18 @@ while($recom = mysql_fetch_assoc($recommendResults)){
 				<div id="userRecs">
 					<a href="#">See All</a>
 					<h5><span>Recommendations</span></h5>
-					<ul class="block-grid four-up">
+					<ul class="block-grid five-up">
 					<?php $num = 1;
 						foreach($recommendations as $r) : 
 						if (!(url_exists($r['pic']))) {
 							continue;
 						}
-						echo $r['pic'];
 						?>
 						
-						<li><div class="badge columns center_all">
+						<li><div style="max-height:100px; min-height:100px" class="badge columns center_all">
 							<a href="./wine.php"><img src=<?php
 							echo $r['pic'];
-							?>/></a>
+							?>></img></a>
 						</div>
 					</li>
 					
