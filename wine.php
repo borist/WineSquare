@@ -139,6 +139,7 @@ if(isset($_GET['wid'])){
 									<strong>Appelation:</strong> Pauillac <br/><br/>
 									<strong>Wine Type:</strong> Still Wine <br/><br/>
 									<strong>Fruit Source:</strong> Producer owned <br/><br/>
+									<strong>Description:</strong> I am a wine!
 								</h6>
 								</li>
 								<li>
