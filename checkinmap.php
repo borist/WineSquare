@@ -3,6 +3,7 @@
 include 'connect.php';
 include 'lib.php';
 
+//change this to work to the whoevers profile you're looking at
 $currUser = $user['user'];
 
 $locationsQuery = "
@@ -13,11 +14,15 @@ $locationsQuery = "
 
 $locationsresults = mysql_query($locationsQuery);
 $locations = array();
+$index=0;
 while($location = mysql_fetch_assoc($locationsresults)){
-	$locations[] = $location;
+	$locations[] = $location['location'];
+	$index++;
 }
+$encoded=json_encode($locations);
+echo $encoded;
+pretty($locations);
 
-//pretty($locations);
 ?>
 
 
@@ -75,9 +80,17 @@ while($location = mysql_fetch_assoc($locationsresults)){
 	<script src="./javascripts/location.js"></script>
 
    <script>
-      $(document).ready(function() {
-         plotLocation("Miami, Florida");
-      });
+      //$(document).ready(function() {
+      //   plotLocation("Miami, Florida");
+      //});
+
+	$(document).ready(function() {
+	
+		var loc = "<?php echo $locations; ?>";
+		alert(loc);
+		
+		plotLocation("3300 Walnut St, University of Pennsylvania, Philadelphia, PA 19104, USA");
+	})
    </script>
 	
 </body>
