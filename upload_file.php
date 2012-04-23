@@ -17,13 +17,8 @@ $photo = 'images/'.$user.'.jpg';
 if ((($photoType == "image/jpeg") || ($photoType == "image/jpg") || 
       ($photoType == "image/pjpeg")) && ($photoSize < 100000)){
   if ($photoErrs == 0) {
-    if (file_exists($photo)) {
-      echo $photo." already exists. ";
-    }
-    else {
-      move_uploaded_file($photoTemp, $photo);
-      header("Location: index.php");
-    }
+    move_uploaded_file($photoTemp, $photo);
+    header("Location: index.php");
   }
 }
 else {
