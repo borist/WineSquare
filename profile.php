@@ -14,7 +14,8 @@ $wines = "
    SELECT DISTINCT *
    FROM `drank`, `wines`
    WHERE `drank`.`user` = '$user[user]'
-   AND `wines`.`id` = `drank`.`wid`";
+   AND `wines`.`id` = `drank`.`wid`
+   ORDER BY `drank`.`time` DESC";
 $wines = mysql_query($wines);
 $winesTasted = mysql_num_rows($wines);
 $winesProfileInfo = array();
@@ -41,7 +42,6 @@ while($result = mysql_fetch_assoc($wines)){
 	<link rel="stylesheet" href="./styles/grid.css">
 	<link rel="stylesheet" href="./styles/ui.css">
 	<link rel="stylesheet" href="./styles/forms.css">
-	<link rel="stylesheet" href="./styles/orbit.css">
 	<link rel="stylesheet" href="./styles/reveal.css">
 	<link rel="stylesheet" href="./styles/mobile.css">
 	<link rel="stylesheet" href="./styles/topbar.css">

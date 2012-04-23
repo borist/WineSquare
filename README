@@ -2,18 +2,19 @@ This is where super awesome useful notes go about WineSquare once we're done cre
 
 Easy things that we still have to do:
 	1. pictures for profiles
-	2. make images (check in button, better badges)
-	3. create check in page
-	4. fix wine page 
-	5. get all the backend working/ make links correspond to correct pages
-	6. Fix topbar "Profile" link to actually work! Stefan can you explain how to do this?
-	7. ******fix size of all badges to be 200px by 200px - this is important for cross-browser compatibility. JASON can you please do this?
+	2. change profile picture from "from: " to "last drank at: "
+	3. BADGES
+	4. get all the backend working/ make links correspond to correct pages
+	5. Fix topbar "Profile" link to actually work! Stefan can you explain how to do this?
+	6. ******fix size of all badges to be 200px by 200px - this is important for cross-browser compatibility. JASON can you please do this?
+	7. link to profiles and wine pages from a user's index page
 
 Things we MUST do in order to fulfill minimum requirements:
 	1. add search capabilities (in our cases, for both users and wines?)
 	2. need Delete for CRUD. i guess we could have users able to delete their profiles?
-	3. some sort of intelligence - we could either do recommendations OR something with location? aka when people check in we keep track of where it was that they checked in from (I'm not sure how location == intelligence?)
+	3. which part of our project is technically "Update"?
+	4. some sort of intelligence - we could either do recommendations OR something with location? aka when people check in we keep track of where it was that they checked in from (I'm not sure how location == intelligence?)
 
 Cool things to (try to) do (and not forget):
 	1. Autocomplete for search
-	2. friends? could also make adding Delete for CRUD more appropriate
+
