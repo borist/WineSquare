@@ -157,19 +157,7 @@ while($result = mysql_fetch_assoc($wines)){
 							<li><img src="http://placehold.it/100x100" /></li>
 						</ul>	
 					</div>
-				<!-- Mayorships	 -->
-					<div id="userMayorship">
-						<h5>Mayorship</h5>
-						<div class="row">
-							<div class="four columns">
-								<img src="http://placehold.it/400x300" />
-							</div>
-							<div class="eight columns">
-								<p>Congratulations! You've drank the most <a href="#">Merlot</a> wine. Enjoy your time as mayor!</p>
-							</div>
-						</div>
-					</div>
-				<!-- Friends	 -->
+				<!-- Recommendations	 -->
 				<div id="userRecs">
 					<a href="#">See All</a>
 					<h5><span>Recommendations</span></h5>
