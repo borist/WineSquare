@@ -121,6 +121,35 @@ function signup(){
   	default: break;
   }
 }
+
+/**
+ * Updates the account information for the given user
+ */
+
+function updateProfile(){
+	clearAlerts();
+  	switch (validateAccount()) {
+  	case 0: 
+			$("#alert").text("Please fix the errors below.");
+			$("#alert").css("display", "block"); 
+		break;
+	case 1: 
+			postPicture();
+			$.post("users.php", $("#update").serialize(), function(data){
+          if(data){
+             alert("Your information was updated!"); //redirect to success page
+             window.location.replace("index.php");
+			 }
+          else {
+             $("#alert").text("There was an error with the database. Please try again.");
+				 $("#alert").css("display", "block"); 
+          }
+       });
+		
+		break;
+  	default: break;
+  }
+}
      
 /**
  * Logs the user in based on the credentials entered in the

@@ -49,12 +49,12 @@ include 'lib.php';
 	</div>
 
 <div id="container">
-	  <form name="signup" action="" method="post" id="signup" class="nice" enctype="multipart/form-data">
+	  <form name="update" action="" method="post" id="update" class="nice" enctype="multipart/form-data">
 
 			<div class="row">
 				<div class="twelve columns">
 					<br /><br />
-					<h2> Nathan Fraenkel</h2>
+					<h2><?php echo $user['first_name'].' '.$user['last_name']; ?></h2>
 					<p>Please change any information you would like to be updated.</p>
 				<hr />
 				</div> <!-- twelve cols -->
@@ -69,21 +69,21 @@ include 'lib.php';
 
 						<div class="form-field" id="fname_wrapper">
 							<label for="firstname">First Name*</label>
-							<input type="text" class="small input-text" id="firstname" name="firstname" />
+							<input type="text" class="small input-text" id="firstname" name="firstname" value="<?php echo $user['first_name']; ?>" />
 							<small id="fname_small">Please enter a name</small>
 						</div>
 						<div class='form-field' id="lname_wrapper">
 							<label for="lastname">Last Name*</label>
-							<input type="text" class="small input-text" id="lastname" name="lastname" />
+							<input type="text" class="small input-text" id="lastname" name="lastname" value="<?php echo $user['last_name']; ?>" />
 							<small id="lname_small">Please enter a name</small>						
 						</div>
 						<div class='form-field' id="email_wrapper">
 							<label for="email">Email Address*</label>
-							<input type="text" class="input-text" id="email" name="email" />
+							<input type="text" class="input-text" id="email" name="email" value="<?php echo $user['user']; ?>" disabled />
 							<small id="email_small">Please enter a valid email address</small>						
 						</div>
 						<div class='form-field' id="pword1_wrapper">
-							<label for="password1">Password*</label>
+							<label for="password1">New Password*</label>
 							<input type="password" class="input-text" id="password1" name="password" />
 							<small id="pword1_small">Your passwords do not match</small>						
 						</div>
@@ -93,7 +93,7 @@ include 'lib.php';
 							<small id="pword2_small">Your passwords do not match</small>						
 						</div>
 
-	               <input name="code" value="create_account" style="display:none" />
+	               <input name="code" value="update_account" style="display:none" />
 
 						<label for="maleradio">Gender*</label>
 						<input checked type="radio" name="sex" value="male" 	id="maleradio"/> Male<br/>
@@ -320,6 +320,9 @@ include 'lib.php';
 		$("#deleteProf").click(function() {
 			deleteProfile("<?php echo $user['user']; ?>");
 		});
+      $("#updateProf").click(function() {
+         updateProfile();
+      });
    </script>
 
   </body>
