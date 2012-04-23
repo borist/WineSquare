@@ -1,3 +1,10 @@
+<?php
+
+include 'connect.php';
+include 'lib.php';
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -302,10 +309,16 @@
 	<script src="./javascripts/app.js"></script>
    <script src="./javascripts/forms.js"></script>
    
+   <?php
+      while($row = mysql_fetch_assoc($badgeCheck)){
+         $count = $row;
+      }
+      echo $count;
+   ?>
+   
    <script>
-
 		$("#deleteProf").click(function() {
-			deleteProfile();
+			deleteProfile("<?php echo $user['user']; ?>");
 		});
    </script>
 

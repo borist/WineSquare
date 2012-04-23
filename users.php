@@ -46,8 +46,16 @@ function create_account(){
 
    $query = "INSERT INTO `users` (`user`, `password`, `first_name`, `last_name`, `sex`, `birthday`) VALUES ('$email', '$password', '$firstname', '$lastname', '$sex', '$date')";
    mysql_query($query);
+   
+   $query = "SELECT * FROM `users` WHERE `user` = '$email'";
+   $selectUser = mysql_query($query);
+   while($result = mysql_fetch_assoc($selectUser)){
+      $user[] = $result;
+   }
+   $_SESSION['user'] = $user;
 
    echo 1;
+   die();
 }
 
 
@@ -79,8 +87,8 @@ function login(){
    }
    else {
       echo 0;
-      die();
    }
+   die();
 }
 
 
@@ -94,6 +102,35 @@ function logout(){
    }
    session_destroy();
    echo 1;
+   die();
+}
+
+
+/**
+ * Deletes a user from the database 
+ * and all records associated with it
+ */
+function delete_account($uid){
+   $deleteUserQuery = "
+      DELETE
+      FROM `users`
+      WHERE `user` = '$uid'";
+   $deleteDrankQuery = "
+      DELETE
+      FROM `drank`
+      WHERE `user` = '$uid'";
+   $deleteHasBadgeQuery = "
+      DELETE
+      FROM `hasbadge`
+      WHERE `uid` = '$uid'";
+   mysql_query($deleteUserQuery);
+   mysql_query($deleteDrankQuery);
+   mysql_query($deleteHasBadgeQuery);
+   
+   logout();
+   
+   echo 1;
+   die();
 }
 
 
@@ -110,6 +147,8 @@ if($code == "logout")
    logout();
 if($code == "create_account")
    create_account();
+if($code == "delete_account")
+   delete_account($_POST['prof']);
 
 
 ?>

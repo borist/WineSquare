@@ -107,9 +107,10 @@ function signup(){
 	case 1: 
 			postPicture();
 			$.post("users.php", $("#signup").serialize(), function(data){
-          if(data == 1){
-             alert("success!"); //redirect to success page
-				}
+          if(data){
+             alert("Welcome to Winesquare!"); //redirect to success page
+             window.location.replace("index.php");
+			 }
           else {
              $("#alert").text("There was an error with the database. Please try again.");
 				 $("#alert").css("display", "block"); 
@@ -153,10 +154,21 @@ function logout(){
    });
 }
 
-function deleteProfile() {
-	var choice = confirm("Are you sure you'd like to delete your profile?");
-	if (choice) {
+/**
+ * Deletes a profile. Asks the user for confirmation before that
+ */
+function deleteProfile(pid) {
+	if (confirm("Are you sure you'd like to delete your profile?")) {
 		//delete profile
+      $.post("users.php", { code:"delete_account", prof:pid }, function(response){
+         if(response != 0){
+            alert("Your account and all associated data have been deleted!");
+            window.location.replace('login.html');
+         }
+         else {
+            alert("Your profile could not be deleted from Winesquare!");
+         }
+      });
 	}
 	else {
 		//just go back to update page
