@@ -33,37 +33,37 @@ while($row = mysql_fetch_assoc($badgeNumber)){
 	if($RegCount == 1){
 	   $BadgeQuery = "
 	      INSERT INTO `hasbadge`
-	      VALUES ('$uid[user]', '$title[`The Vet`]', NOW())";
+	      VALUES ('$uid[user]', '$title[`The Vet`]`, NOW())";
 	   $finished = mysql_query($BadgeQuery);
 	else if($RegCount == 3){
 	   $BadgeQuery = "
 	      INSERT INTO `hasbadge`
-	      VALUES ('$uid[user]', '$title[`The Vet`]', NOW())";
+	      VALUES ('$uid[user]', '$title[`The Vet`]`, NOW())";
 	   $finished = mysql_query($BadgeQuery);
 	else if($RegCount == 10){
 	   $BadgeQuery = "
 	      INSERT INTO `hasbadge`
-	      VALUES ('$uid[user]', '$title[`The Vet`]', NOW())";
+	      VALUES ('$uid[user]', '$title[`The Vet`]`, NOW())";
 	   $finished = mysql_query($BadgeQuery);
 	else if($RegCount == 25){
 	   $BadgeQuery = "
 	      INSERT INTO `hasbadge`
-	      VALUES ('$uid[user]', '$title[`The Vet`]', NOW())";
+	      VALUES ('$uid[user]', '$title[`The Vet`]`, NOW())";
 	   $finished = mysql_query($BadgeQuery);
 	else if($RegCount == 35){
 	   $BadgeQuery = "
 	      INSERT INTO `hasbadge`
-	      VALUES ('$uid[user]', '$title[`The Vet`]', NOW())";
+	      VALUES ('$uid[user]', '$title[`The Vet`]`, NOW())";
 	   $finished = mysql_query($BadgeQuery);
 	else if($RegCount == 50){
 	   $BadgeQuery = "
 	      INSERT INTO `hasbadge`
-	      VALUES ('$uid[user]', '$title[`The Vet`]', NOW())";
+	      VALUES ('$uid[user]', '$title[`The Vet`]`, NOW())";
 	   $finished = mysql_query($BadgeQuery);
 	else if($RegCount == 100){
 	   $BadgeQuery = "
 	      INSERT INTO `hasbadge`
-	      VALUES ('$uid[user]', '$title[`The Vet`]', NOW())";
+	      VALUES ('$uid[user]', '$title[`The Vet`]`, NOW())";
 	   $finished = mysql_query($BadgeQuery);
 	
 
@@ -81,13 +81,13 @@ while($row = mysql_fetch_assoc($badgeExplore)){
 	if($ExploreCount == 7){
 	   $BadgeQuery = "
 	      INSERT INTO `hasbadge`
-	      VALUES ('$uid[user]', '$title[`The Explorer`]', NOW())";
+	      VALUES ('$uid[user]', '$title[`The Explorer`]`, NOW())";
 	   $finished = mysql_query($BadgeQuery);
 		
 	else if($ExploreCount == 30){
 	   $BadgeQuery = "
 	      INSERT INTO `hasbadge`
-	      VALUES ('$uid[user]', '$title[`The Pioneer`]', NOW())";
+	      VALUES ('$uid[user]', '$title[`The Pioneer`]`, NOW())";
 	   $finished = mysql_query($BadgeQuery);
 
 	$badgeSheenQuery = "
@@ -104,10 +104,10 @@ while($row = mysql_fetch_assoc($badgeExplore)){
 		if($SheenCount == 101){
 		   $BadgeQuery = "
 		      INSERT INTO `hasbadge`
-		      VALUES ('$uid[user]', '$title[`The Sheen`]', NOW())";
+		      VALUES ('$uid[user]', '$title[`The Sheen`]`, NOW())";
 		   $finished = mysql_query($BadgeQuery);
 
-
+pretty($finished);
    if($result){
       echo "You successfully checked in with a glass of $_POST[wine_drank] at $_POST[location]! Cheers!";
    }
