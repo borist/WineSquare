@@ -29,8 +29,9 @@
 		tr{border: 1px solid grey; text-align:left}
 	</style>
 
-	<script type="text/javascript" src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=AIzaSyBDXirgEQ9KYE1jsyd783mxvVlwEIaVo68"></script>
-
+	<script type="text/javascript" src="http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=false&amp;key=AIzaSyBDXirgEQ9KYE1jsyd783mxvVlwEIaVo68&amp;hl=en"></script>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.0/jquery.min.js"></script>
+	
 
 	<!-- Google web fonts -->
 	<link href='http://fonts.googleapis.com/css?family=Ubuntu:700' rel='stylesheet' type='text/css'>
@@ -56,7 +57,7 @@
 	<a href="#">
 		<img src="./images/red_wines.jpg" />
 		<div class="wine_bar">
-			<span></span>
+			<span></span>		  
 			<em><h3> 1966 Chateau Latour Grand Vin </h4></em>	
 		</div>
 	</a>
@@ -157,5 +158,21 @@
 		google.maps.event.trigger(map, 'resize');
 	});
 	</script>
+	
+	
+	<style type="text/css"> 
+	.rackphoto span{
+	  width:160px;
+	  height:160px;
+	  position:absolute;
+	  border: 1px solid #eee;
+	  top:225px;
+	  left:90px;
+	  margin:auto;
+	  display:block;
+	  background-size: 100%;
+	  background:url("images/latour1996.jpeg") no-repeat;
+	}
+	</style>
 	</body>
 </html>
