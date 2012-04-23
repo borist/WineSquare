@@ -317,6 +317,9 @@ include 'lib.php';
    ?>
    
    <script>
+   	$("#logout").click(function() {
+      	logout();
+   	});
 		$("#deleteProf").click(function() {
 			deleteProfile("<?php echo $user['user']; ?>");
 		});

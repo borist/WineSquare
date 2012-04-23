@@ -158,5 +158,12 @@ while($info = mysql_fetch_assoc($userInfo)){
 		</div>
 		
 	</div>	
+	<script src="./javascripts/forms.js"></script>
+
+   <script>
+   $("#logout").click(function() {
+      logout();
+   });
+   </script>
 	</body>
 </html>

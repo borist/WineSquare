@@ -302,6 +302,10 @@ $wines = implode(", ", $winesArray);
    <!-- end jQuery UI Core -->
 	
 	<script>
+   	$("#logout").click(function() {
+      	logout();
+   	});
+	
 		$(document).ready(function(){
 			getLocation();
 			getCurrentTime();         

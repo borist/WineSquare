@@ -89,7 +89,8 @@ while($info = mysql_fetch_assoc($userInfo)){
 	<div id="container">
 		<div class="row">
 			<div class="panel center_all nine">
-				<h4><span><a href="example_prof.html" class="header"><?php echo $currUser[0]['first_name']; ?>'s Badges</a></span></h3>
+
+				<h4><span><a href="./profile.php?pid=<?php echo $currUser[0]['user']?>"><?php echo $currUser[0]['first_name']; ?>'s Badges</a></span></h3>
 					<p style="margin-top:15px;">These are all the badges that <?php echo $currUser[0]['first_name']; ?> has unlocked by drinking wine! 
 						Click on a badge to learn more about it, including how to earn one for yourself!</p>
 					<div id="userBadges" style="margin-top:25px; margin-left:auto; margin-right:auto;">
@@ -144,6 +145,15 @@ while($info = mysql_fetch_assoc($userInfo)){
 			</div>
 		</div>
 		
-	</div>	
+	</div>
+	
+	<script src="./javascripts/forms.js"></script>
+
+   <script>
+   $("#logout").click(function() {
+      logout();
+   });
+   </script>
+	
 	</body>
 </html>

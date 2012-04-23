@@ -160,5 +160,12 @@ else{
 	</div>
 	
 	<script type="text/javascript" src="./javascripts/jquery.min.js"></script>
+   <script src="./javascripts/forms.js"></script>
+
+   <script>
+   $("#logout").click(function() {
+      logout();
+   });
+   </script>
 	</body>
 </html>
