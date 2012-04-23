@@ -21,23 +21,12 @@ if(isset($_POST['wine_drank'])){
 */
 
 $badgeNumberQuery = "
-<<<<<<< HEAD
 	SELECT *
 	FROM `drank`
 	WHERE `drank`.`user` = '$user[user]'
 	";
 $res = mysql_query($badgeNumberQuery);
 $RegCount = mysql_num_rows($res);
-// while($row = mysql_fetch_assoc($res)){
-// 	$RegCount = $row;
-// }	
-	$me = $user['user'];
-	
-	SELECT COUNT(*)
-	FROM 'drank'
-	WHERE user = $user";
-$badgeNumberQuery = mysql_query($badgeNumberQuery);
-$RegCount = mysql_num_rows($badgeNumberQuery);
 
 	if($RegCount == 1){
 		$title = "The n00b";
@@ -45,7 +34,9 @@ $RegCount = mysql_num_rows($badgeNumberQuery);
 	      INSERT INTO `hasbadge`
 	      VALUES ('$me', '$title', NOW())";
 	   $finished = mysql_query($BadgeQuery);
-		echo 'Congratulations! You just earned a new badge! Go to your profile page page to see it! <br/><br/>';
+		echo 'Congratulations! You just earned a new badge! Go to your profile page page to see it!
+		
+		';
 	}
 	 if($RegCount == 3){
 		$title = "The Newbie";
@@ -53,7 +44,9 @@ $RegCount = mysql_num_rows($badgeNumberQuery);
 	      INSERT INTO `hasbadge`
 	      VALUES ('$me', '$title', NOW())";
 	   $finished = mysql_query($BadgeQuery);
-		echo 'Congratulations! You just earned a new badge! Go to your profile page page to see it! "\n\n"';
+		echo 'Congratulations! You just earned a new badge! Go to your profile page page to see it! 
+		
+		';
 	
 	}
 	 if($RegCount == 10){
@@ -62,7 +55,9 @@ $RegCount = mysql_num_rows($badgeNumberQuery);
 	      INSERT INTO `hasbadge`
 	      VALUES ('$me', '$title', NOW())";
 	   $finished = mysql_query($BadgeQuery);
-		echo 'Congratulations! You just earned a new badge! Go to your profile page page to see it! "\n\n"';
+		echo 'Congratulations! You just earned a new badge! Go to your profile page page to see it! 
+		
+		';
 	
 	}
 	 if($RegCount == 25){
@@ -71,7 +66,9 @@ $RegCount = mysql_num_rows($badgeNumberQuery);
 	      INSERT INTO `hasbadge`
 	      VALUES ('$me', '$title', NOW())";
 	   $finished = mysql_query($BadgeQuery);
-		echo 'Congratulations! You just earned a new badge! Go to your profile page page to see it! "\n\n"';
+		echo 'Congratulations! You just earned a new badge! Go to your profile page page to see it! 
+		
+		';
 	
 	}
 	 if($RegCount == 35){
@@ -80,7 +77,9 @@ $RegCount = mysql_num_rows($badgeNumberQuery);
 	      INSERT INTO `hasbadge`
 	      VALUES ('$me', '$title', NOW())";
 	   $finished = mysql_query($BadgeQuery);
-		echo 'Congratulations! You just earned a new badge! Go to your profile page page to see it! "\n\n"';
+		echo 'Congratulations! You just earned a new badge! Go to your profile page page to see it! 
+		
+		';
 	
 	}
 	 if($RegCount == 50){
@@ -89,7 +88,9 @@ $RegCount = mysql_num_rows($badgeNumberQuery);
 	      INSERT INTO `hasbadge`
 	      VALUES ('$me', '$title', NOW())";
 	   $finished = mysql_query($BadgeQuery);
-		echo 'Congratulations! You just earned a new badge! Go to your profile page page to see it! "\n\n"';
+		echo 'Congratulations! You just earned a new badge! Go to your profile page page to see it! 
+		
+		';
 	
 	}
 	 if($RegCount == 100){
@@ -98,7 +99,9 @@ $RegCount = mysql_num_rows($badgeNumberQuery);
 	      INSERT INTO `hasbadge`
 	      VALUES ('$me', '$title', NOW())";
 	   $finished = mysql_query($BadgeQuery);
-		echo 'Congratulations! You just earned a new badge! Go to your profile page page to see it! "\n\n"';
+		echo 'Congratulations! You just earned a new badge! Go to your profile page page to see it! 
+		
+		';
 	}
 
 	$badgeExploreQuery = "
@@ -118,7 +121,9 @@ $RegCount = mysql_num_rows($badgeNumberQuery);
 	      INSERT INTO `hasbadge`
 	      VALUES ('$me', '$title', NOW())";
 	   $finished = mysql_query($BadgeQuery);
-		echo 'Congratulations! You just earned a new badge! Go to your profile page page to see it! "\n\n"';
+		echo 'Congratulations! You just earned a new badge! Go to your profile page page to see it! 
+		
+		';
 	
 	}
 	if($ExploreCount == 30){
@@ -127,7 +132,9 @@ $RegCount = mysql_num_rows($badgeNumberQuery);
 	      INSERT INTO `hasbadge`
 	      VALUES ('$me', '$title', NOW())";
 	   $finished = mysql_query($BadgeQuery);
-		echo 'Congratulations! You just earned a new badge! Go to your profile page page to see it! "\n\n"';
+		echo 'Congratulations! You just earned a new badge! Go to your profile page page to see it! 
+		
+		';
 		
 	
 	}
