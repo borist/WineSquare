@@ -11,17 +11,26 @@ $checkins = mysql_query($checkins);
 $checkins = mysql_num_rows($checkins);
 
 $wines = "
-   SELECT DISTINCT *
+   SELECT *
    FROM `drank`, `wines`
    WHERE `drank`.`user` = '$user[user]'
    AND `wines`.`id` = `drank`.`wid`
    ORDER BY `drank`.`time` DESC";
 $wines = mysql_query($wines);
-$winesTasted = mysql_num_rows($wines);
 $winesProfileInfo = array();
 while($result = mysql_fetch_assoc($wines)){
    $winesProfileInfo[] = $result;
 }
+
+$uniqueWines = "
+   SELECT *
+   FROM `drank`, `wines`
+   WHERE `drank`.`user` = '$user[user]'
+   AND `wines`.`id` = `drank`.`wid`
+   GROUP BY `wines`.`id`
+   ORDER BY `drank`.`time`";
+$uniqueWines = mysql_query($uniqueWines);
+$winesTasted = mysql_num_rows($uniqueWines);
 
 //pretty($winesProfileInfo);
 //pretty($user);
