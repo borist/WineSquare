@@ -77,3 +77,8 @@ function getCurrentTime() {
 
 	$('#timestamp').text(date + " at " + hours + ":" + minutes + " " + AMPM);
 }
+
+function getTimeStamp() {
+	var currentTime = new Date();
+	return currentTime.toLocaleString();
+}

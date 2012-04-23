@@ -47,14 +47,8 @@ else{
 	<link rel="stylesheet" href="./styles/topbar.css">
 	<link rel="stylesheet" href="./styles/profile.css">
 	<link rel="stylesheet" href="./styles/misc.css">
-	<link rel="stylesheet" href="./styles/wine_more.css">
 	
-	<style type="text/css">
-		h5 {text-align:center}
-		table {border:2px solid black; text-align:left}
-		th {font-weight:bold}
-		tr{border: 1px solid grey; text-align:left}
-      
+	<style type="text/css">   
       .rackphoto span{
          width:160px;
          height:160px;
@@ -104,16 +98,16 @@ else{
 	<div class="row">
 	<ul class="block-grid two-up">
 			<li style="margin-left:20px">
-			<h4>
+			<h5>
 				<strong>Location: </strong> <var id="wine_location"><?php echo $wine['country']; ?></var></br></br>
 				<strong>Vintage: </strong><?php echo $wine['vintage']; ?></br></br>
 				<strong>Wine Producer: </strong><?php echo $wine['producer']; ?></br><br/>
+				<strong>Percent Alcohol: </strong> <?php echo $wine['alcohol'];?> % <br/><br/>
+				</h5>
 				
-			</h4>
-			<div id="titleText">More..</div><a id="myHeader" href="javascript:toggle2('more','toggle');" >
-			<img id="toggle" src="./images/plus.png"></a>
-			</br>
-			<img id="arrow1" width="10%"src="./images/down_arrow.png" style="visibility:hidden">
+				<h6><strong>Description: </strong> <?php echo $wine['descr']; ?></h6>
+			
+			
 			
 			</li>
 			<li>
@@ -145,30 +139,11 @@ else{
 			</li>
 			</ul>
 			</div>
-			<p style="border-bottom: 1px dotted #000000; width: 1200px;">
-					<div id="more" style="display: none;" class="row">
-						<ul class="block-grid two-up">
-							<li style="margin-left:20px">
-								<h6>
-									<strong>Percent Alcohol: </strong> <?php echo $wine['alcohol'];?> % <br/><br/>
-									<strong>Description: </strong> <?php echo $wine['descr']; ?>
-								</h6>
-								</li>
-								<li>
-								<p>
-								<br/>
-								
-							</li>
-						</ul>
-						
-						
-					</div> <!-- row -->
+												
+			</div> <!-- row -->
 			</div>
-									<br/>		
-								</li>
-							</ul>
-						</div>
-				</div>
+			</div>
+			</div>
 				
 				<div class="two columns">
 				</div>
@@ -184,7 +159,6 @@ else{
 		</div>
 	</div>
 	
-	<script language="javascript" src="./javascripts/more.js"></script>
 	<script type="text/javascript" src="./javascripts/jquery.min.js"></script>
 	</body>
 </html>

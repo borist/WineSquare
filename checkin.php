@@ -21,6 +21,7 @@ if(isset($_POST['wine_drank'])){
 */
 
 $badgeNumberQuery = "
+<<<<<<< HEAD
 	SELECT *
 	FROM `drank`
 	WHERE `drank`.`user` = '$user[user]'
@@ -31,6 +32,12 @@ $RegCount = mysql_num_rows($res);
 // 	$RegCount = $row;
 // }	
 	$me = $user['user'];
+	
+	SELECT COUNT(*)
+	FROM 'drank'
+	WHERE user = $user";
+$badgeNumberQuery = mysql_query($badgeNumberQuery);
+$RegCount = mysql_num_rows($badgeNumberQuery);
 
 	if($RegCount == 1){
 		$title = "The n00b";
