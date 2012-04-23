@@ -33,7 +33,7 @@ while($result = mysql_fetch_assoc($wines)){
   <head>
     <meta charset="utf-8">
     <title>WineSquare</title>
-    <meta name="description" content="Nathan Fraenkel's WineSquare Profile">
+    <meta name="description" content="WineSquare Profile">
     <meta name="keywords" content="WineSquare"/>
 
 	<!-- Stylesheet --> 

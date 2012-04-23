@@ -4,3 +4,6 @@ https://p3nlmysqladm001.secureserver.net/grid50/1405?uniqueDnsEntry=winesquare.d
 database: winesquare
 username: winesquare
 password: W1n3Square
+
+FTP username: pq350
+password: CiS350!#
