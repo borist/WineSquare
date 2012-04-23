@@ -22,6 +22,7 @@ while($location = mysql_fetch_assoc($locationsresults)){
 $encoded=json_encode($locations);
 echo $encoded;
 pretty($locations);
+
 ?>
 
 
