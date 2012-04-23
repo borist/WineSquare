@@ -36,7 +36,8 @@ $lastlocation = "
 	SELECT `drank`.`location`
 	FROM `drank`
 	WHERE `drank`.`user` = '$user[user]'
-	ORDER BY `drank`.`time` DESC";
+	ORDER BY `drank`.`time` DESC
+	LIMIT 0, 1";
 $lastlocation = mysql_query($lastlocation);
 $latestlocation = array();
 while($result = mysql_fetch_assoc($lastlocation)){
@@ -56,6 +57,34 @@ while($badge = mysql_fetch_assoc($myBadges)){
 	$badges[$badge['title']] = $badge;
 }
 
+/*
+ * recommend wines to the user based on wines that other users have drank that
+ * have locations or years in common with your drinking history 
+ */
+$recommendResults = "
+	SELECT DISTINCT *
+	FROM `drank` AS d, `wines` AS w
+	WHERE d.`wid`=w.`id` AND (
+		(w.`country` IN 
+				(SELECT DISTINCT `country`
+					FROM `drank` AS d2, `wines` AS w2
+					WHERE d2.`wid`=w2.`id` AND
+					d2.`user`='$user[user]'))
+		OR	(w.`vintage` IN 
+				(SELECT DISTINCT `vintage`
+					FROM `drank` AS d2, `wines` AS w2
+					WHERE d2.`wid`=w2.`id` AND
+					d2.`user`='$user[user]'))	
+			)"
+;
+
+$recommendResults = mysql_query($recommendResults);
+$recommendations = array();
+while($recom = mysql_fetch_assoc($recommendResults)){
+	$recommendations[] = $recom;
+}
+
+//pretty($recommendations);
 //pretty($winesProfileInfo);
 //pretty($user);
 
@@ -215,16 +244,27 @@ while($badge = mysql_fetch_assoc($myBadges)){
 				<div id="userRecs">
 					<a href="#">See All</a>
 					<h5><span>Recommendations</span></h5>
-					<ul class="block-grid five-up">
-						<li><img src="http://placehold.it/100x100" /></li>
-						<li><img src="http://placehold.it/100x100" /></li>
-						<li><img src="http://placehold.it/100x100" /></li>
-						<li><img src="http://placehold.it/100x100" /></li>
-						<li><img src="http://placehold.it/100x100" /></li>
-						<li><img src="http://placehold.it/100x100" /></li>
-						<li><img src="http://placehold.it/100x100" /></li>
-						<li><img src="http://placehold.it/100x100" /></li>
-						<li><img src="http://placehold.it/100x100" /></li>
+					<ul class="block-grid four-up">
+					<?php $num = 1;
+						foreach($recommendations as $r) : 
+						if (!(url_exists($r['pic']))) {
+							continue;
+						}
+						echo $r['pic'];
+						?>
+						
+						<li><div class="badge columns center_all">
+							<a href="./wine.php"><img src=<?php
+							echo $r['pic'];
+							?>/></a>
+						</div>
+					</li>
+					
+					<?php $num = $num + 1;
+					if($num > 12) {
+							break;
+					}
+					endforeach; ?>
 					</ul>	
 				</div>	
 		  	</div>
