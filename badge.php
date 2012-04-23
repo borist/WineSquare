@@ -6,6 +6,9 @@ include 'lib.php';
 if(isset($_GET['bid'])){
 	$b_title = $_GET['bid'];
 }
+else{
+	header("Location: index.php");
+}
 
 $badgeInfo = "
 	SELECT *
