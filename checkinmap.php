@@ -3,6 +3,7 @@
 include 'connect.php';
 include 'lib.php';
 
+//change this to work to the whoevers profile you're looking at
 $currUser = $user['user'];
 
 $locationsQuery = "
