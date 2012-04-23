@@ -131,7 +131,7 @@ $wines = implode(", ", $winesArray);
 					<label for="timestamp"> On: </label>
 					<span id="timestamp"></span><br /><br /><br />
 					<strong class="centered">
-					<a href="#" class="nice large radius blue button" id="submit_checkin">Drink! &raquo;</a>
+					<center><a href="#" class="nice large radius blue button" id="submit_checkin">Drink! &raquo;</a></center>
 					</strong>
 					</form>
 					<br /><br /><br />
