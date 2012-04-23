@@ -1,1 +1,23 @@
 	<script type="text/javascript" src="http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=false&amp;key=AIzaSyBDXirgEQ9KYE1jsyd783mxvVlwEIaVo68&amp;hl=en"></script>
+
+
+
+Queries
+
+For the number based badges
+
+Select COUNT(*)
+From Drink
+Where user = current user;
+
+for explorer/pioneer
+
+select Count(Distinct Drink.type)
+From Drink
+Where User = Current User;
+
+for the sheen
+
+Select Count(*)
+From Drink
+Where Drink.Date >= Now() - 1 Month;
