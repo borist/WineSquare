@@ -19,6 +19,9 @@ if(isset($_GET['wid'])){
    $wine = $wine[0];
    //pretty($wine);
 }
+else{
+	header("Location: index.php");
+}
 
 ?>
 
@@ -44,14 +47,8 @@ if(isset($_GET['wid'])){
 	<link rel="stylesheet" href="./styles/topbar.css">
 	<link rel="stylesheet" href="./styles/profile.css">
 	<link rel="stylesheet" href="./styles/misc.css">
-	<link rel="stylesheet" href="./styles/wine_more.css">
 	
-	<style type="text/css">
-		h5 {text-align:center}
-		table {border:2px solid black; text-align:left}
-		th {font-weight:bold}
-		tr{border: 1px solid grey; text-align:left}
-      
+	<style type="text/css">   
       .rackphoto span{
          width:160px;
          height:160px;
@@ -76,7 +73,7 @@ if(isset($_GET['wid'])){
 	<div id="topbar">
 	    <div class="row">
 	      <div class="four columns">
-	        <h1><a href="index.php">WineSquare</a></h1>
+	        <h1><a href="./">WineSquare</a></h1>
 	      </div>
 	      <div class="eight columns hide-on-phones">
 	      	<strong class="right">
@@ -89,7 +86,7 @@ if(isset($_GET['wid'])){
 	</div>
 	
 	<div class="rackphoto">				
-	<a href="#">
+	<a>
 		<img src="./images/red_wines.jpg" />
 		<div class="wine_bar">
 			<span></span>
@@ -101,16 +98,16 @@ if(isset($_GET['wid'])){
 	<div class="row">
 	<ul class="block-grid two-up">
 			<li style="margin-left:20px">
-			<h4>
-				<strong>Location:</strong> <var id="wine_location"><?php echo $wine['country']; ?></var></br></br>
-				<strong>Vineyard:</strong> Chateau Latour </br></br>
-				<strong>Vintage:</strong><?php echo $wine['vintage']; ?></br></br>
-				<strong>Color:</strong> Red Wine </br></br>			
-			</h4>
-			<div id="titleText">More..</div><a id="myHeader" href="javascript:toggle2('more','toggle');" >
-			<img id="toggle" src="./images/plus.png"></a>
-			</br>
-			<img id="arrow1" width="10%"src="./images/down_arrow.png" style="visibility:hidden">
+			<h5>
+				<strong>Location: </strong> <var id="wine_location"><?php echo $wine['country']; ?></var></br></br>
+				<strong>Vintage: </strong><?php echo $wine['vintage']; ?></br></br>
+				<strong>Wine Producer: </strong><?php echo $wine['producer']; ?></br><br/>
+				<strong>Percent Alcohol: </strong> <?php echo $wine['alcohol'];?> % <br/><br/>
+				</h5>
+				
+				<h6><strong>Description: </strong> <?php echo $wine['descr']; ?></h6>
+			
+			
 			
 			</li>
 			<li>
@@ -142,57 +139,11 @@ if(isset($_GET['wid'])){
 			</li>
 			</ul>
 			</div>
-			<p style="border-bottom: 1px dotted #000000; width: 1200px;">
-					<div id="more" style="display: none;" class="row">
-						<ul class="block-grid two-up">
-							<li style="margin-left:20px">
-								<h6>
-									<strong>Wine Producer:</strong><?php echo $wine['producer']; ?><br/><br/>
-									<strong>Wine Sub-Region:</strong> Medoc <br/><br/>
-									<strong>Appelation:</strong> Pauillac <br/><br/>
-									<strong>Wine Type:</strong> Still Wine <br/><br/>
-									<strong>Fruit Source:</strong> Producer owned <br/><br/>
-									<strong>Description:</strong>
-                           <p><?php echo $wine['descr']; ?></p>
-								</h6>
-								</li>
-								<li>
-								<p>
-								<table border="1">
-									<tr>
-										<th>Grape Variety</th>
-										<th>Percentage</th>
-									</tr>
-									<tr>
-										<td>Cabernet Franc</td>
-										<td>4</td>
-									</tr>
-									<tr>
-										<td>Merlot</td>
-										<td>25</td>
-									</tr>
-									<tr>
-										<td>Cabernet Sauvignon</td>
-										<td>75</td>
-									</tr>
-									<tr>
-										<td>Petit Verlot</td>
-										<td>1</td>
-									</tr>
-								</table>
-								</p><br/>
-								
-							</li>
-						</ul>
-						
-						
-					</div> <!-- row -->
+												
+			</div> <!-- row -->
 			</div>
-									<br/>		
-								</li>
-							</ul>
-						</div>
-				</div>
+			</div>
+			</div>
 				
 				<div class="two columns">
 				</div>
@@ -208,7 +159,6 @@ if(isset($_GET['wid'])){
 		</div>
 	</div>
 	
-	<script language="javascript" src="./javascripts/more.js"></script>
 	<script type="text/javascript" src="./javascripts/jquery.min.js"></script>
 	</body>
 </html>

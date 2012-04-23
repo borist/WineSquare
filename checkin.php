@@ -21,110 +21,146 @@ if(isset($_POST['wine_drank'])){
 */
 
 $badgeNumberQuery = "
-	SELECT COUNT(*)
-	FROM 'drank'
-	WHERE user = $user";
+	SELECT *
+	FROM `drank`
+	WHERE `drank`.`user` = '$user[user]'
+	";
 $res = mysql_query($badgeNumberQuery);
-pretty($res);
-while($row = mysql_fetch_assoc($res)){
-	$RegCount = $row;
-}	
-	echo "$RegCount";
+$RegCount = mysql_num_rows($res);
+
+	$me = $user['user'];
 
 	if($RegCount == 1){
-		$title = `The n00b`;
+		$title = "The n00b";
 	   $BadgeQuery = "
 	      INSERT INTO `hasbadge`
-	      VALUES (`$uid`, `$title`, NOW())";
+	      VALUES ('$me', '$title', NOW())";
 	   $finished = mysql_query($BadgeQuery);
+		echo 'Congratulations! You just earned a new badge! Go to your profile page page to see it!
+		
+		';
 	}
 	 if($RegCount == 3){
-		$title = `The Newbie`;
+		$title = "The Newbie";
 	   $BadgeQuery = "
 	      INSERT INTO `hasbadge`
-	      VALUES (`$uid`, `$title`, NOW())";
+	      VALUES ('$me', '$title', NOW())";
 	   $finished = mysql_query($BadgeQuery);
+		echo 'Congratulations! You just earned a new badge! Go to your profile page page to see it! 
+		
+		';
+	
 	}
 	 if($RegCount == 10){
-			$title = `The Winestar`;
+			$title = "The Winestar";
 	   $BadgeQuery = "
 	      INSERT INTO `hasbadge`
-	      VALUES (`$uid`, `$title`, NOW())";
+	      VALUES ('$me', '$title', NOW())";
 	   $finished = mysql_query($BadgeQuery);
+		echo 'Congratulations! You just earned a new badge! Go to your profile page page to see it! 
+		
+		';
+	
 	}
 	 if($RegCount == 25){
-			$title = `The Winelover`;
+			$title = "The Winelover";
 	   $BadgeQuery = "
 	      INSERT INTO `hasbadge`
-	      VALUES (`$uid`, `$title`, NOW())";
+	      VALUES ('$me', '$title', NOW())";
 	   $finished = mysql_query($BadgeQuery);
+		echo 'Congratulations! You just earned a new badge! Go to your profile page page to see it! 
+		
+		';
+	
 	}
 	 if($RegCount == 35){
-			$title = `The Patriot`;
+			$title = "The Patriot";
 	   $BadgeQuery = "
 	      INSERT INTO `hasbadge`
-	      VALUES (`$uid`, `$title`, NOW())";
+	      VALUES ('$me', '$title', NOW())";
 	   $finished = mysql_query($BadgeQuery);
+		echo 'Congratulations! You just earned a new badge! Go to your profile page page to see it! 
+		
+		';
+	
 	}
 	 if($RegCount == 50){
-			$title = `The Vet`;
+			$title = "The Vet";
 	   $BadgeQuery = "
 	      INSERT INTO `hasbadge`
-	      VALUES (`$uid`, `$title`, NOW())";
+	      VALUES ('$me', '$title', NOW())";
 	   $finished = mysql_query($BadgeQuery);
+		echo 'Congratulations! You just earned a new badge! Go to your profile page page to see it! 
+		
+		';
+	
 	}
 	 if($RegCount == 100){
-			$title = `The Champ`;
+			$title = "The Champ";
 	   $BadgeQuery = "
 	      INSERT INTO `hasbadge`
-	      VALUES (`$uid`, `$title`, NOW())";
+	      VALUES ('$me', '$title', NOW())";
 	   $finished = mysql_query($BadgeQuery);
+		echo 'Congratulations! You just earned a new badge! Go to your profile page page to see it! 
+		
+		';
 	}
 
 	$badgeExploreQuery = "
-		SELECT COUNT(DISTINCT `drank`.`wid`)
-		FROM 'drank'
-		WHERE user = $user";
+		SELECT DISTINCT `wid`
+		FROM `drank`
+		WHERE `user` = '$user[user]'
+		";
 	$badgeExplore = mysql_query($badgeExploreQuery);
-
-while($row = mysql_fetch_assoc($badgeExplore)){
-	$ExploreCount = $row;
-}	
-	pretty($ExploreCount);
+	$ExploreCount = mysql_num_rows($badgeExplore);
+// while($row = mysql_fetch_assoc($badgeExplore)){
+// 	$ExploreCount = $row;
+// }	
 		
 	if($ExploreCount == 7){
-			$title = `The Explorer`;
+			$title = "The Explorer";
 	   $BadgeQuery = "
 	      INSERT INTO `hasbadge`
-	      VALUES (`$uid`, `$title`, NOW())";
+	      VALUES ('$me', '$title', NOW())";
 	   $finished = mysql_query($BadgeQuery);
+		echo 'Congratulations! You just earned a new badge! Go to your profile page page to see it! 
+		
+		';
+	
 	}
 	if($ExploreCount == 30){
-			$title = `The Pioneer`;
+			$title = "The Pioneer";
 	   $BadgeQuery = "
 	      INSERT INTO `hasbadge`
-	      VALUES (`$uid`, `$title`, NOW())";
+	      VALUES ('$me', '$title', NOW())";
 	   $finished = mysql_query($BadgeQuery);
+		echo 'Congratulations! You just earned a new badge! Go to your profile page page to see it! 
+		
+		';
+		
+	
 	}
-	$badgeSheenQuery = "
-		SELECT COUNT(*)
-		FROM `drank`
-		WHERE `drank`.`time` >= currdate() - INTERVAL 1 Month";
-	$badgeSheen = mysql_query($badgeSheenQuery);
+	// $badgeSheenQuery = "
+	// 		SELECT COUNT(*)
+	// 		FROM `drank`
+	// 		WHERE `drank`.`time` >= currdate() - INTERVAL 1 Month";
+	// 	$badgeSheen = mysql_query($badgeSheenQuery);
+	// 
+	// 	while($row = mysql_fetch_assoc($badgeSheen)){
+	// 		$SheenCount = $row;
+	// 	}	
+	// 		echo $SheenCount;
+	// 
+	// 		if($SheenCount == 101){
+	// 				$title = `The Sheen`;
+	// 		   $BadgeQuery = "
+	// 		      INSERT INTO `hasbadge`
+	// 		      VALUES (`$uid`, `$title`, NOW())";
+	// 		   $finished = mysql_query($BadgeQuery);
+	// 		}
+	
+//pretty($finished);
 
-	while($row = mysql_fetch_assoc($badgeSheen)){
-		$SheenCount = $row;
-	}	
-		echo $SheenCount;
-
-		if($SheenCount == 101){
-				$title = `The Sheen`;
-		   $BadgeQuery = "
-		      INSERT INTO `hasbadge`
-		      VALUES (`$uid`, `$title`, NOW())";
-		   $finished = mysql_query($BadgeQuery);
-		}
-pretty($finished);
    if($result){
       echo "You successfully checked in with a glass of $_POST[wine_drank] at $_POST[location]! Cheers!";
    }
@@ -183,6 +219,7 @@ $wines = implode(", ", $winesArray);
    <link rel="stylesheet" href="./styles/jquery.ui.autocomplete.css">
 	
 	<style type="text/css">
+		h3 {text-align:center; font-size: 36px; color:#0000CC}
 		h4 {text-align:center}
 		label {text-align:center; font-size:20px; }	
 	</style>
@@ -219,7 +256,7 @@ $wines = implode(", ", $winesArray);
 			
 			<div class="eight columns">
 				<div class="panel">
-					<h4 id="checkin_head"> Check-In to WineSquare! </h4>
+					<h3 id="checkin_head"> Check-In to WineSquare! </h3>
                
                <h4 id="checkin_message"></h4>
 					
@@ -228,12 +265,12 @@ $wines = implode(", ", $winesArray);
 					<label for="winefinder" > You were drinking: </label> <br />
 					<input name="wine_drank" type="text" class="expand input-text" placeholder="Start typing the name of a wine..." id="wine_drank"/><br /><br />
                <!-- the next field holds silently the wine_id -->
-               <input type="text" name="wine_id" id="wine_id" style="display:none;" />
+               <center><input type="text" name="wine_id" id="wine_id" style="display:none; text-align:center" /></center>
 					
 					<label for="location"> At: </label>
 					<span id="location_disp"></span>
                <!-- input placeholder for location -->
-               <input type="text" name="location" id="location" style="display:none;" />
+               <center><input type="text" name="location" id="location" style="display:none; text-align:center" /></center>
 					
 					<br />
 					<label for="timestamp"> On: </label>
