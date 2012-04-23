@@ -275,25 +275,25 @@ include 'lib.php';
 					</div>
 					<div></div>
 			</div> <!-- row -->
-			<div class="row">
-				<div class="six columns">
-					<label for="photoUpload">Photo</label>
-					<div></div>
+         <!-- container -->
+         </form>
+         <form name="image_upload" action="upload_file.php" method="post" id="image_upload" enctype="multipart/form-data">
+            <div class="row">
+               <div class="six columns">
+                  <label for="photoUpload">Photo</label>
+                  <div></div>
+                  
+                  <input id="photoUpload" type="file" name="photoUpload"/>
 
-						<input id="photoUpload" type="file" name="photoUpload"/>
 
-
-				</div> <!-- columns -->
-			</div> <!-- row -->
-
-			<br/>
-			<br/>
+               </div> <!-- columns -->
+            </div> <!-- row -->
+         </form>
 
 			<div class="row">
 					<p><a id="updateProf" class='nice radius blue button' style="margin-right:20px;">Update Profile &raquo;</a>
 					<a id="deleteProf" class='nice radius red button'>Delete Profile &raquo;</a></p>
 			</div> <!-- row -->
-		</form>
 
 	</div>
 	<!-- Footer -->

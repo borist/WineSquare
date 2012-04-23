@@ -130,11 +130,10 @@ function updateProfile(){
 			$("#alert").css("display", "block"); 
 		break;
 	case 1: 
-			postPicture();
-			$.post("users.php", $("#update").serialize(), function(data){
-          if(data){
+			$.post("users.php", $("#update").serialize(), function(response){
+          if(response){
              alert("Your information was updated!"); //redirect to success page
-             window.location.replace("index.php");
+             $("#image_upload").submit();
 			 }
           else {
              $("#alert").text("There was an error with the database. Please try again.");

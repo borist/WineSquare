@@ -161,6 +161,7 @@ function update_account(){
    $email = $_SESSION['user'][0]['user'];
    $password = md5($_POST['password']);
    $sex = trim($_POST['sex']);
+   $photo = 'images/'.$email.'.jpg';
    $date = trim($_POST['year'].'-'.getMonth($_POST['month']).'-'.$_POST['day']);
 
    $query = "
@@ -169,6 +170,7 @@ function update_account(){
        `first_name` = '$firstname',
        `last_name` = '$lastname',
        `sex` = '$sex',
+       `photo` = '$photo',
        `birthday` = '$date'
    WHERE `user` = '$email'";
    mysql_query($query);
