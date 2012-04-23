@@ -12,10 +12,9 @@ $myBadges = "
 $myBadges = mysql_query($myBadges);
 $badges = array();
 while($badge = mysql_fetch_assoc($myBadges)){
-	$badges[] = $badge;
+	$badges[$badge['title']] = $badge;
 }
 
-pretty($badges);
 
 
 ?>
@@ -26,7 +25,7 @@ pretty($badges);
   <head>
     <meta charset="utf-8">
     <title>WineSquare</title>
-    <meta name="description" content="Nathan Fraenkel's WineSquare Profile">
+    <meta name="description" content="<?php echo $user['first_name']; ?>'s Badges">
     <meta name="keywords" content="WineSquare"/>
 
 	<!-- Stylesheet --> 
@@ -72,74 +71,48 @@ pretty($badges);
 	<div id="container">
 		<div class="row">
 			<div class="panel center_all nine">
-				<h4><span><a href="example_prof.html" class="header">Nathan's Badges</a></span></h3>
-					<p style="margin-top:15px;">These are all the badges that Nathan has unlocked by drinking wine! 
+				<h4><span><a href="example_prof.html" class="header"><?php echo $user['first_name']; ?>'s Badges</a></span></h3>
+					<p style="margin-top:15px;">These are all the badges that <?php echo $user['first_name']; ?> has unlocked by drinking wine! 
 						Click on a badge to learn more about it, including how to earn one for yourself!</p>
 					<div id="userBadges" style="margin-top:25px; margin-left:auto; margin-right:auto;">
 						<ul class="block-grid badges">
 							
+							
 							<?php foreach($badges as $b): ?>
-							
-							<li><div class="badge columns center_all">
-								<img src="./images/noob_pin.png" /></a>
-								<p><a href="./" class="description">
-								<?php if ($b['title'] == "The n00b"){
-									echo $b['title'];}
-									else {echo "?????";}
+								<li><div class="badge columns center_all">
+									<img src=<?php
+									
+									$badgeInfo = "
+										SELECT *
+										FROM `badge`
+										WHERE `badge`.`title` = '$b[title]'
+										";
 
-								?></a></p></div>
+									$badgeInfo = mysql_query($badgeInfo);
+									$badgey = array();
+									while($info = mysql_fetch_assoc($badgeInfo)){
+										$badgey[] = $info;
+									}
+									
+									echo $badgey[0]['photo'];
+									
+									?> />
+									<p><a href="./badge.php?bid=<?php echo $b['title']?>" class="description"><?php echo $b['title']?></a></p></div>
+								</li>
 							<?php endforeach; ?>
-							</li>
 							
-							<li><div class="badge columns center_all">
-								<a href="./badges/the_newbie.html"><img src="./images/newbie.png" /></a>
-								<p><a href="./badges/the_newbie.html" class="description">The Newbie </a></p></div>
-							</li>
-								
-							<li><div class="badge columns center_all">
-								<a href="./badges/the_winestar.html"><img src="./images/rainbow_star.jpeg" /></a>
-								<p><a href="#" class="description">The Wine Star</a></p></div>
-							</li>
+							<?php
+							$count = count($badges);
 							
+							while ($count < 10): ?>
 							<li><div class="badge columns center_all">
-								<a href="./badges/the_winelover.html"><img src="./images/wine_love.png" /></a>
-								<p><a href="#" class="description">The Wine Lover </a></p></div>
-							</li>
-								
-							<li><div class="badge columns center_all">
-								<a href="./badges/the_patriot.html"><img src="./images/the_patriot.png" /></a>
-								<p><a href="./badges/the_patriot.html" class="description">The Patriot</a></p></div>
-							</li>
-								
-							<li><div class="badge columns center_all">
-								<a href="./badges/the_vet.html"><img src="./images/keep_calm.jpg" /></a>
-								<p><a href="./badges/the_vet.html" class="description">The Vet</a></p></div>
-							</li>
-
-							<li><div class="badge columns center_all">
-								<a href="./badges/the_champ.html"><img src="./images/champ.png" /></a>
-								<p><a href="./badges/the_champ.html" class="description">The Champ</a></p></div>
-							</li>								
-
-							<li><div class="badge columns center_all">
-								<a href="./badges/the_sheen.html"><img src="./images/the_sheen.jpg" /></a>
-								<p><a href="./badges/the_sheen.html" class="description">The Sheen</a></p></div>
-							</li>
-															
-							<li><div class="badge columns center_all">
-								<a href="./badges/the_explorer.html"><img src="./images/explorer.jpeg" /></a>
-								<p><a href="#" class="description">The Wine Explorer</a></p></div>
-							</li>
-							
-							<li><div class="badge columns center_all">
-								<a href="./badges/enthusiast_white.html"><img src="./images/champ_white.png" /></a>
-								<p><a href="./badges/enthusiast_white.html" class="description">The White Enthusiast</a></p></div>
-							</li>
-							
-							<li><div class="badge columns center_all">
-								<a href="./badges/enthusiast_red.html"><img src="./images/champ_red.png" /></a>
-								<p><a href="./badges/enthusiast_red.html" class="description">The Red Enthusiast </a></p></div>
-							</li>
+								<img src="./images/default.png"/>
+								<p>Drink More!</p></div>
+							</li>	
+							<?php	
+								$count = $count + 1;
+							endwhile; ?>
+				           
 							
 						</ul>
 					</div>
