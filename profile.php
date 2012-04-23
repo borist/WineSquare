@@ -58,7 +58,7 @@ while($badge = mysql_fetch_assoc($myBadges)){
 }
 
 /*
- * recommend wines to the user based on wines that other users have drank that
+ * Recommend wines to the user based on wines that other users have drank that
  * have locations or years in common with your drinking history 
  */
 $recommendResults = "
