@@ -80,7 +80,7 @@ while($result = mysql_fetch_assoc($wines)){
 						<?php echo $user['first_name'].' '.$user['last_name']; ?>
 					</h3>
 					<p>
-						<?php echo "From: ".$user['location']; ?>
+						<?php echo "Location of last checkin: ".$user['location']; ?>
 					</p>
 					<!-- Profile Stats -->
 					<div id="stats">

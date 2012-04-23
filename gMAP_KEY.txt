@@ -1,0 +1,29 @@
+	<script type="text/javascript" src="http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=false&amp;key=AIzaSyBDXirgEQ9KYE1jsyd783mxvVlwEIaVo68&amp;hl=en"></script>
+
+<<<<<<< HEAD
+v3:
+
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCO667Z5BxNMNrggUtjLSKsG9CDgHAc3e8&sensor=true"></script>
+=======
+
+
+Queries
+
+For the number based badges
+
+Select COUNT(*)
+From Drink
+Where user = current user;
+
+for explorer/pioneer
+
+select Count(Distinct Drink.type)
+From Drink
+Where User = Current User;
+
+for the sheen
+
+Select Count(*)
+From Drink
+Where Drink.Date >= Now() - 1 Month;
+>>>>>>> e4330ad940b87f84ff194a25768571996f6e0264

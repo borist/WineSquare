@@ -122,10 +122,10 @@ while($activity = mysql_fetch_assoc($allActivity)){
 					</div>
 					<div class="nine phone-three columns">
 						<h6>
-							<a href="#"><?php echo $activity['first_name'].' '.$activity['last_name']; ?></a>
+							<a href="profile.php?pid=<?php echo $activity['user']; ?>"><?php echo $activity['first_name'].' '.$activity['last_name']; ?></a>
 						</h6>
 						<p>
-							<?php echo $activity['first_name'];?> drank a glass of <a href="#"><?php echo $activity['name']; ?></a> at <?php echo easyDate($activity['time']); ?>. 
+							<?php echo $activity['first_name'];?> drank a glass of <a href="wine.php?wid=<?php echo $activity['wid']; ?>"><?php echo $activity['name']; ?></a> at <?php echo easyDate($activity['time']); ?>. 
 						</p>
 					</div>
 				</div>
@@ -142,7 +142,7 @@ while($activity = mysql_fetch_assoc($allActivity)){
 							<img src="<?php echo $activity['pic']; ?>" />
 						</div>
 						<div class="ten columns">
-							<h7><a href=""><?php echo $activity['name']; ?></a></h7>
+							<h7><a href="wine.php?wid=<?php echo $activity['wid']; ?>"><?php echo $activity['name']; ?></a></h7>
 							<p>You drank a glass of <?php echo $activity['name']; ?> at <?php echo easyDate($activity['time']); ?> in <?php echo $activity['location']; ?>.</p>
 						</div>
 					</div>

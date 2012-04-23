@@ -78,8 +78,7 @@ $wines = implode(", ", $winesArray);
 		label {text-align:center; font-size:20px; }	
 	</style>
 	
-	<script type="text/javascript"
-	        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCO667Z5BxNMNrggUtjLSKsG9CDgHAc3e8&sensor=true"></script>
+	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCO667Z5BxNMNrggUtjLSKsG9CDgHAc3e8&sensor=true"></script>
 	
   </head>
   <body>
@@ -131,7 +130,7 @@ $wines = implode(", ", $winesArray);
 					<label for="timestamp"> On: </label>
 					<span id="timestamp"></span><br /><br /><br />
 					<strong class="centered">
-					<a href="#" class="nice large radius blue button" id="submit_checkin">Drink! &raquo;</a>
+					<center><a href="#" class="nice large radius blue button" id="submit_checkin">Drink! &raquo;</a></center>
 					</strong>
 					</form>
 					<br /><br /><br />
