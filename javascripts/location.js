@@ -104,27 +104,3 @@ function getTimeStamp() {
    });
   }
 }
-
-// function plotPHPLocation(userLocation) {	
-// 	var x = hex2s(userLocation);
-// 	alert(x);
-//   if (GBrowserIsCompatible()) {
-//    var geocoder = new GClientGeocoder();
-//    geocoder.getLocations(userLocation, function (locations) {         
-//       if (locations.Placemark) {
-//          var north = locations.Placemark[0].ExtendedData.LatLonBox.north;
-//          var south = locations.Placemark[0].ExtendedData.LatLonBox.south;
-//          var east  = locations.Placemark[0].ExtendedData.LatLonBox.east;
-//          var west  = locations.Placemark[0].ExtendedData.LatLonBox.west;
-// 
-//          var bounds = new GLatLngBounds(new GLatLng(south, west), 
-//                                         new GLatLng(north, east));
-// 
-//          var map = new GMap2(document.getElementById("map_canvas"));
-// 
-//          map.setCenter(bounds.getCenter(), map.getBoundsZoomLevel(bounds));
-//          map.addOverlay(new GMarker(bounds.getCenter()));
-//       }
-//    });
-//   }
-// }
