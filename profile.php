@@ -42,7 +42,6 @@ while($result = mysql_fetch_assoc($wines)){
 	<link rel="stylesheet" href="./styles/grid.css">
 	<link rel="stylesheet" href="./styles/ui.css">
 	<link rel="stylesheet" href="./styles/forms.css">
-	<link rel="stylesheet" href="./styles/orbit.css">
 	<link rel="stylesheet" href="./styles/reveal.css">
 	<link rel="stylesheet" href="./styles/mobile.css">
 	<link rel="stylesheet" href="./styles/topbar.css">
