@@ -134,6 +134,55 @@ function delete_account($uid){
 }
 
 
+/**
+ * Updates the account for the current user 
+ * if it does not exist. 
+ */
+function update_account(){
+   function getMonth($month){
+      if($month == "January") return 1;
+      if($month == "February") return 2;
+      if($month == "March") return 3;
+      if($month == "April") return 4;
+      if($month == "May") return 5;
+      if($month == "June") return 6;
+      if($month == "July") return 7;
+      if($month == "August") return 8;
+      if($month == "September") return 9;
+      if($month == "October") return 10;
+      if($month == "November") return 11;
+      if($month == "December") return 12;
+      else return 0;
+   }
+
+   $firstname = trim($_POST['firstname']);
+   $lastname = trim($_POST['lastname']);
+   $email = $_SESSION['user'][0]['user'];
+   $password = md5($_POST['password']);
+   $sex = trim($_POST['sex']);
+   $date = trim($_POST['year'].'-'.getMonth($_POST['month']).'-'.$_POST['day']);
+
+   $query = "
+   UPDATE `users` 
+   SET `password` = '$password', 
+       `first_name` = '$firstname',
+       `last_name` = '$lastname',
+       `sex` = '$sex',
+       `birthday` = '$date'
+   WHERE `user` = '$email'";
+   mysql_query($query);
+   
+   $query = "SELECT * FROM `users` WHERE `user` = '$email'";
+   $selectUser = mysql_query($query);
+   while($result = mysql_fetch_assoc($selectUser)){
+      $user[] = $result;
+   }
+   $_SESSION['user'] = $user;
+
+   echo 1;
+   die();
+}
+
 
 
 
@@ -149,6 +198,8 @@ if($code == "create_account")
    create_account();
 if($code == "delete_account")
    delete_account($_POST['prof']);
+if($code == "update_account")
+   update_account();
 
 
 ?>

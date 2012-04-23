@@ -76,7 +76,7 @@ if(isset($_GET['wid'])){
 	<div id="topbar">
 	    <div class="row">
 	      <div class="four columns">
-	        <h1><a href="index.php">WineSquare</a></h1>
+	        <h1><a href="./">WineSquare</a></h1>
 	      </div>
 	      <div class="eight columns hide-on-phones">
 	      	<strong class="right">
@@ -89,7 +89,7 @@ if(isset($_GET['wid'])){
 	</div>
 	
 	<div class="rackphoto">				
-	<a href="#">
+	<a>
 		<img src="./images/red_wines.jpg" />
 		<div class="wine_bar">
 			<span></span>
@@ -102,10 +102,10 @@ if(isset($_GET['wid'])){
 	<ul class="block-grid two-up">
 			<li style="margin-left:20px">
 			<h4>
-				<strong>Location:</strong> <var id="wine_location"><?php echo $wine['country']; ?></var></br></br>
-				<strong>Vineyard:</strong> Chateau Latour </br></br>
-				<strong>Vintage:</strong><?php echo $wine['vintage']; ?></br></br>
-				<strong>Color:</strong> Red Wine </br></br>			
+				<strong>Location: </strong> <var id="wine_location"><?php echo $wine['country']; ?></var></br></br>
+				<strong>Vintage: </strong><?php echo $wine['vintage']; ?></br></br>
+				<strong>Wine Producer: </strong><?php echo $wine['producer']; ?></br><br/>
+				
 			</h4>
 			<div id="titleText">More..</div><a id="myHeader" href="javascript:toggle2('more','toggle');" >
 			<img id="toggle" src="./images/plus.png"></a>
@@ -147,40 +147,13 @@ if(isset($_GET['wid'])){
 						<ul class="block-grid two-up">
 							<li style="margin-left:20px">
 								<h6>
-									<strong>Wine Producer:</strong><?php echo $wine['producer']; ?><br/><br/>
-									<strong>Wine Sub-Region:</strong> Medoc <br/><br/>
-									<strong>Appelation:</strong> Pauillac <br/><br/>
-									<strong>Wine Type:</strong> Still Wine <br/><br/>
-									<strong>Fruit Source:</strong> Producer owned <br/><br/>
-									<strong>Description:</strong>
-                           <p><?php echo $wine['descr']; ?></p>
+									<strong>Percent Alcohol: </strong> <?php echo $wine['alcohol'];?> % <br/><br/>
+									<strong>Description: </strong> <?php echo $wine['descr']; ?>
 								</h6>
 								</li>
 								<li>
 								<p>
-								<table border="1">
-									<tr>
-										<th>Grape Variety</th>
-										<th>Percentage</th>
-									</tr>
-									<tr>
-										<td>Cabernet Franc</td>
-										<td>4</td>
-									</tr>
-									<tr>
-										<td>Merlot</td>
-										<td>25</td>
-									</tr>
-									<tr>
-										<td>Cabernet Sauvignon</td>
-										<td>75</td>
-									</tr>
-									<tr>
-										<td>Petit Verlot</td>
-										<td>1</td>
-									</tr>
-								</table>
-								</p><br/>
+								<br/>
 								
 							</li>
 						</ul>
