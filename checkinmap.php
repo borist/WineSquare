@@ -13,11 +13,14 @@ $locationsQuery = "
 
 $locationsresults = mysql_query($locationsQuery);
 $locations = array();
+$index=0;
 while($location = mysql_fetch_assoc($locationsresults)){
-	$locations[] = $location;
+	$locations[] = $location['location'];
+	$index++;
 }
-
-//pretty($locations);
+$encoded=json_encode($locations);
+echo $encoded;
+pretty($locations);
 ?>
 
 
@@ -89,11 +92,12 @@ while($location = mysql_fetch_assoc($locationsresults)){
 	<script src="./javascripts/location.js"></script>
 
    <script>
-	function test(){
-		alert("fuck");
-	}
 
 	$(document).ready(function() {
+	
+		var loc = "<?php echo $locations; ?>";
+		alert(loc);
+		
 		plotLocation("Miami, Florida");
 	})
 
