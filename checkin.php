@@ -28,6 +28,8 @@ $badgeNumberQuery = "
 $res = mysql_query($badgeNumberQuery);
 $RegCount = mysql_num_rows($res);
 
+	$me = $user['user'];
+
 	if($RegCount == 1){
 		$title = "The n00b";
 	   $BadgeQuery = "
