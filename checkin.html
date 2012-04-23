@@ -24,8 +24,9 @@
 	<link rel="stylesheet" href="./styles/map.css">
 	
 	<style type="text/css">
-		h4 {text-align:center}
+		h4 {text-align:center; font-size:36px; color:#000066}
 		label {text-align:center; font-size:20px; }	
+		p {text-align:center ; font-size:14px; font-weight:bold; color:#}
 	</style>
 	
 	<script type="text/javascript"
@@ -35,6 +36,19 @@
   <body>
 	
 	<div id="topbar">
+	    <div class="row">
+	      <div class="four columns">
+	        <h1><a href="#">WineSquare</a></h1>
+	      </div>
+	      <div class="eight columns hide-on-phones">
+	      	<strong class="right">
+					<input class="search_bar" placeholder="Search..." type="search"/>
+	      		<a href="example_prof.html">Profile</a>
+	      		<a href="#">Logout</a>	
+	      	</strong>
+	      </div>
+		</div>
+	</div>
 	
 	<br />
 	<br />
@@ -55,17 +69,20 @@
 					<label for="winefinder" > You were drinking: </label> <br />
 					<input type="text" class="expand input-text" placeholder="Start typing the name of a wine..." id="wine_drank"/><br /><br />
 					
-					<label for="location"> At: </label>
-					<span id="location_disp"></span>
-					
-					<br />
-					<label for="timestamp"> On: </label>
-					<span id="timestamp"></span><br /><br /><br />
+					<div id="data">
+						<ul class="block">
+							<li><label for="location"> At: </label>
+							<p id="location_disp"></p></li>
+							<li><label for="timestamp"> On: </label>
+							<p id="timestamp"></p></li>
+						</ul>
+					</div>
 					<strong class="centered">
-					<a href="#" class="nice large radius blue button" id="submit_checkin">Drink! &raquo;</a>
+					<br />
+					<center><a href="#" class="nice large radius blue button" id="submit_checkin">Drink! &raquo;</a></center>
 					</strong>
 					</form>
-					<br /><br /><br />
+					<br /><br />
 					
 					
 				</div> <!-- panel -->
