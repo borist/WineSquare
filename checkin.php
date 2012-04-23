@@ -24,48 +24,62 @@ $badgeNumberQuery = "
 	SELECT COUNT(*)
 	FROM 'drank'
 	WHERE user = $user";
-$badgeNumber = mysql_query($badgeNumberQuery);
-while($row = mysql_fetch_assoc($badgeNumber)){
+$res = mysql_query($badgeNumberQuery);
+pretty($res);
+while($row = mysql_fetch_assoc($res)){
 	$RegCount = $row;
 }	
-	echo $RegCount;
+	echo "$RegCount";
 
 	if($RegCount == 1){
+		$title = `The n00b`;
 	   $BadgeQuery = "
 	      INSERT INTO `hasbadge`
-	      VALUES ('$uid[user]', '$title[`The Vet`]`, NOW())";
+	      VALUES (`$uid`, `$title`, NOW())";
 	   $finished = mysql_query($BadgeQuery);
-	else if($RegCount == 3){
+	}
+	 if($RegCount == 3){
+		$title = `The Newbie`;
 	   $BadgeQuery = "
 	      INSERT INTO `hasbadge`
-	      VALUES ('$uid[user]', '$title[`The Vet`]`, NOW())";
+	      VALUES (`$uid`, `$title`, NOW())";
 	   $finished = mysql_query($BadgeQuery);
-	else if($RegCount == 10){
+	}
+	 if($RegCount == 10){
+			$title = `The Winestar`;
 	   $BadgeQuery = "
 	      INSERT INTO `hasbadge`
-	      VALUES ('$uid[user]', '$title[`The Vet`]`, NOW())";
+	      VALUES (`$uid`, `$title`, NOW())";
 	   $finished = mysql_query($BadgeQuery);
-	else if($RegCount == 25){
+	}
+	 if($RegCount == 25){
+			$title = `The Winelover`;
 	   $BadgeQuery = "
 	      INSERT INTO `hasbadge`
-	      VALUES ('$uid[user]', '$title[`The Vet`]`, NOW())";
+	      VALUES (`$uid`, `$title`, NOW())";
 	   $finished = mysql_query($BadgeQuery);
-	else if($RegCount == 35){
+	}
+	 if($RegCount == 35){
+			$title = `The Patriot`;
 	   $BadgeQuery = "
 	      INSERT INTO `hasbadge`
-	      VALUES ('$uid[user]', '$title[`The Vet`]`, NOW())";
+	      VALUES (`$uid`, `$title`, NOW())";
 	   $finished = mysql_query($BadgeQuery);
-	else if($RegCount == 50){
+	}
+	 if($RegCount == 50){
+			$title = `The Vet`;
 	   $BadgeQuery = "
 	      INSERT INTO `hasbadge`
-	      VALUES ('$uid[user]', '$title[`The Vet`]`, NOW())";
+	      VALUES (`$uid`, `$title`, NOW())";
 	   $finished = mysql_query($BadgeQuery);
-	else if($RegCount == 100){
+	}
+	 if($RegCount == 100){
+			$title = `The Champ`;
 	   $BadgeQuery = "
 	      INSERT INTO `hasbadge`
-	      VALUES ('$uid[user]', '$title[`The Vet`]`, NOW())";
+	      VALUES (`$uid`, `$title`, NOW())";
 	   $finished = mysql_query($BadgeQuery);
-	
+	}
 
 	$badgeExploreQuery = "
 		SELECT COUNT(DISTINCT `drank`.`wid`)
@@ -76,20 +90,22 @@ while($row = mysql_fetch_assoc($badgeNumber)){
 while($row = mysql_fetch_assoc($badgeExplore)){
 	$ExploreCount = $row;
 }	
-	echo $ExploreCount;
+	pretty($ExploreCount);
 		
 	if($ExploreCount == 7){
+			$title = `The Explorer`;
 	   $BadgeQuery = "
 	      INSERT INTO `hasbadge`
-	      VALUES ('$uid[user]', '$title[`The Explorer`]`, NOW())";
+	      VALUES (`$uid`, `$title`, NOW())";
 	   $finished = mysql_query($BadgeQuery);
-		
-	else if($ExploreCount == 30){
+	}
+	if($ExploreCount == 30){
+			$title = `The Pioneer`;
 	   $BadgeQuery = "
 	      INSERT INTO `hasbadge`
-	      VALUES ('$uid[user]', '$title[`The Pioneer`]`, NOW())";
+	      VALUES (`$uid`, `$title`, NOW())";
 	   $finished = mysql_query($BadgeQuery);
-
+	}
 	$badgeSheenQuery = "
 		SELECT COUNT(*)
 		FROM `drank`
@@ -102,11 +118,12 @@ while($row = mysql_fetch_assoc($badgeExplore)){
 		echo $SheenCount;
 
 		if($SheenCount == 101){
+				$title = `The Sheen`;
 		   $BadgeQuery = "
 		      INSERT INTO `hasbadge`
-		      VALUES ('$uid[user]', '$title[`The Sheen`]`, NOW())";
+		      VALUES (`$uid`, `$title`, NOW())";
 		   $finished = mysql_query($BadgeQuery);
-
+		}
 pretty($finished);
    if($result){
       echo "You successfully checked in with a glass of $_POST[wine_drank] at $_POST[location]! Cheers!";
