@@ -137,7 +137,8 @@ while($info = mysql_fetch_assoc($userInfo)){
 								<h6><i> <?php echo $badge[0]['descrip']?></i></p>
 								</br>
 								
-								<p> Earned by <a href="#"><?php echo $currUser[0]['first_name']; ?> <?php echo $currUser[0]['last_name']; ?></a> on <?php echo $has[0]['time']?></p> <!-- NEEDS THE REAL FUNCTIONALITY -->
+								<p> Earned by <a href="./profile.php?pid=<?php echo $currUser[0]['user']?>"><?php echo $currUser[0]['first_name']; ?> <?php echo $currUser[0]['last_name']; ?></a> on <?php echo $has[0]['time']?></p>
+								
 							</li>
 						</ul>
 					</div>
