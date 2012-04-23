@@ -74,10 +74,7 @@ function clearAlerts(){
    $("#pword2_small").css("display", "none");	
    $("#bdayDropdown").css("color", "#555555");																			
 }
-		
-function postPicture(){
-	
-}
+
 
 /**
  * When a user presses the check-in button, this function
@@ -104,11 +101,11 @@ function signup(){
 			$("#alert").text("Please fix the errors below.");
 			$("#alert").css("display", "block"); 
 		break;
-	case 1: 
-			postPicture();
-			$.post("users.php", $("#signup").serialize(), function(data){
-          if(data){
+	case 1:
+			$.post("users.php", $("#signup").serialize(), function(response){
+          if(response){
              alert("Welcome to Winesquare!"); //redirect to success page
+             $("#image_upload").submit();
              window.location.replace("index.php");
 			 }
           else {

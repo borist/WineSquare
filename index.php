@@ -29,7 +29,7 @@ while($activity = mysql_fetch_assoc($allActivity)){
    $all[] = $activity;
 }
 
-//pretty($all);
+//pretty($user);
 
 ?>
 

@@ -42,9 +42,10 @@ function create_account(){
    $email = trim($_POST['email']);
    $password = md5($_POST['password']);
    $sex = trim($_POST['sex']);
+   $photo = 'images/'.$email.'.jpg';
    $date = trim($_POST['year'].'-'.getMonth($_POST['month']).'-'.$_POST['day']);
 
-   $query = "INSERT INTO `users` (`user`, `password`, `first_name`, `last_name`, `sex`, `birthday`) VALUES ('$email', '$password', '$firstname', '$lastname', '$sex', '$date')";
+   $query = "INSERT INTO `users` (`user`, `password`, `first_name`, `last_name`, `sex`, `photo`, `birthday`) VALUES ('$email', '$password', '$firstname', '$lastname', '$sex', '$photo', '$date')";
    mysql_query($query);
    
    $query = "SELECT * FROM `users` WHERE `user` = '$email'";

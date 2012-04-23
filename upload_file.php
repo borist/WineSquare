@@ -1,25 +1,32 @@
 <?php
-if ((($_FILES["photoUpload"]["type"] == "image/gif")
-|| ($_FILES["photoUpload"]["type"] == "image/jpeg")
-|| ($_FILES["photoUpload"]["type"] == "image/jpg")
-|| ($_FILES["photoUpload"]["type"] == "image/pjpeg"))
-&& ($_FILES["photoUpload"]["size"] < 20000))
-  {
-  if ($_FILES["photoUpload"]["error"] > 0) {
-    echo "Return Code: " . $_FILES["photoUpload"]["error"] . "<br />";
+
+include 'connect.php';
+
+$photoName = $_FILES['photoUpload']['name'];
+$photoType = $_FILES['photoUpload']['type'];
+$photoSize = $_FILES['photoUpload']['size'];
+$photoErrs = $_FILES['photoUpload']['error'];
+$photoTemp = $_FILES['photoUpload']['tmp_name'];
+
+$user = $_SESSION['user'][0]['user'];
+$photo = 'images/'.$user.'.jpg';
+
+//print_r($_FILES['photoUpload']);
+//echo $photo;
+
+if ((($photoType == "image/jpeg") || ($photoType == "image/jpg") || 
+      ($photoType == "image/pjpeg")) && ($photoSize < 100000)){
+  if ($photoErrs == 0) {
+    if (file_exists($photo)) {
+      echo $photo." already exists. ";
     }
-  else {
-    if (file_exists("images/" . $_FILES["photoUpload"]["name"])) {
-    echo $_FILES["photoUpload"]["name"] . " already exists. ";
-      }
     else {
-      move_uploaded_file($_FILES["photoUpload"]["tmp_name"],
-			//change to use users first and last name as name for storage
-      "images/" . $_FILES["photoUpload"]["name"]);
-      }
+      move_uploaded_file($photoTemp, $photo);
     }
   }
+}
 else {
   echo "Invalid file";
-  }
+}
+
 ?>

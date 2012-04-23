@@ -259,27 +259,24 @@
 				</div>
 				<div></div>
 		</div> <!-- row -->
+	</div>
+	<!-- container -->
+   </form>
+   <form name="image_upload" action="upload_file.php" method="post" id="image_upload" enctype="multipart/form-data">
 		<div class="row">
 			<div class="six columns">
 				<label for="photoUpload">Photo</label>
 				<div></div>
 				
-					<input id="photoUpload" type="file" name="photoUpload"/>
+				<input id="photoUpload" type="file" name="photoUpload"/>
 
 
 			</div> <!-- columns -->
 		</div> <!-- row -->
-
-		<br/>
-		<br/>
-      
-		<div class="row">
-				<p><a class='nice radius blue button' id="submit">Join &raquo;</a></p>
-		</div> <!-- row -->
-		
-	</div>
-	<!-- container -->
    </form>
+   <div class="row">
+      <p><a class='nice radius blue button' id="submit">Join &raquo;</a></p>
+   </div> <!-- row -->
    
    <!-- Javascript source files -->
    <script src="javascripts/jquery.min.js"></script>
@@ -291,7 +288,6 @@
  	//signup based on submit button
    $("#submit").click(function () {
 			signup();
-			$.get("upload_file.php");
    });
 
 	//signup based on enter key press
