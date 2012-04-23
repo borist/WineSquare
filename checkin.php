@@ -219,6 +219,7 @@ $wines = implode(", ", $winesArray);
    <link rel="stylesheet" href="./styles/jquery.ui.autocomplete.css">
 	
 	<style type="text/css">
+		h3 {text-align:center; font-size: 36px; color:#0000CC}
 		h4 {text-align:center}
 		label {text-align:center; font-size:20px; }	
 	</style>
@@ -255,7 +256,7 @@ $wines = implode(", ", $winesArray);
 			
 			<div class="eight columns">
 				<div class="panel">
-					<h4 id="checkin_head"> Check-In to WineSquare! </h4>
+					<h3 id="checkin_head"> Check-In to WineSquare! </h3>
                
                <h4 id="checkin_message"></h4>
 					
@@ -264,12 +265,12 @@ $wines = implode(", ", $winesArray);
 					<label for="winefinder" > You were drinking: </label> <br />
 					<input name="wine_drank" type="text" class="expand input-text" placeholder="Start typing the name of a wine..." id="wine_drank"/><br /><br />
                <!-- the next field holds silently the wine_id -->
-               <input type="text" name="wine_id" id="wine_id" style="display:none;" />
+               <center><input type="text" name="wine_id" id="wine_id" style="display:none; text-align:center" /></center>
 					
 					<label for="location"> At: </label>
 					<span id="location_disp"></span>
                <!-- input placeholder for location -->
-               <input type="text" name="location" id="location" style="display:none;" />
+               <center><input type="text" name="location" id="location" style="display:none; text-align:center" /></center>
 					
 					<br />
 					<label for="timestamp"> On: </label>
