@@ -242,7 +242,6 @@ while($recom = mysql_fetch_assoc($recommendResults)){
 					</div>
 				<!-- Recommendations	 -->
 				<div id="userRecs">
-					<a href="#">See All</a>
 					<h5><span>Recommendations</span></h5>
 					<ul class="block-grid five-up">
 					<?php $num = 1;
@@ -253,7 +252,7 @@ while($recom = mysql_fetch_assoc($recommendResults)){
 						?>
 						
 						<li><div style="max-height:100px; min-height:100px" class="badge columns center_all">
-							<a href="./wine.php"><img src=<?php
+							<a href="./wine.php?wid=<?php echo $r['id']?>"><img src=<?php
 							echo $r['pic'];
 							?>></img></a>
 						</div>
