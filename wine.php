@@ -19,6 +19,9 @@ if(isset($_GET['wid'])){
    $wine = $wine[0];
    //pretty($wine);
 }
+else{
+	header("Location: index.php");
+}
 
 ?>
 
