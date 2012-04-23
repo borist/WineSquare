@@ -43,6 +43,19 @@ while($result = mysql_fetch_assoc($lastlocation)){
 	$latestlocation[] = $result;
 }
 
+
+$myBadges = "
+	SELECT DISTINCT * 
+	FROM `hasbadge`
+	WHERE `hasbadge`.`uid` = '$user[user]'
+	";
+
+$myBadges = mysql_query($myBadges);
+$badges = array();
+while($badge = mysql_fetch_assoc($myBadges)){
+	$badges[$badge['title']] = $badge;
+}
+
 //pretty($winesProfileInfo);
 //pretty($user);
 
@@ -160,21 +173,42 @@ while($result = mysql_fetch_assoc($lastlocation)){
 			<div class="four columns offset-by-one">
 				<!-- Badges -->
 					<div id="userBadgesPrev">
-						<a href="badges.html">See All</a>
+						<a href="./badges.php?uid=<?php echo $user['user']; ?>">See All</a>
 						<h5><span>Badges</span></h5>
 						<ul class="block-grid four-up">
-							<li><img src="http://placehold.it/100x100" /></li>
-							<li><img src="http://placehold.it/100x100" /></li>
-							<li><img src="http://placehold.it/100x100" /></li>
-							<li><img src="http://placehold.it/100x100" /></li>
-							<li><img src="http://placehold.it/100x100" /></li>
-							<li><img src="http://placehold.it/100x100" /></li>
-							<li><img src="http://placehold.it/100x100" /></li>
-							<li><img src="http://placehold.it/100x100" /></li>
-							<li><img src="http://placehold.it/100x100" /></li>
-							<li><img src="http://placehold.it/100x100" /></li>
-							<li><img src="http://placehold.it/100x100" /></li>
-							<li><img src="http://placehold.it/100x100" /></li>
+							<?php foreach($badges as $b): ?>
+								<li><div class="badge columns center_all">
+									<a href="./badge.php?bid=<?php echo $b['title']?>&uid=<?php echo $user['user']?>"><img src=<?php
+									
+									$badgeInfo = "
+										SELECT *
+										FROM `badge`
+										WHERE `badge`.`title` = '$b[title]'
+										";
+
+									$badgeInfo = mysql_query($badgeInfo);
+									$badgey = array();
+									while($info = mysql_fetch_assoc($badgeInfo)){
+										$badgey[] = $info;
+									}
+									
+									echo $badgey[0]['photo'];
+									
+									?> /></a>
+									</div>
+								</li>
+							<?php endforeach; ?>
+							
+							<?php
+							$count = count($badges);
+							
+							while ($count < 10): ?>
+							<li><div class="badge columns center_all">
+								<a><img src="./images/default.png"/></a></div>
+							</li>	
+							<?php	
+								$count = $count + 1;
+							endwhile; ?>
 						</ul>	
 					</div>
 				<!-- Recommendations	 -->
