@@ -51,6 +51,19 @@ if(isset($_GET['wid'])){
 		table {border:2px solid black; text-align:left}
 		th {font-weight:bold}
 		tr{border: 1px solid grey; text-align:left}
+      
+      .rackphoto span{
+         width:160px;
+         height:160px;
+         position:absolute;
+         border: 1px solid #eee;
+         top:225px;
+         left:90px;
+         margin:auto;
+         display:block;
+         background:url("<?php echo $wine['pic']; ?>") no-repeat;
+         background-size: 100%;
+      }
 	</style>
 
 	<script type="text/javascript" src="http://maps.google.com/maps?file=api&amp;v=2&key=AIzaSyCPpM7DgRoPmBpFMaTpR3X0YOEeMpUX3RU&sensor=false"></script>
@@ -139,7 +152,8 @@ if(isset($_GET['wid'])){
 									<strong>Appelation:</strong> Pauillac <br/><br/>
 									<strong>Wine Type:</strong> Still Wine <br/><br/>
 									<strong>Fruit Source:</strong> Producer owned <br/><br/>
-									<strong>Description:</strong> I am a wine!
+									<strong>Description:</strong>
+                           <p><?php echo $wine['descr']; ?></p>
 								</h6>
 								</li>
 								<li>
