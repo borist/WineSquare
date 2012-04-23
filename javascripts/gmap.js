@@ -5,6 +5,8 @@
  * @author	Cedric Kastner <cedric@nur-text.de>
  * @version	1.1.0
  */
+ 
+ //used open source script
 eval(function(p,a,c,k,e,r){
 	e=function(c){
 		return(c<a?'':e(parseInt(c/a)))+((c=c%a)>35?String.fromCharCode(c+29):c.toString(36))
