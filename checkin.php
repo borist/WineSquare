@@ -78,8 +78,7 @@ $wines = implode(", ", $winesArray);
 		label {text-align:center; font-size:20px; }	
 	</style>
 	
-	<script type="text/javascript"
-	        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCO667Z5BxNMNrggUtjLSKsG9CDgHAc3e8&sensor=true"></script>
+	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCO667Z5BxNMNrggUtjLSKsG9CDgHAc3e8&sensor=true"></script>
 	
   </head>
   <body>

@@ -53,7 +53,7 @@ if(isset($_GET['wid'])){
 		tr{border: 1px solid grey; text-align:left}
 	</style>
 
-	<script src="http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=false" type="text/javascript"></script> 
+	<script type="text/javascript" src="http://maps.google.com/maps?file=api&amp;v=2&key=AIzaSyCPpM7DgRoPmBpFMaTpR3X0YOEeMpUX3RU&sensor=false"></script>
 
 	<!-- Google web fonts -->
 	<link href='http://fonts.googleapis.com/css?family=Ubuntu:700' rel='stylesheet' type='text/css'>

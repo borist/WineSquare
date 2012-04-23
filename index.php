@@ -122,7 +122,7 @@ while($activity = mysql_fetch_assoc($allActivity)){
 					</div>
 					<div class="nine phone-three columns">
 						<h6>
-							<a href="#"><?php echo $activity['first_name'].' '.$activity['last_name']; ?></a>
+							<a href="profile.php?pid=<?php echo $activity['user']; ?>"><?php echo $activity['first_name'].' '.$activity['last_name']; ?></a>
 						</h6>
 						<p>
 							<?php echo $activity['first_name'];?> drank a glass of <a href="wine.php?wid=<?php echo $activity['wid']; ?>"><?php echo $activity['name']; ?></a> at <?php echo easyDate($activity['time']); ?>. 
