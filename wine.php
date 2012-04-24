@@ -53,13 +53,14 @@ else{
          width:160px;
          height:160px;
          position:absolute;
-         border: 1px solid #eee;
          top:225px;
          left:90px;
          margin:auto;
          display:block;
          background:url("<?php echo $wine['pic']; ?>") no-repeat;
-         background-size: 100%;
+         background-size: contain;
+		 background-position:center;
+
       }
 	</style>
 
