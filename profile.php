@@ -172,7 +172,7 @@ while($recom = mysql_fetch_assoc($recommendResults)){
 					</div>
 					<div class="ten phone-three columns">
 						<h6>
-							<a href="#"><?php echo $wineInfo['name']; ?></a>
+							<a href="./wine.php?wid=<?php echo $wineInfo['id']; ?>"><?php echo $wineInfo['name']; ?></a>
 						</h6>
 						<p><?php echo $wineInfo['descr']; ?></p>
 					</div>
