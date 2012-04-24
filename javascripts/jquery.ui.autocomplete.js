@@ -28,7 +28,9 @@ $.widget( "ui.autocomplete", {
 			at: "left bottom",
 			collision: "none"
 		},
-		source: null
+		source: null,
+      checkin: false,
+      search: false
 	},
 
 	pending: 0,
@@ -81,7 +83,10 @@ $.widget( "ui.autocomplete", {
 				case keyCode.TAB:
 					if ( !self.menu.active ) {
                   // added by me
-                  $("#submit_checkin").focus();
+                  if(checkin)
+                     $("#submit_checkin").focus();
+                  if(search)
+                     $("#search_form").focus();
 						return;
 					}
 					self.menu.select( event );

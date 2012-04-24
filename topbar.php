@@ -50,7 +50,6 @@
                <form id="search_form" style="float:left; margin-top:-3px;">
 					<input class="search_bar" placeholder="Search..." type="search" id="search" />
                <input type="text" name="swid" id="swid" style="display:none; text-align:center" />
-               <input type="submit" style="display:none;" />
                </form>
 	      		<a href="profile.php">Profile</a>
 	      		<a href="#" id="logout">Logout</a>	
@@ -76,6 +75,7 @@
          
          $("#search").autocomplete({
             source: wines,
+            search: true,
             focus: function(event, ui) {
                $("#search").val(ui.item.label);
                return false;
@@ -94,12 +94,21 @@
                .appendTo( ul );
          };
       });
-      
-   $("#search_form").submit(function(event){
-      // prevent the form from submitting itself
-      event.preventDefault();
-      $wid = "wine.php?wid=" + $("#swid").val();
-      window.location.replace($wid);
+   
+   /**
+    * Search field control function
+    * The autocomplete is modified in such a way that
+    * on Enter hit, it focuses on the form and then
+    * it detects the enter key. From this signal
+    * the code redirects to the page of the selected wine.
+    */
+   $("#search_form").keypress(function(event) {
+      if(event.which == 13){
+         // prevent the form from submitting itself
+         event.preventDefault();
+         $wid = "wine.php?wid=" + $("#swid").val();
+         window.location.replace($wid);
+      }
    });
       
    $("#logout").click(function() {

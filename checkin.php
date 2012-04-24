@@ -283,6 +283,7 @@ $RegCount = mysql_num_rows($res);
          
          $("#wine_drank").autocomplete({
             source: wines,
+            checkin: true,
             focus: function(event, ui) {
                $("#wine_drank").val(ui.item.label);
                return false;
