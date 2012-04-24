@@ -13,15 +13,12 @@ $locationsQuery = "
 		";
 
 $locationsresults = mysql_query($locationsQuery);
-$locations = array();
-$index=0;
+$locations = "";
 while($location = mysql_fetch_assoc($locationsresults)){
-	$locations[] = $location['location'];
-	$index++;
+	$locations .= $location['location'];
+	$locations .= ";";
 }
-$encoded=json_encode($locations);
-echo $encoded;
-pretty($locations);
+//pretty($locations);
 
 ?>
 
@@ -80,16 +77,9 @@ pretty($locations);
 	<script src="./javascripts/location.js"></script>
 
    <script>
-      //$(document).ready(function() {
-      //   plotLocation("Miami, Florida");
-      //});
-
 	$(document).ready(function() {
-	
 		var loc = "<?php echo $locations; ?>";
-		alert(loc);
-		
-		plotLocation("3300 Walnut St, University of Pennsylvania, Philadelphia, PA 19104, USA");
+		plotLocations(loc);
 	})
    </script>
 	
