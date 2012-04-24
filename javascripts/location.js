@@ -90,7 +90,7 @@ function getTimeStamp() {
  *
  */
 
-function plotLocations(userLocation) {	
+function plotLocations(userLocation, user) {	
 	var map = new GMap2(document.getElementById("map_canvas"));
 	var loc = userLocation.split(";");
 	var bounds;
@@ -119,7 +119,7 @@ function plotLocations(userLocation) {
          			map.setCenter(bounds.getCenter(), map.getBoundsZoomLevel(bounds));
          			map.addOverlay(marker);
 					GEvent.addListener(marker, "click", function() {
-						marker.openInfoWindowHtml("<b>You drank at: </b><br/>" + locations.Placemark[0].address);
+						marker.openInfoWindowHtml("<b>"+user+" drank at: </b><br/>" + locations.Placemark[0].address);
 					});
       			}
    			});

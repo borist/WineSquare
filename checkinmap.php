@@ -23,8 +23,14 @@ while($location = mysql_fetch_assoc($locationsresults)){
 	$locations .= $location['location'];
 	$locations .= ";";
 }
-//pretty($locations);
 
+$first_name = "
+		SELECT `first_name`
+		FROM `users`
+		WHERE `user`='$currUser'";
+$first_name = mysql_query($first_name);
+$single = mysql_fetch_assoc($first_name);
+$username = $single['first_name'];
 ?>
 
 
@@ -90,7 +96,8 @@ while($location = mysql_fetch_assoc($locationsresults)){
    <script>
 	$(document).ready(function() {
 		var loc = "<?php echo $locations; ?>";
-		plotLocations(loc);
+		var user = "<?php echo $username; ?>";
+		plotLocations(loc, user);
 	})
    </script>
 	
