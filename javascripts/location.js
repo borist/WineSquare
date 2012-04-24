@@ -111,6 +111,7 @@ function plotLocations(userLocation) {
 					}
 					else {
 						bounds.extend(lnglat1);
+						bounds.extend(lnglat2);						
 					}
 					var tempbounds = new GLatLngBounds(lnglat1, lnglat2);
 					
