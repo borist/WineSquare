@@ -52,6 +52,7 @@ $myBadges = "
 	";
 
 $myBadges = mysql_query($myBadges);
+$myBadgesCount = mysql_num_rows($myBadges);
 $badges = array();
 while($badge = mysql_fetch_assoc($myBadges)){
 	$badges[$badge['title']] = $badge;
@@ -62,7 +63,7 @@ while($badge = mysql_fetch_assoc($myBadges)){
  * have locations or years in common with your drinking history 
  */
 $recommendResults = "
-	SELECT DISTINCT w.*
+	SELECT DISTINCT w.`id`, w.`pic`
 	FROM `drank` AS d, `wines` AS w
 	WHERE d.`wid`=w.`id` AND (
 		(w.`country` IN 
@@ -70,11 +71,6 @@ $recommendResults = "
 					FROM `drank` AS d2, `wines` AS w2
 					WHERE d2.`wid`=w2.`id` AND
 					d2.`user`='$user[user]'))
-		OR	(w.`vintage` IN 
-				(SELECT DISTINCT `vintage`
-					FROM `drank` AS d2, `wines` AS w2
-					WHERE d2.`wid`=w2.`id` AND
-					d2.`user`='$user[user]'))	
 			)"
 ;
 
@@ -152,7 +148,7 @@ while($recom = mysql_fetch_assoc($recommendResults)){
 						</div>
 						<div class="four columns">
 							<div class="one num_badges">
-								<p><b>0</b></p>
+								<p><b><?php echo $myBadgesCount; ?></b></p>
 							</div>
 							<div class="description">
 								<p>Badges Collected</p>

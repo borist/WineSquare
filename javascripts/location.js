@@ -115,8 +115,12 @@ function plotLocations(userLocation) {
 					}
 					var tempbounds = new GLatLngBounds(lnglat1, lnglat2);
 					
+					var marker = new GMarker(tempbounds.getCenter());
          			map.setCenter(bounds.getCenter(), map.getBoundsZoomLevel(bounds));
-         			map.addOverlay(new GMarker(tempbounds.getCenter()));
+         			map.addOverlay(marker);
+					GEvent.addListener(marker, "click", function() {
+						marker.openInfoWindowHtml("<b>You drank at: </b><br/>" + locations.Placemark[0].address);
+					});
       			}
    			});
   		}
