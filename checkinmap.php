@@ -3,8 +3,13 @@
 include 'connect.php';
 include 'lib.php';
 
-//change this to work to the whoevers profile you're looking at
-$currUser = $user['user'];
+if(isset($_GET['uid'])){
+	$currUser = $_GET['uid'];
+}
+
+else {
+	header("Location: index.php");
+}
 
 $locationsQuery = "
 		SELECT `location`

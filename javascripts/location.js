@@ -83,9 +83,17 @@ function getTimeStamp() {
 	return currentTime.toLocaleString();
 }
 
- function plotLocations(userLocation) {	
+/*
+ * takes in a string of addresses seperated by the ";" delimeter
+ * and marks each location on a map with a marker, centering the map
+ * to fit all the points.
+ *
+ */
+
+function plotLocations(userLocation) {	
 	var map = new GMap2(document.getElementById("map_canvas"));
 	var loc = userLocation.split(";");
+	var bounds;
 	for (i = 0; i < loc.length; i++) {
   		if (GBrowserIsCompatible()) {
    			var geocoder = new GClientGeocoder();
@@ -95,12 +103,19 @@ function getTimeStamp() {
          			var south = locations.Placemark[0].ExtendedData.LatLonBox.south;
          			var east  = locations.Placemark[0].ExtendedData.LatLonBox.east;
          			var west  = locations.Placemark[0].ExtendedData.LatLonBox.west;
+					var lnglat1 = new GLatLng(south, west);
+					var lnglat2 = new GLatLng(north, east);
 
-         			var bounds = new GLatLngBounds(new GLatLng(south, west), 
-                                        	new GLatLng(north, east));
-
+					if (bounds==undefined) {
+						bounds = new GLatLngBounds(lnglat1, lnglat2);
+					}
+					else {
+						bounds.extend(lnglat1);
+					}
+					var tempbounds = new GLatLngBounds(lnglat1, lnglat2);
+					
          			map.setCenter(bounds.getCenter(), map.getBoundsZoomLevel(bounds));
-         			map.addOverlay(new GMarker(bounds.getCenter()));
+         			map.addOverlay(new GMarker(tempbounds.getCenter()));
       			}
    			});
   		}

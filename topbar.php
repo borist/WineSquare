@@ -48,7 +48,7 @@
 	      <div class="eight columns hide-on-phones">
 	      	<strong class="right">
                <form id="search_form" style="float:left; margin-top:-3px;">
-					<input class="search_bar" placeholder="Search..." type="search" id="search" />
+					<input class="search_bar" placeholder="Search Wines..." type="search" id="search" />
                <input type="text" name="swid" id="swid" style="display:none; text-align:center" />
                </form>
 	      		<a href="profile.php">Profile</a>

@@ -168,7 +168,7 @@ while($recom = mysql_fetch_assoc($recommendResults)){
 			
 			<!-- History of check-ins -->
 			<div id="history">
-							<h3> History </h3><br>
+							<p> <strong><span style="font-size: 26px;">History </span></strong> <a href="./checkinmap.php?uid=<?php echo $user['user'];?>"> Visualize my history!</p><br>
             <?php foreach($winesProfileInfo as $wineInfo): ?>
 				<div class="row">
 					<div class="two phone-one columns">
