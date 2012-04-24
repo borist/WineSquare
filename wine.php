@@ -77,7 +77,7 @@ else{
 	<a>
 		<img src="./images/red_wines.jpg" />
 		<div class="wine_bar">
-			<span></span>
+			<span style="background-color:white;"></span>
 			<em><h3><?php echo $wine['name']; ?></h4></em>	
 		</div>
 	</a>
