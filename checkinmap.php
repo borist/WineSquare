@@ -78,6 +78,12 @@ while($location = mysql_fetch_assoc($locationsresults)){
 			echo '<script language="javascript">test();</script>';
 		
 		?>
+		<!-- Footer -->
+		<div class="row">
+			<div id="footer">
+				<p>&copy; We're Awesome</p>
+			</div>
+		</div>
 	</div>
 	<script src="./javascripts/location.js"></script>
 
